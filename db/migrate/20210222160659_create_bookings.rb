@@ -5,7 +5,6 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.date :end_date
       t.string :weather
       t.references :user, null: false, foreign_key: true
-      t.references :review, null: false, foreign_key: true
       t.references :trip, null: false, foreign_key: true
       t.references :chatroom, null: false, foreign_key: true
 
