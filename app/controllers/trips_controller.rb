@@ -1,6 +1,8 @@
 class TripsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
-    @trips = Trip.all
+    @trips = policy_scope(Trip)
   end
 
   def show
