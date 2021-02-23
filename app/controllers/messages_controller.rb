@@ -9,5 +9,6 @@ class MessagesController < ApplicationController
       redirect_to chatroom_path(@chatroom)
     else
       redirect_to 'messages/new_message'
+    end
   end
 end

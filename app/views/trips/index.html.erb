@@ -1,0 +1,5 @@
+<% @trips.each do |trip| %>
+    <%= link_to trip_path(trip) do %>
+    <h3> <strong><%= trip.name  %></strong></h3>
+    <% end %>
+    <% end %>
