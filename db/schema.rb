@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_02_23_165035) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,12 +92,12 @@ ActiveRecord::Schema.define(version: 2021_02_23_165035) do
     t.float "kilometers"
     t.integer "difficulty"
     t.text "description"
-    t.string "equipments"
     t.float "positive_elevation"
     t.float "negative_elevation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.json "json"
+    t.json "waypoints"
+    t.string "equipments", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
