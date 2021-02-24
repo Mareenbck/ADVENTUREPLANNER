@@ -1,6 +1,14 @@
-<div>
-  <h2> <%= current_user.first_name %> </h2>
-  <%= current_user.last_name %>
-  <%= current_user.email %>
-  <p>Hello</p>
+<div class="container">
+<div class="avatar-position">
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, class: "avatar"%>
+  <% end %>
+</div>
+<div class="my-info">
+  <h2> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+  <%= current_user.level %>
+</div>
+<div class="my-stats">
+  <p>My stats - this year</p>
+</div>
 </div>
