@@ -3,6 +3,9 @@ class TripsController < ApplicationController
 
   def index
     @trips = policy_scope(Trip)
+    if params.dig(:search, :location).present?
+      @trips = @trips.where(location: params.dig(:search, :location))
+    end
     @markers = @trips.map do |trip|
       {
         lat: trip.start_lat,

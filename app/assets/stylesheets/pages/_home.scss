@@ -22,11 +22,41 @@
   font-size: 60px;
   padding: 40px 0px;
   font-weight: bold;
+  }
+  form{
+    display: inline-flex;
+    border-radius: 50px;
+    background-color: white;
+  }
+  .form-group{
+    margin-bottom: 0px;
+  }
+  #search_location {
+    background-color: rgba(255, 255, 255, 0);
+      border:none;
+  }
+  .btn-big {
+    height: 100%;
+  }
+}
 
-}}
 #home-body{
   text-align: center;
 }
+
+#sign_in{
+  margin-top: 20px;
+  margin-top: 10px;
+  a {
+    text-decoration: none;
+    color:$rid-blue;
+  }
+}
+
+.btn-big{
+  border:none;
+}
+
 h2 {
   color: $dark-blue;
   font-size: 40px;
