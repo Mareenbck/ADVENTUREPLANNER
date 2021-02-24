@@ -5,13 +5,12 @@
   border-radius: 50px;
   text-align: center;
   display: inline-block;
-  a {
-    text-decoration: none;
-    color:white;
-    font-size: 20px;
-    text-transform: uppercase;
-  }
+  text-decoration: none;
+  color:white;
+  font-size: 20px;
+  text-transform: uppercase;
 }
+
 .btn-small {
   background-color: $rid-blue;
   font-weight: bold;
