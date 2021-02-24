@@ -12,8 +12,8 @@ const initTripMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'trip-map',
       style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y',
-      pitch: 85,
-      bearing: 80,
+      pitch: 20,
+      bearing: -100,
     });
 
     fitMapToWaypoints(map, waypoints);
