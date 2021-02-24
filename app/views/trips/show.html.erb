@@ -2,17 +2,17 @@
 
   <h1><%= @trip.name  %></h1>
 
-  <h3> Description: <%= @trip.description %></h3> <br>
-  <h4> Difficulty: <%= @trip.difficulty  %>/5</h3> <br>
-  <h4> Kilometers: <%= @trip.kilometers %></h3>
+  <h3><%= @trip.description %></h3> <br>
+  <h3> Difficulty: <%= @trip.difficulty  %>/5</h3> <br>
+  <h3> Distance: <%= @trip.kilometers %> Km</h3> <br>
 
 
 
 
 
-
+  <h3> Aperçu du trajet:</h3>
   <div id="trip-map"
-    style="width: 800px; height: 430px; position: sticky; top: 0 !important; right: auto !important; left: auto !important;"
+    style="width: 345px; height: 400px; position: sticky; top: 0 !important; right: auto !important; left: auto !important;"
     data-waypoints="<%= @waypoints.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>

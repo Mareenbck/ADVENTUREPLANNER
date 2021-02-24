@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initTripMapbox } from '../plugins/init_trip_mapbox';
+import { initMapbox } from '../plugins/init_trip_mapbox';
 
 
 // Internal imports, e.g:
@@ -34,5 +35,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initTripMapbox();
+  initMapbox();
 });
 
