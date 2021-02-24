@@ -8,5 +8,8 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     authorize @trip 
+
+    @waypoints = @trip.waypoints
+
   end
 end
