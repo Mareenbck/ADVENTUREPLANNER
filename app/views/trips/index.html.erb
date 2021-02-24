@@ -1,4 +1,5 @@
 <div class="container">
+<h2> All trips</h2>
 
 <div id="map"
     style="width: 345px; height: 400px; position: sticky; top: 0 !important; right: auto !important; left: auto !important;"
@@ -8,8 +9,8 @@
 
 
 
-<h1> All trips:</h1>
 
+<br>
 <% @trips.each do |trip| %>
     <%= link_to trip_path(trip) do %>
     <h3> <strong><%= trip.name  %></strong></h3>
