@@ -32,7 +32,11 @@ class BookingsController < ApplicationController
   end
 
   def show
+
     @booking = Booking.find(params[:id])
+
+    bookings = Booking.where(begin_date: @booking.begin_date, trip_id: @booking.trip_id)
+    @booking_users = bookings.map { |booking| booking.user }
     @review = Review.new
     authorize @booking
   end

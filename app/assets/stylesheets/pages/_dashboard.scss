@@ -15,7 +15,13 @@
 
 .avatar-position {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px;
+  .avatar-photo {
+    width: 100px;
+    height: 100px;
+    border: solid 2px #00D3FE;
+    box-shadow: 0 0 15px lightgrey;
+  }
 }
 
 
@@ -38,5 +44,45 @@
     font-weight: bold;
     color: #457B9D;
 
+  }
+}
+
+.btn-mytrip {
+  background-color: $rid-grey;
+  padding-left: 20px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .upcoming-trips {
+    background-color: #00D3FE;
+    padding: 10px 20px 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 5px lightgrey;
+    color: white;
+  }
+}
+
+.my-booking {
+  padding-bottom: 500px;
+  margin: 20px 10px 20px 10px;
+  .booking-card {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .booking-trip-photo {
+    border-radius: 15px;
+    width: 30%;
+  }
+  .booking-info {
+    padding-left: 20px;
   }
 }
