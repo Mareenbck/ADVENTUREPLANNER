@@ -1,10 +1,14 @@
 
 <div id="home-header"> 
-  <h1>Your next adventure starts here</h1>
+<%= render 'shared/avatar' %>
+  <h1 id="h1home">Your next adventure starts here</h1>
   <%= simple_form_for :search, url: trips_path, method: :get, html: {class: 'form-inline'} do |f| %>
     <%= f.input :location, placeholder: "Where do you want to go", label: false, id:'search-bar' %>
     <%= f.submit 'go!', class:'btn-big' %>
   <% end %>
+  <i class="fas fa-chevron-down fa1"></i>
+  <i class="fas fa-chevron-down fa2"></i>
+  <i class="fas fa-chevron-down fa3"></i>
 </div> 
 
 <div id=home-body>
@@ -16,6 +20,7 @@
   <div>
     <%= link_to 'create my account', new_user_registration_path, class:'btn-big' %>
   </div>
-  <div id='sign_in'>
-    <%= link_to 'SIGN IN', new_user_session_path %>
+  <div id="sign">
+    <%= link_to 'SIGN IN', new_user_session_path, id:'sign_in' %>
   </div>
+</div>
