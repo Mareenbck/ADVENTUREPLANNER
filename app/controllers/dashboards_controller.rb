@@ -1,7 +1,13 @@
 class DashboardsController < ApplicationController
 
   def show
-    @bookings = Booking.where(user: current_user)
+    @bookings = current_user.bookings
+    if params[:bookings] == "last_bookings"
+      @bookings = @bookings.where('DATE(end_date) < ?', Date.today)
+    else
+      @bookings = @bookings.where('DATE(end_date) >= ?', Date.today)
+    end
+
     authorize current_user
   end
 end
