@@ -17,7 +17,7 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-
+ <%= cl_image_tag @trip.photo.key, wdth: 200, height: 400, crop: :fill %>
 
 </div>
 
