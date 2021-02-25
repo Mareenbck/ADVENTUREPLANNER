@@ -28,6 +28,7 @@ require("chart.js")
 import "bootstrap";
 import { initTripMapbox } from '../plugins/init_trip_mapbox';
 import { initMapbox } from '../plugins/init_trip_mapbox';
+import { initPopup} from '../plugins/init_popup';
 
 
 // Internal imports, e.g:
@@ -38,5 +39,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initTripMapbox();
   initMapbox();
+  initPopup();
 });
 

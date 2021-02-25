@@ -2,6 +2,8 @@ class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.all
   end
+
+
 end
 
 # il faudra créer une policy pour la chatroom pour afficher l'index
