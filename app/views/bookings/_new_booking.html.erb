@@ -1,24 +1,17 @@
 
-  <div class="booking-box">
-    <div class="popup" onclick="myFunction()">PLAN THIS TRIP
-  <span class="popuptext" id="myPopup">
-  <h2><%= @trip.name %></h2>
-  <%= simple_form_for [@trip, @booking] do |f| %>
-  <a href="javascript: closepopup()"><i class="fas fa-times"></i></a>
-        <%= f.date_field :begin_date, value: Date.today, id: "begin-date"%>
-        <%= f.select :user_status, options_for_select(%w[Yes No]), prompt:'Need teammates?' %>
-        <br>
-        <%= f.submit "LET'S DO IT", class: "btn-blue"%>
-      <% end %>
-      
-  </span>
+<div class="popupbtn">
+  PLAN THIS TRIP
 </div>
+<div class="popupframe d-none">
+<%# display none pour cacher %>
+  <div class='popupclose'>
+    <i class="fas fa-times"></i>
   </div>
-
-<script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
+  <h2 id="popup-title">Let's plan <%= @trip.name %></h2>
+  <%= simple_form_for [@trip, @booking] do |f| %>
+    <%= f.date_field :begin_date, value: Date.today, id: "begin-date"%>
+    <%= f.select :user_status, options_for_select(%w[Yes No]), prompt:'Need teammates?' %>
+    <br>
+    <%= f.submit "LET'S DO IT", class: "btn-big"%>
+  <% end %>
+</div>

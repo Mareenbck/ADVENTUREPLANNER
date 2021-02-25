@@ -23,6 +23,13 @@ class TripsController < ApplicationController
     @booking = Booking.new  # <-- You need this now.
 
     @waypoints = @trip.waypoints
-
-  end
+  #   ratings = []
+  #   reviews = Review.all
+  #   reviews.each do |review|
+  #   right_trips = Trip.w
+  #     if review.booking_id == @booking.id where e
+  #     ratings << review.rating
+  #   end
+  #   @note = ratings.sum / ratings.length
+  # end
 end
