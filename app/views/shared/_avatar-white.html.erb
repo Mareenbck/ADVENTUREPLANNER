@@ -1,0 +1,26 @@
+  <div class="dropdown">
+    <button class="dropdown-toggle white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <% if user_signed_in? %>
+        <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: 'avatar-photo' %>
+        <% else %>
+        <i class="fas fa-skiing-nordic"></i>
+        <% end %>
+      <% else %>
+      <i class="fas fa-skiing-nordic"></i>
+      <% end %>
+
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="dropdow-item dropbow-home">
+      <%= link_to 'Dashboard', dashboard_path %>
+    </div>
+    <div class="dropdow-item dropbow-home">
+      <% if user_signed_in? %>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Log in', new_user_session_path %>
+      <% end %>
+      </div>
+    </div>
+  </div>

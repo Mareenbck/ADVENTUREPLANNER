@@ -12,8 +12,8 @@ const initTripMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'trip-map',
       style: 'mapbox://styles/mapbox-map-design/ckhqrf2tz0dt119ny6azh975y',
-      pitch: 85,
-      bearing: 80,
+      pitch: 20,
+      bearing: -100,
     });
 
     fitMapToWaypoints(map, waypoints);
@@ -23,7 +23,7 @@ const initTripMapbox = () => {
         'type': 'raster-dem',
         'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
         'tileSize': 512,
-        'maxzoom': 14
+        'maxzoom': 15
         });
         // add the DEM source as a terrain layer with exaggerated height
         map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
@@ -77,7 +77,7 @@ const addLayer = function (map, waypoints) {
 const fitMapToWaypoints = (map, waypoints) => {
   const bounds = new mapboxgl.LngLatBounds();
   waypoints.forEach(waypoint => bounds.extend(waypoint));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 16, duration: 0 });
 };
 
 const initMapbox = () => {
@@ -92,8 +92,17 @@ const initMapbox = () => {
 
     const markers = JSON.parse(mapElement.dataset.markers);
   markers.forEach((marker) => {
-    new mapboxgl.Marker()
+    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      element.style.backgroundSize = 'cover';
+      element.style.width = '55px';
+      element.style.height = '50px';
+    new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(map);
   });
   fitMapToMarkers(map, markers);

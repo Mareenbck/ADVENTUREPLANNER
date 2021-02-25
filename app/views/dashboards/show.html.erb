@@ -1,9 +1,29 @@
-<div>
-  <h2> <%= current_user.first_name %> </h2>
-  <%= current_user.last_name %>
-  <%= current_user.email %>
-  <p>Hello</p>
+<div class="container">
+  <div class="avatar-position">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar"%>
+    <% end %>
+  </div>
+  <div class="my-info">
+    <h2> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <%= current_user.level %>
+  </div>
+  <div class="my-stats">
+    <p>My stats - this year</p>
+    <%= line_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers) %>
+  </div>
+  <div class="btn-mytrip">
+    <%= link_to "My last trips", dashboard_path(bookings: "last_bookings")  %>
+    <%= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings")  %>
+  </div>
+  <div class="my-booking">
 
-   <%= cl_image_tag @user.photo.key, wdth: 200, height: 400, crop: :fill %>
+      <% @bookings.each do |booking| %>
+        <%= booking.trip.name %>
+      <% end %>
+
+  </div>
+
+
 
 </div>

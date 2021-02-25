@@ -3,10 +3,15 @@ class TripsController < ApplicationController
 
   def index
     @trips = policy_scope(Trip)
+    if params.dig(:search, :location).present?
+      @trips = @trips.where(location: params.dig(:search, :location))
+    end
     @markers = @trips.map do |trip|
       {
         lat: trip.start_lat,
-        lng: trip.start_long
+        lng: trip.start_long,
+        infoWindow: render_to_string(partial: "info_window", locals: { trip: trip }),
+        image_url: helpers.asset_url('https://www.designfreelogoonline.com/wp-content/uploads/2018/03/000946-Free-logo-maker-Mountains-Logo-Logo-01.png')
         
       }
     end
