@@ -9,23 +9,34 @@
     <%= current_user.level %>
   </div>
   <div class="my-stats">
-    <p>My stats - this year</p>
+    <!-- <p>My stats - this year</p>
     <%= line_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers) %>
-  </div>
+  </div> -->
   <div class="btn-mytrip">
-    <%= link_to "My last trips", dashboard_path(bookings: "last_bookings")  %>
-    <%= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings")  %>
+    <%= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips"  %>
+    <%= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips"  %>
   </div>
   <div class="my-booking">
-
       <% @bookings.each do |booking| %>
-      <%= link_to booking_path(booking) do  %>
-        <%= booking.trip.name %>
+        <%= link_to booking_path(booking), class: "booking-card" do  %>
+          <%= cl_image_tag booking.trip.photo.key, class: "booking-trip-photo"%>
+          <div class="booking-info">
+            <%= booking.trip.name %>
+            <br>
+            <%= booking.begin_date %>
+            <br>
+            <% if booking.review != nil %>
+              <%= booking.review.rating.times do %>
+                <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
+              <% end %>
+              <% (5 - booking.review.rating).times do %>
+                <i class="fas fa-star" style= 'color : darkgrey'></i>
+              <% end %>
+            <% else %>
+              <%= p "Add a review" %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
-      <% end %>
-
   </div>
-
-
-
 </div>

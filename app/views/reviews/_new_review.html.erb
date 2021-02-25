@@ -1,0 +1,13 @@
+<div class="review">
+  <h2>Add a review</h2>
+  <%= simple_form_for [booking, Review.new], method: :post do |f| %>
+    <%= f.input :landscape_rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
+    <%= f.input :signage_rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
+    <%= f.input :difficulty_rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
+    <%= f.input :rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
+    <%= f.input :content %>
+    <%= f.submit class: "btn btn-blue", value: "Add a review" %>
+  <% end %>
+</div>
+
+
