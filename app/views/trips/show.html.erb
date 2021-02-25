@@ -26,33 +26,7 @@
 
  <%= cl_image_tag @trip.photo.key, wdth: 200, height: 400, crop: :fill %>
 
+<%= render 'bookings/new_booking' %>
 </div>
 
-<div class="container">
 
-  <h2><%= @trip.name  %></h2>
-
-  <div id="trip-map"
-    style="width: 345px; height: 400px; top: 0 !important; right: auto !important; left: auto !important;"
-    data-waypoints="<%= @waypoints.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-<br>
-  <h3><%= @trip.description %></h3> <br>
-  <h3> Difficulty: <%= @trip.difficulty  %>/5</h3> <br>
-  <h3> Distance: <%= @trip.kilometers %> Km</h3> <br>
-
-
-
-
-
-  
-  <div id="trip-map"
-    style="width: 345px; height: 400px; position: sticky; top: 0 !important; right: auto !important; left: auto !important;"
-    data-waypoints="<%= @waypoints.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-
-
-</div>

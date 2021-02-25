@@ -20,6 +20,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     authorize @trip 
+    @booking = Booking.new  # <-- You need this now.
 
     @waypoints = @trip.waypoints
 
