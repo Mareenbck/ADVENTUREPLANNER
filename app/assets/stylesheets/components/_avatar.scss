@@ -1,23 +1,44 @@
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: solid 2px white;
+.dropdown {
+  position:absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.dropdown-menu.show {
+  text-align: right;
+}
+
+.fa-skiing-nordic {
+  font-size: 30px;
+}
+
+.avatar-photo{
+  width:40px;
+  height: 40px;
   object-fit: cover;
+  border: none;
+  border-radius: 50px;
 }
-.avatar-large {
-  width: 56px;
-  border-radius: 50%;
+
+.dropdown-toggle {
+  background-color: rgba(0, 0, 0, 0);
+  border:none;
 }
-.avatar-bordered {
-  width: 40px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+.dropdown-item {
+  color:black;
+  text-decoration: none;
+  display: block;
 }
-.avatar-square {
-  width: 40px;
-  border-radius: 0px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+
+.dropbow-home{
+  margin-right: 20px;
+  a {
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+.dropdown-menu.show{
+  background-color: rgba(255, 255, 255, 0);
+  border:none;
 }
