@@ -1,4 +1,44 @@
+<%= render 'shared/avatar-black' %>
 <div class="container">
-  <%= @booking.trip.name %>
-  <p> <%= @booking.begin_date %> to <%= @booking.end_date %>  - <%= @booking.trip.name %></p>
+  <div class="booking-header">
+    <%= cl_image_tag @booking.trip.photo.key, class: "booking-photo"%>
+    <p><%= @booking.trip.name %></p>
+  </div>
+  <div class="booking-date">
+   <p> <%= @booking.begin_date %> to <%= @booking.end_date %>  - <%= @booking.trip.name %></p>
+  </div>
+  <div class="status-user">
+    <p><i class="fas fa-circle"></i> <%= @booking.user_status %> </p>
+  </div>
+  <div class="booking-avatar">
+    <% @booking_users.each do |user| %>
+      <%= cl_image_tag user.photo.key, class: "avatar-photo"%>
+    <% end %>
+  </div>
+  <div class="meteo">
+    meteo
+  </div>
+  <div class="avalanche">
+    avalanche
+  </div>
+  <div class="map-booking">
+    <div id="trip-map"
+      style="width: 345px; height: 400px; top: 0 !important; right: auto !important; left: auto !important;"
+      data-waypoints="<%= @booking.trip.waypoints.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+  <div class="btn-airbnb">
+    <p>FIND A PLACE TO STAY 🏠 </p>
+  </div>
+  <div class="equipment">
+    <p><%= @booking.trip.equipments %> </p>
+  </div>
+  <div class="btn-equipment">
+    <p>BUY EQUIPMENT </p>
+  </div>
+  <div class="btn-chat">
+    <p>CHAT 💬</p>
+  </div>
 </div>
+
