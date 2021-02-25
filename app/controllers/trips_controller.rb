@@ -2,7 +2,9 @@ class TripsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @trips = policy_scope(Trip)
+    
+    @trips = policy_scope(Trip).select("trips.*, avg(reviews.rating) as average_rating").left_joins(bookings: :review).group("trips.id")
+
     if params.dig(:search, :location).present?
       @trips = @trips.where(location: params.dig(:search, :location))
     end
@@ -25,4 +27,5 @@ class TripsController < ApplicationController
     @waypoints = @trip.waypoints
 
   end
+
 end

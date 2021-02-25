@@ -1,6 +1,9 @@
 
+<div>
+    <%= cl_image_tag trip.photo.key, crop: :thumb, class: "info-window-img" %> <br>
+</div>
 <div class="marker-info">
 <strong><%= trip.name %></strong> <br>
 <%= " #{trip.kilometers} km" %> <br>
-<%= link_to "View this trip", trip_path(trip)  %>
+ <%= link_to 'View this trip', trip_path(trip), class:'btn-window' %>
 </div>
