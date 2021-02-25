@@ -1,6 +1,6 @@
 
 <div id="home-header"> 
-<%= render 'shared/avatar' %>
+<%= render 'shared/avatar-white' %>
   <h1 id="h1home">Your next adventure starts here</h1>
   <%= simple_form_for :search, url: trips_path, method: :get, html: {class: 'form-inline'} do |f| %>
     <%= f.input :location, placeholder: "Where do you want to go", label: false, id:'search-bar' %>

@@ -1,5 +1,5 @@
   <div class="dropdown">
-    <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="dropdown-toggle white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <% if user_signed_in? %>
         <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: 'avatar-photo' %>
