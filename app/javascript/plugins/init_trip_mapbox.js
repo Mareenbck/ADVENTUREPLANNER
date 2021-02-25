@@ -23,7 +23,7 @@ const initTripMapbox = () => {
         'type': 'raster-dem',
         'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
         'tileSize': 512,
-        'maxzoom': 14
+        'maxzoom': 15
         });
         // add the DEM source as a terrain layer with exaggerated height
         map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
@@ -77,7 +77,7 @@ const addLayer = function (map, waypoints) {
 const fitMapToWaypoints = (map, waypoints) => {
   const bounds = new mapboxgl.LngLatBounds();
   waypoints.forEach(waypoint => bounds.extend(waypoint));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 16, duration: 0 });
 };
 
 const initMapbox = () => {
