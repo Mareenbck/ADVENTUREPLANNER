@@ -1,0 +1,77 @@
+.booking-box{
+  padding-bottom: 100px;
+}
+
+.popup {
+  background-color: $rid-blue;
+  color: white;
+  padding: 10px 15px 10px 15px;
+  font-weight: bold;
+  border-radius: 50px 0px 0px 50px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 90px;
+  right: 0px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 95vw;
+    background-color: #F6F6F6;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -10%;
+    left: 50%;
+    margin-left: -275px;
+    height: 85vh;
+}
+
+.fa-times{
+  position:fixed;
+  top: 50px;
+  right: 50px;
+}
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+span #myPopup.popuptext.show{
+  background-color:brown;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
