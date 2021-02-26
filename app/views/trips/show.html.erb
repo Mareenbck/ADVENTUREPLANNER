@@ -34,12 +34,12 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-<p><strong>Equipments required:</strong></p>
-<ul>
-  <% @trip.equipments.each do |e| %>
-    <li><%= e %></li>
-  <% end %>
-</ul>
+  <p><strong>Equipments required:</strong></p>
+  <div class="equipments">
+    <% @trip.equipments.each do |equipment| %>
+      <p class="equipment <%= equipment %>"> <%= equipment %></p>
+    <% end %>
+  </div>
 
 <%# <% @reviews.each do |review| %>
 <%# <%= review.rating %>
