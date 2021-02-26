@@ -23,7 +23,7 @@
             <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
           <% end %>
           <% (5 - trip.average_rating.round).times do %>
-            <i class="fas fa-star" style= 'color : darkgrey'></i>
+            <i class="fas fa-star" style= 'color : $dark-grey'></i>
           <% end %>
         </p>
          <%= link_to 'View this trip', trip_path(trip), class:'btn-index' %>
