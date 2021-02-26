@@ -1,32 +1,42 @@
+#bookings-show .wrapper {
+  padding-bottom: 150px;
+}
+
 #bookings-show .container {
   width: 90%;
   height: 100%;
   margin-top: 20px;
+  padding-bottom: 150px;
 }
 
 .booking-photo {
   width: 100%;
   position: relative;
+  height: 300px;
 }
 
 .booking-header {
   display: flex;
   justify-content: center;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
   color: white;
-    p {
-    position: absolute;
-    top: 110px;
+  height: 300px;
+  background-size: cover;
+  align-items: center;
+
+    h1 {
     text-shadow: 0 0 10px black;
+    padding: 20px;
+    text-align: center;
   }
 }
 
 .booking-date p {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: $dark-blue;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
 }
 
 .booking-avatar {
@@ -69,8 +79,70 @@
 }
 
 
-.equipment {
+.equipments {
   padding-bottom: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+  h2 {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 30px;
+  color: $dark-blue;
+  }
+  .equipment {
+    position: relative;
+    width: 30%;
+    margin-top: 50px;
+    text-align: center;
+    &:before {
+      content: "";
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-size: cover;
+    }
+
+    &.Skis {
+      &:before {
+      background-image: image-url("skis.png");
+      }
+    }
+    &.Ropes {
+      &:before {
+      background-image: image-url("ropes.png");
+      }
+    }
+    &.Arva {
+      &:before {
+      background-image: image-url("arva.png");
+      }
+    }
+    &.Clothes {
+      &:before {
+      background-image: image-url("clothes.png");
+      }
+    }
+    &.Crampons {
+      &:before {
+      background-image: image-url("crampons.png");
+      }
+    }
+    &.Ice.Axe {
+      &:before {
+      background-image: image-url("ice_axe.png");
+      }
+    }
+    &.Skins {
+      &:before {
+      background-image: image-url("skins.png");
+      }
+    }
+  }
 }
 
 .btn-equipment {
@@ -83,8 +155,8 @@
 }
 
 .btn-chat {
-  position: sticky;
-  bottom: 0px;
+  position: fixed;
+  bottom: 75px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +164,7 @@
   width: 100%;
   background-color: $white;
   color: $dark-blue;
-  z-index: 1;
+  z-index: 3;
   border-radius: 15px 15px 0px 0px;
   p {
     margin-bottom: 0px;

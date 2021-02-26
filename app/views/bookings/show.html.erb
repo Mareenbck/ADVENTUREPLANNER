@@ -1,12 +1,12 @@
 <%= render 'shared/avatar-black' %>
-<div class="booking-header">
-  <%= cl_image_tag @booking.trip.photo.key, class: "booking-photo"%>
-  <p><%= @booking.trip.name %></p>
+<div class="booking-header" style="background-image: url(<%= cl_image_path @booking.trip.photo.key %>)">
+  <h1><%= @booking.trip.name %></h1>
 </div>
 <div class="container">
   <div class="booking-date">
-    <p> <%= @booking.begin_date %> - <%= @booking.trip.name %></p>
+    <p> <%= @booking.begin_date %></p>
   </div>
+    <p><%= @booking.trip.subtitle %></p>
   <div class="status-user">
     <p><i class="fas fa-circle"></i> <%= @booking.user_status %> </p>
   </div>
@@ -35,8 +35,11 @@
   <div class="btn-booking">
     <a href="https://www.airbnb.com/s/chamonix/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=april&flexible_trip_dates%5B%5D=march&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&checkin=2021-03-06&checkout=2021-03-07&adults=1&source=structured_search_input_header&search_type=filter_change">FIND A PLACE TO STAY 🏠</a>
   </div>
-  <div class="equipment">
-    <p><%= @booking.trip.equipments %> </p>
+  <div class="equipments">
+    <h2 class="w-100">Equipments</h2>
+    <% @booking.trip.equipments.each do |equipment| %>
+      <p class="equipment <%= equipment %>"> <%= equipment %></p>
+    <% end %>
   </div>
   <div class="btn-booking">
     <a href="">BUY EQUIPMENT 🎿</a>
