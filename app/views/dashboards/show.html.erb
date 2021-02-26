@@ -11,7 +11,7 @@
   <div class="my-stats">
     <p>My stats - this year</p>
     <div class="graph">
-    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "200px", height: "150px", stacked: true, dataset: {borderWidth: 2} %>
+    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "200px", height: "150px", stacked: true, dataset: {borderWidth: 2}%>
   </div>
   </div>
   <div class="btn-mytrip">
