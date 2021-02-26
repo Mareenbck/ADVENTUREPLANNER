@@ -1,11 +1,11 @@
 <%= render 'shared/avatar-black' %>
+<div class="booking-header">
+  <%= cl_image_tag @booking.trip.photo.key, class: "booking-photo"%>
+  <p><%= @booking.trip.name %></p>
+</div>
 <div class="container">
-  <div class="booking-header">
-    <%= cl_image_tag @booking.trip.photo.key, class: "booking-photo"%>
-    <p><%= @booking.trip.name %></p>
-  </div>
   <div class="booking-date">
-   <p> <%= @booking.begin_date %> to <%= @booking.end_date %>  - <%= @booking.trip.name %></p>
+    <p> <%= @booking.begin_date %> - <%= @booking.trip.name %></p>
   </div>
   <div class="status-user">
     <p><i class="fas fa-circle"></i> <%= @booking.user_status %> </p>
@@ -16,29 +16,33 @@
     <% end %>
   </div>
   <div class="meteo">
-    meteo
-  </div>
-  <div class="avalanche">
+    <div class="meteo-icon">
+      meteo
+    </div>
+    <div class="meteo-temperature">
+    </div>
+    <div class="avalanche">
     avalanche
+    </div>
   </div>
   <div class="map-booking">
     <div id="trip-map"
-      style="width: 345px; height: 400px; top: 0 !important; right: auto !important; left: auto !important;"
+      style="width: 100%; height: 200px; top: 0 !important; right: auto !important; left: auto !important;"
       data-waypoints="<%= @booking.trip.waypoints.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div class="btn-airbnb">
-    <p>FIND A PLACE TO STAY 🏠 </p>
+  <div class="btn-booking">
+    <a href="https://www.airbnb.com/s/chamonix/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=april&flexible_trip_dates%5B%5D=march&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&checkin=2021-03-06&checkout=2021-03-07&adults=1&source=structured_search_input_header&search_type=filter_change">FIND A PLACE TO STAY 🏠</a>
   </div>
   <div class="equipment">
     <p><%= @booking.trip.equipments %> </p>
   </div>
-  <div class="btn-equipment">
-    <p>BUY EQUIPMENT </p>
-  </div>
-  <div class="btn-chat">
-    <p>CHAT 💬</p>
+  <div class="btn-booking">
+    <a href="">BUY EQUIPMENT 🎿</a>
   </div>
 </div>
-
+<div class="btn-chat">
+  <i class="fas fa-chevron-up"></i>
+  <p>CHAT 💬</p>
+</div>
