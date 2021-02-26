@@ -8,6 +8,11 @@ class TripsController < ApplicationController
     if params.dig(:search, :location).present?
       @trips = @trips.where(location: params.dig(:search, :location))
     end
+    
+    if params.dig(:difficulty).present?
+      @trips = @trips.where(difficulty: params[:difficulty])
+    end
+
     @markers = @trips.map do |trip|
       {
         lat: trip.start_lat,
