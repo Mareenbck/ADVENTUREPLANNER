@@ -7,8 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("chartkick")
-require("chart.js")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -28,6 +27,7 @@ require("chart.js")
 import "bootstrap";
 import { initTripMapbox } from '../plugins/init_trip_mapbox';
 import { initMapbox } from '../plugins/init_trip_mapbox';
+import { initToogleForm } from '../plugins/init_toogle_form';
 import { initPopup} from '../plugins/init_popup';
 import { initPopupIndex} from '../plugins/init_popup_index';
 
@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initTripMapbox();
   initMapbox();
+  initToogleForm();
   initPopup();
   initPopupIndex();
 });

@@ -9,9 +9,11 @@
     <%= current_user.level %>
   </div>
   <div class="my-stats">
-    <!-- <p>My stats - this year</p>
-    <%= line_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers) %>
-  </div> -->
+    <p>My stats - this year</p>
+    <div class="graph">
+    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "200px", height: "150px", stacked: true, dataset: {borderWidth: 2} %>
+  </div>
+  </div>
   <div class="btn-mytrip">
     <%= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips"  %>
     <%= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips"  %>
@@ -25,15 +27,18 @@
             <br>
             <%= booking.begin_date %>
             <br>
-            <% if booking.review != nil %>
-              <%= booking.review.rating.times do %>
+            <% if booking.review %>
+              <% booking.review.rating.times do %>
                 <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
-              <% end %>
+                <% end %>
               <% (5 - booking.review.rating).times do %>
                 <i class="fas fa-star" style= 'color : darkgrey'></i>
               <% end %>
             <% else %>
-              <%= p "Add a review" %>
+              <a class="btn btn-primary" id="btn-review">
+                Add a review
+              </a>
+                  <%= render "reviews/new_review", booking: booking %>
             <% end %>
           </div>
         <% end %>
