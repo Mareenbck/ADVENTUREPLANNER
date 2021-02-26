@@ -32,13 +32,21 @@ class BookingsController < ApplicationController
   end
 
   def show
-
     @booking = Booking.find(params[:id])
 
     bookings = Booking.where(begin_date: @booking.begin_date, trip_id: @booking.trip_id)
     @booking_users = bookings.map { |booking| booking.user }
     @review = Review.new
     authorize @booking
+
+    # @markers = @booking.trip.each do |trip|
+    #   {
+    #     lat: trip.start_lat,
+    #     lng: trip.start_long,
+    #     infoWindow: render_to_string(partial: "info_window", locals: { trip: trip }),
+    #     image_url: helpers.asset_url('https://www.designfreelogoonline.com/wp-content/uploads/2018/03/000946-Free-logo-maker-Mountains-Logo-Logo-01.png')
+    #   }
+    # end
   end
 
   private

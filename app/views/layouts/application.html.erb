@@ -12,8 +12,7 @@
     <%= javascript_pack_tag 'chartkick', 'data-turbolinks-track': 'reload'%>
     <%= stylesheet_pack_tag 'application' %>
   </head>
-
-  <body>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%#= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <div class="wrapper">

@@ -1,26 +1,43 @@
+#bookings-show .container {
+  width: 90%;
+  height: 100%;
+  margin-top: 20px;
+}
+
 .booking-photo {
   width: 100%;
-  height: 150px;
-  border-radius: 10px;
   position: relative;
-  text-align: center;
 }
 
 .booking-header {
-  text-align: center;
-  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
   font-weight: bold;
   color: white;
-    & p {
-      position: absolute;
-      top: 110px;
-    }
+    p {
+    position: absolute;
+    top: 110px;
+    text-shadow: 0 0 10px black;
+  }
 }
 
 .booking-date p {
-  font-size: 13px;
-  margin-top: 11px;
-  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  color: $dark-blue;
+  margin-bottom: 0;
+}
+
+.booking-avatar {
+  margin-bottom: 1rem;
+  .avatar-photo {
+    border: solid 1px #00D3FE;
+  }
+}
+
+.meteo {
+  margin-bottom: 1rem;
 }
 
 .status-user {
@@ -29,22 +46,35 @@
   font-size: 16px;
 }
 
-.btn-airbnb {
+.btn-booking {
   text-decoration: none;
-  background-color:$rid-blue;
+  background-color: #00D3FE;
   color: white;
   font-weight: bold;
-  border-radius: 3px;
+  border-radius: 25px;
   text-align: center;
-
+  padding: 10px;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 3px #a9b9bd;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
+
+.btn-booking:hover {
+  background-color: #01c0e6;
+}
+
 
 .equipment {
   padding-bottom: 75px;
 }
 
 .btn-equipment {
-    text-decoration: none;
+  text-decoration: none;
   background-color:$rid-blue;
   color: white;
   font-weight: bold;
@@ -53,5 +83,20 @@
 }
 
 .btn-chat {
-  padding-bottom: 75px;
+  position: sticky;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $white;
+  color: $dark-blue;
+  z-index: 1;
+  border-radius: 15px 15px 0px 0px;
+  p {
+    margin-bottom: 0px;
+    padding: 2px 10px 10px 10px;
+  }
 }
+
