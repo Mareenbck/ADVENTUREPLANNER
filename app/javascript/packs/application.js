@@ -29,6 +29,7 @@ import "bootstrap";
 import { initTripMapbox } from '../plugins/init_trip_mapbox';
 import { initMapbox } from '../plugins/init_trip_mapbox';
 import { initPopup} from '../plugins/init_popup';
+import { initPopupIndex} from '../plugins/init_popup_index';
 
 
 // Internal imports, e.g:
@@ -40,5 +41,6 @@ document.addEventListener('turbolinks:load', () => {
   initTripMapbox();
   initMapbox();
   initPopup();
+  initPopupIndex();
 });
 
