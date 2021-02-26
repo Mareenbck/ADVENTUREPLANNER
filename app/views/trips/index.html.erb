@@ -1,4 +1,4 @@
-<%= render 'shared/avatar-black' %>
+<%= render 'shared/avatar-black'  %>
  
 <div class="container">
 <div id="map"
@@ -6,14 +6,31 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-   
+
+<div class="popup-index d-none">
+<h3>Filtered Search</h3>
+<i class="fas fa-times"></i>
+<%= form_tag trips_path, method: :get do %>
+    <%= select_tag :difficulty,
+        options_for_select([1, 2, 3, 4, 5]),
+        prompt: 'Difficulty',
+        class: "drop-difficulty"
+    %>
+    <div>
+     <%= submit_tag "Search", class: "btn-index" %>
+    </div>
+<% end %>
+</div>
+
+
+<i class="fas fa-sliders-h"></i>
 <br>
     <div class="container-card">
     <% @trips.each do |trip| %>
         <div class="box-card">
         <div class="box-info">
         <%= cl_image_tag trip.photo.key, width: 150, height: 100, crop: :fill, class: 'photo-index' %>
-        <h3> <strong><%= trip.name  %></strong></h3>
+        <h4> <strong><%= trip.name  %></strong></h4>
         <%= "#{trip.kilometers} km"  %> <br>
         <%= "#{trip.duration}"  %>
         </div>
@@ -23,7 +40,7 @@
             <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
           <% end %>
           <% (5 - trip.average_rating.round).times do %>
-            <i class="fas fa-star" style= 'color : darkgrey'></i>
+            <i class="fas fa-star" style= 'color : $dark-grey'></i>
           <% end %>
         </p>
          <%= link_to 'View this trip', trip_path(trip), class:'btn-index' %>

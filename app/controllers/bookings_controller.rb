@@ -6,10 +6,19 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.trip = @trip
-    if @booking.save!
-      redirect_to dashboard_path
+  #  si mon trip a deja été reservé au meme date, je vais chercher la chatroom de ces booking
+    bookings = Booking.where(begin_date: @booking.begin_date, trip_id: @booking.trip_id)
+    if bookings != []
+      @booking.chatroom = bookings.first.chatroom
     else
-      render 'bookings/new_booking'
+      @chatroom = Chatroom.create(name: @booking.trip.name)
+      @booking.chatroom = @chatroom
+    end
+  # si mon trip n'a pas été réservé au meme date, je créé un nouveau chatrom et je l'associe à booking
+    if @booking.save!
+      redirect_to booking_path(@booking)
+    else
+      render '/trips/:id'
     end
     authorize @booking
   end

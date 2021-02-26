@@ -1,31 +1,53 @@
-<%= render 'shared/avatar-black' %>
+<%= render 'shared/avatar-white' %>
+<div id="trip-header">
+  <%= cl_image_tag @trip.photo.key, id:"trip-photo" %>
+  <div id="back">
+    <i class="fas fa-long-arrow-alt-left back"></i>
+    <%= link_to ' Back', trip_path, class:'back' %>
+  </div>
+</div>
 <div class="container">
-
-  <h2><%= @trip.name  %></h2>
-
-  <div id="trip-map"
-    style="width: 345px; height: 400px; top: 0 !important; right: auto !important; left: auto !important;"
-    data-waypoints="<%= @waypoints.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-<br>
-  <h3><%= @trip.description %></h3> <br>
-  <h3> Difficulty: <%= @trip.difficulty  %>/5</h3> <br>
-  <h3> Distance: <%= @trip.kilometers %> Km</h3> <br>
-
-
-
-
-
-  
-  <div id="trip-map"
-    style="width: 345px; height: 400px; position: sticky; top: 0 !important; right: auto !important; left: auto !important;"
-    data-waypoints="<%= @waypoints.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div>
+    <h2><%= @trip.name  %></h2>
+    <div id='note'>
+      <% @note.times do %>
+        <i class="fas fa-star good"></i>
+      <% end %>
+      <% (5-@note).times do %>
+        <i class="fas fa-star bad"></i>
+      <% end %>
+    </div>
+    
+    <p><strong>Km: </strong> <%= @trip.kilometers %></p>
+    <p><strong>Duration: </strong> <%= @trip.duration %></p>
+    <p><strong>Difficulty: </strong>
+      <% @trip.difficulty.times do %>
+      <i class="fas fa-bolt"></i>
+      <% end %></p>
+    <p><%= @trip.description %></p>
   </div>
 
- <%= cl_image_tag @trip.photo.key, wdth: 200, height: 400, crop: :fill %>
+  <p><strong>GPX trails:</strong></p>
+  <div id="trip-map"
+      style="width: 85vw; height: 400px;"
+      data-waypoints="<%= @waypoints.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
+<p><strong>Equipments required:</strong></p>
+<ul>
+  <% @trip.equipments.each do |e| %>
+    <li><%= e %></li>
+  <% end %>
+</ul>
+
+<%# <% @reviews.each do |review| %>
+<%# <%= review.rating %>
+<%# <% end %>
+
+    t.string "landscape_rating"
+    t.integer "signage_rating"
+    t.integer "difficulty_rating"
 <%= render 'bookings/new_booking' %>
 </div>
 
