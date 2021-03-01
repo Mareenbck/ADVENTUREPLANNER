@@ -1,14 +1,17 @@
-#trip-map {
+.trip-show-map {
   width: 100%;
   height: 400px;
   background-attachment: scroll;
-  top: 0;
   position: fixed;
+  top: 0;
   z-index: 0;
+  &#trip-map {
+    position: fixed;
+    top: 0;
+  }
 }
 
 #trips-show .container {
-  width: 100%;
   padding-bottom: 150px;
   padding: 20px 30px 150px 30px;
   overflow: scroll;
@@ -18,16 +21,6 @@
   background: white;
   border-radius: 15px;
   width: 100vw;
-}
-
-i.fas.fa-chevron-up {
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 374px;
-    color: white;
-    font-weight: bold;
-    font-size: 22px;
 }
 
 .fa-bolt{
