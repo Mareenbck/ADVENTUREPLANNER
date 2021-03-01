@@ -1,48 +1,109 @@
 #trip-map {
-    border-radius: 20px;
-    margin-bottom: 20px;
-    // margin: auto 0;
+  width: 100%;
+  height: 400px;
+  background-attachment: scroll;
+  top: 0;
+  position: fixed;
+  z-index: 0;
 }
 
-
 #trips-show .container {
-    width: 95%;
-    margin-top: 50px;
-    padding-bottom: 175px;
+  width: 100%;
+  padding-bottom: 150px;
+  padding: 20px 30px 150px 30px;
+  overflow: scroll;
+  z-index: 5;
+  position: absolute;
+  top: 400px;
+  background: white;
+  border-radius: 15px;
+  width: 100vw;
+}
+
+i.fas.fa-chevron-up {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 374px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .fa-bolt{
-    color: $rid-blue;
+  color: $rid-blue;
+  font-size: 20px;
 }
 
-#trip-photo{
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
+.trip-photos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
-#back{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 2;
+#trip-photo {
+  width: 125%;
+}
+
+.reviews {
+  margin-top: 30px;
+}
+
+.fa-star {
+  color: $rid-blue;
+}
+
+.show-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: solid 1px $rid-blue;
+  box-shadow: 5px 10px 20px lightgrey;
+}
+
+.review-content {
+  background-color: $dark-blue;
+  padding: 15px;
+  color: white;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  box-shadow: 5px 10px 20px lightgrey;
+}
+
+#back {
+  position: fixed;
+  left: 20px;
+  top: 28px;
+  z-index: 4;
+  text-decoration: none;
 }
 
 .back{
-    color: white;
-    font-weight: bold;
-    text-shadow: 0px 7px 20px #6961617d;
-    font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 7px 20px #6961617d;
+  font-size: 20px;
+}
+
+.back:hover {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
 }
 
 .good{
-    color:$dark-blue;
+  color:$rid-blue;
 }
 
 .bad{
-    color:$dark-grey;
+  color:$dark-grey;
 }
 
 #note{
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }

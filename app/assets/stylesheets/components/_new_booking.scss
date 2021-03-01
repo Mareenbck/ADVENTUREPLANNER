@@ -14,48 +14,55 @@
   right: 0px;
   display: inline-block;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
+.popupbtn:hover {
+  background-color: #01c0e6;
+}
 /* The actual popup */
 .popupframe {
   position: fixed;
-  top: 10px;
-  bottom: 65px;
-  left: 10px;
-  right: 10px;
+  bottom: 85px;
+  left: 20px;
+  right: 20px;
   z-index: 100;
-  border-radius: 50px;
-  background-color: $rid-grey;
+  border-radius: 20px;
+  background-color: #F6F6F6;
   text-align: center;
   padding: 20px;
+  box-shadow: 2px 1px 25px lightgrey;
 }
+
 #popup-title{
-margin-top: 60px;
-margin-bottom: 60px;
-font-size: 20px;
-font-weight: bold;
-color: $dark-blue;
+  font-size: 20px;
+  font-weight: bold;
+  color: #457B9D;
+  padding: 10px 20px 10px 20px;
 }
 
 .popupclose{
-  position:fixed;
-  top: 40px;
-  right:50px;
+  position: fixed;
+  top: 272px;
+  right: 30px;
 }
 
 #begin-date{
-  border:none;
-  padding:10px;
+  border: none;
+  padding: 10px 40px 10px 40px;
   border-radius: 50px;
   margin: 10px 0px;
+  width: 250px;
 }
+
 #booking_user_status{
-  border:none;
-  padding:10px;
+  border: none;
+  padding: 10px 40px 10px 40px;
   border-radius: 50px;
-  margin: 15px 0px;
+  margin: 10px 0px;
+  width: 250px;
+}
+
+input.btn-big {
+  width: 250px;
+  margin: 10px 0px;
 }

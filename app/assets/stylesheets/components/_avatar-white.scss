@@ -2,10 +2,10 @@
   color:white;
 }
   .dropdown {
-  position:absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .dropdown-menu.show {

@@ -1,14 +1,18 @@
 <%= render 'shared/avatar-white' %>
-<div id="trip-header">
-  <%= cl_image_tag @trip.photo.key, id:"trip-photo" %>
-  <div id="back">
-    <i class="fas fa-long-arrow-alt-left back"></i>
-    <%= link_to ' Back', trip_path, class:'back' %>
-  </div>
+<div id="back">
+  <i class="fas fa-long-arrow-alt-left back"></i>
+  <%= link_to ' Back', trip_path, class:'back' %>
 </div>
-<div class="container">
+<div id="trip-map"
+  style="width: 100%; height: 400px;"
+  data-waypoints="<%= @waypoints.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+<div class="container" id="swipe">
   <div>
+    <i class="fas fa-chevron-up"></i>
     <h2><%= @trip.name  %></h2>
+    <p><%= @trip.subtitle %></p>
     <div id='note'>
       <% @note.times do %>
         <i class="fas fa-star good"></i>
@@ -17,35 +21,40 @@
         <i class="fas fa-star bad"></i>
       <% end %>
     </div>
-
-    <p><strong>Km: </strong> <%= @trip.kilometers %></p>
-    <p><strong>Duration: </strong> <%= @trip.duration %></p>
-    <p><strong>Difficulty: </strong>
+    <p><strong>Km : </strong> <%= @trip.kilometers.round %></p>
+    <p><strong>Duration :</strong> <%= @trip.duration %></p>
+    <p><strong>Difficulty :</strong>
       <% @trip.difficulty.times do %>
       <i class="fas fa-bolt"></i>
-      <% end %></p>
+      <% end %>
+    </p>
     <p><%= @trip.description %></p>
   </div>
-
-  <p><strong>GPX trails:</strong></p>
-  <div id="trip-map"
-      style="width: 85vw; height: 400px;"
-      data-waypoints="<%= @waypoints.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="trip-photos">
+    <%= cl_image_tag @trip.photo.key, id:"trip-photo" %>
   </div>
-
-  <p><strong>Equipments required:</strong></p>
+  <p><strong>Equipments required :</strong></p>
   <div class="equipments">
     <% @trip.equipments.each do |equipment| %>
       <p class="equipment <%= equipment %>"> <%= equipment %></p>
     <% end %>
   </div>
-
-<%# <% @reviews.each do |review| %>
-<%# <%= review.rating %>
-<%# <% end %>
-
-<%= render 'bookings/new_booking' %>
+  <div class="reviews">
+    <% @trip.reviews.each do |review| %>
+      <%= cl_image_tag review.user.photo.key, class: "show-avatar"%>
+      <%= review.user.first_name %>
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+      <div class="review-content">
+        <%= review.content %>
+      </div>
+    <% end %>
+  </div>
+  <%= render 'bookings/new_booking' %>
 </div>
 
 
