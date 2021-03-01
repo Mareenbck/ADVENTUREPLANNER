@@ -1,6 +1,7 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = policy_scope(current_user.chatrooms)
+    @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date >= ?', Date.today )
+    # .bookings.begin_date > Time.now
   end
 
 end
