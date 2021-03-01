@@ -1,8 +1,7 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = policy_scope(current_user.chatrooms)
   end
-
 
 end
 
