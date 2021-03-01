@@ -16,11 +16,11 @@
         prompt: 'Difficulty',
         class: "drop-difficulty"
     %> <br> <br>
-     <%= select_tag :kilometers,
-        options_for_select([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]),
-        prompt: 'Kilometers',
-        class: "drop-kilometers"
-    %> <br> <br>
+        <p>Select Kilometers:</p>
+        <%= text_field_tag :kilometers, nil, id: "ex2", :data => {'slider-id' => 'ex1Slider','slider-min' => @min_distance,'slider-max' => @max_distance,'slider-step' => '1','slider-value' => "[#{@min_distance},#{@max_distance}]"  } %>
+        <script>
+        
+        </script>
     <div>
     
      <%= submit_tag "Show me all trips", class: "btn-window" %>
@@ -48,10 +48,10 @@
         <%= cl_image_tag trip.photo.key, width: 150, height: 100, crop: :fill, class: 'photo-index' %>
         <p class="show-stars">
           <% trip.average_rating.round.times do %>
-            <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
+            <i class="fas fa-star" style= 'color : #00D3FE'></i>
           <% end %>
           <% (5 - trip.average_rating.round).times do %>
-            <i class="fas fa-star" style= 'color : $dark-grey'></i>
+            <i class="fas fa-star" style= 'color : #00D3FE'></i>
           <% end %>
         </p>
           <%= link_to 'View this trip', trip_path(trip), class:'btn-index' %>
@@ -64,10 +64,4 @@
     <% end %>
     
     </div>
-    
-    
-    
-
-
-
 </div>
