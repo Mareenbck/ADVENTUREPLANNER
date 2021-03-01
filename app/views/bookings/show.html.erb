@@ -89,5 +89,16 @@
 <div class="btn-chat">
   <i class="fas fa-chevron-up"></i>
   <p>CHAT 💬</p>
-  
+</div>
+<div id='class'>
+  <% @booking.chatroom.messages.each do |message| %>
+    <div class="message-container" id="message-<%= message.id %>"
+      <i class="author">
+      <%= cl_image_tag message.user.photo.key, class:'chat-user-photo' %>
+      <span><%= message.user.first_name %></span>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      </i>
+      <p><%= message.content %></p>
+    </div>
+  <% end %> 
 </div>

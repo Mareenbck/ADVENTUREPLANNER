@@ -5,7 +5,8 @@
 </div>
 <% @chatrooms.each do |chat| %>
   <div>
-    <h2><%= chat.name %></h2>
+
+    <h2><%= link_to chat.name, booking_path(current_user.find_chatroom(chat)) %></h2>
     <% if chat.messages.any? %>
       <p><%= chat.messages.last.content.truncate(50) %></p>
       <%= time_ago_in_words(chat.messages.last.created_at) %>
