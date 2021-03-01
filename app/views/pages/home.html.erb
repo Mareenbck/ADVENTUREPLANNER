@@ -3,7 +3,7 @@
 <%= render 'shared/avatar-white' %>
   <h1 id="h1home">Your next adventure starts here</h1>
   <%= simple_form_for :search, url: trips_path, method: :get, html: {class: 'form-inline'} do |f| %>
-    <%= f.input :location, placeholder: "Where do you want to go", label: false, id:'search-bar' %>
+    <%= f.input :location, placeholder: "Where to go ?", label: false, id:'search-bar' %>
     <%= f.submit 'go!', class:'btn-big' %>
   <% end %>
   <i class="fas fa-chevron-down fa1"></i>
