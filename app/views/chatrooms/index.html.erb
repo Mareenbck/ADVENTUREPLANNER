@@ -1,0 +1,10 @@
+<%= render 'shared/avatar-black' %>
+<div id='pagetitle'>
+<h1>Chatrooms</h1>
+<p>For future trips</p>
+</div>
+<% @chatrooms.each do |chat| %>
+  <div>
+    <h2><%= chat.name %></h2>
+  </div>
+<% end %>
