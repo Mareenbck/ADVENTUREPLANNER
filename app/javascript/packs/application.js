@@ -31,6 +31,7 @@ import { initMapbox } from '../plugins/init_trip_mapbox';
 import { initToogleForm } from '../plugins/init_toogle_form';
 
 import { initPopup } from '../plugins/init_popup';
+import { initChat } from '../plugins/init_chat';
 import { initPopupIndex } from '../plugins/init_popup_index';
 import { initSwipe } from '../plugins/init_swipe';
 import { initOpenWeather } from '../plugins/init_openweather';
@@ -50,5 +51,6 @@ document.addEventListener('turbolinks:load', () => {
   initPopupIndex();
   initSwipe();
   initOpenWeather();
+  initChat();
 });
 
