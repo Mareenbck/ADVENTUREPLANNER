@@ -5,6 +5,7 @@
 </div>
 <% @chatrooms.each do |chat| %>
   <div>
-    <h2><%= chat.name %></h2>
+  <% booking = Booking.find_by(chatroom_id: chat.id) %>
+    <h2><%= link_to chat.name, booking_path(booking.id) %></h2>
   </div>
 <% end %>
