@@ -7,7 +7,7 @@
   <div class='popupclose'>
     <i class="fas fa-times"></i>
   </div>
-  <h2 id="popup-title">Let's plan <%= @trip.name %></h2>
+  <h2 id="popup-title">✌️ Let's plan <%= @trip.name %></h2>
   <%= simple_form_for [@trip, @booking] do |f| %>
     <%= f.date_field :begin_date, value: Date.today, id: "begin-date"%>
     <%= f.select :user_status, options_for_select(%w[Yes No]), prompt:'Need teammates?' %>

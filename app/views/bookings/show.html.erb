@@ -1,4 +1,8 @@
 <%= render 'shared/avatar-black' %>
+<div id="back">
+  <i class="fas fa-long-arrow-alt-left back"></i>
+  <%= link_to ' Back', dashboard_path, class:'back' %>
+</div>
 <div class="booking-header" style="background-image: url(<%= cl_image_path @booking.trip.photo.key %>)">
   <h1 data-location="<%= @booking.trip.location %>"><%= @booking.trip.location %></h1>
 </div>
@@ -7,14 +11,18 @@
   <div class="booking-date">
     <p> <%= @booking.begin_date %></p>
   </div>
+    <p><%= @booking.trip.location %></p>
     <p><%= @booking.trip.subtitle %></p>
-  <div class="status-user">
-    <p><i class="fas fa-circle"></i> <%= @booking.user_status %> </p>
-  </div>
+  <% if @booking.user_status == "Open to match"%>
+    <div class="status-user">
+      <p><i class="fas fa-circle"></i> <%= @booking.user_status %> </p>
+    </div>
+  <% end %>
   <div class="booking-avatar">
     <% @booking_users.each do |user| %>
       <%= cl_image_tag user.photo.key, class: "avatar-photo"%>
     <% end %>
+    <%#= link_to '' %>
   </div>
     <div class="contain-meteo d-flex">
       <div id="day-0" class="meteo">
@@ -63,12 +71,9 @@
         </div>
       </div>
     </div>
-    <div class="avalanche">
-    avalanche
-    </div>
   <div class="map-booking" data-lat="<%= @booking.trip.start_lat %>" data-long="<%= @booking.trip.start_long %>">
-    <div id="trip-map"
-      style="width: 100%; height: 200px; top: 0 !important; right: auto !important; left: auto !important;"
+    <div class="trip-booking-map" id="trip-map"
+      style="width: 100%; height: 300px; top: 0 !important; right: auto !important; left: auto !important;"
       data-waypoints="<%= @booking.trip.waypoints.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
@@ -77,7 +82,7 @@
     <a href="https://www.airbnb.com/s/chamonix/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=april&flexible_trip_dates%5B%5D=march&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&checkin=2021-03-06&checkout=2021-03-07&adults=1&source=structured_search_input_header&search_type=filter_change">FIND A PLACE TO STAY 🏠</a>
   </div>
   <div class="equipments">
-    <h2 class="w-100">Equipments</h2>
+    <p class="w-100"> <strong>Equipments :</strong></p>
     <% @booking.trip.equipments.each do |equipment| %>
       <p class="equipment <%= equipment %>"> <%= equipment %></p>
     <% end %>
@@ -87,6 +92,4 @@
   </div>
 </div>
 <div class="btn-chat">
-  <i class="fas fa-chevron-up"></i>
-  <p>CHAT 💬</p>
 </div>
