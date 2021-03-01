@@ -4,6 +4,10 @@
 </div>
 <div class="marker-info">
 <strong><%= trip.name %></strong> <br>
-<%= " #{trip.kilometers} km" %> <br>
- <%= link_to 'View this trip', trip_path(trip), class:'btn-window' %>
+<%= " #{trip.kilometers.round} km" %> <br>
+<p><strong>Difficulty: </strong>
+<% trip.difficulty.times do %>
+      <i class="fas fa-bolt"></i>
+      <% end %></p>
+ <%= link_to 'View this trip', trip_path(trip), class:'btn-window' %> <br>
 </div>
