@@ -11,6 +11,7 @@ require("chartkick")
 require("chart.js")
 
 
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -26,6 +27,7 @@ require("chart.js")
 
 // External imports
 import "bootstrap";
+import "bootstrap-slider";
 import { initTripMapbox } from '../plugins/init_trip_mapbox';
 import { initMapbox } from '../plugins/init_trip_mapbox';
 import { initToogleForm } from '../plugins/init_toogle_form';
@@ -49,6 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   initPopup();
   initPopupIndex();
   initSwipe();
+  $("#ex2").slider({});
   initOpenWeather();
 });
 
