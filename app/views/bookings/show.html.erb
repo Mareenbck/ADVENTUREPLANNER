@@ -1,8 +1,9 @@
 <%= render 'shared/avatar-black' %>
 <div class="booking-header" style="background-image: url(<%= cl_image_path @booking.trip.photo.key %>)">
-  <h1><%= @booking.trip.name %></h1>
+  <h1 data-location="<%= @booking.trip.location %>"><%= @booking.trip.location %></h1>
 </div>
 <div class="container">
+  <h2><%= @booking.trip.name %></h2>
   <div class="booking-date">
     <p> <%= @booking.begin_date %></p>
   </div>
@@ -15,17 +16,57 @@
       <%= cl_image_tag user.photo.key, class: "avatar-photo"%>
     <% end %>
   </div>
-  <div class="meteo">
-    <div class="meteo-icon">
-      meteo
-    </div>
-    <div class="meteo-temperature">
+    <div class="contain-meteo d-flex">
+      <div id="day-0" class="meteo">
+        <div class="meteo-icon">
+          <img class="img" src="" alt="">
+        </div>
+        <div class="degres">
+        </div>
+        <div class="main">
+        </div>
+      </div>
+      <div id="day-1" class="meteo">
+        <div class="meteo-icon">
+          <img class="img" src="" alt="">
+        </div>
+        <div class="degres">
+        </div>
+        <div class="main">
+        </div>
+      </div>
+      <div id="day-2" class="meteo">
+        <div class="meteo-icon">
+          <img class="img" src="" alt="">
+        </div>
+        <div class="degres">
+        </div>
+        <div class="main">
+        </div>
+      </div>
+      <div id="day-3" class="meteo">
+        <div class="meteo-icon">
+          <img class="img" src="" alt="">
+        </div>
+        <div class="degres">
+        </div>
+        <div class="main">
+        </div>
+      </div>
+      <div id="day-4" class="meteo">
+        <div class="meteo-icon">
+          <img class="img" src="" alt="">
+        </div>
+        <div class="degres">
+        </div>
+        <div class="main">
+        </div>
+      </div>
     </div>
     <div class="avalanche">
     avalanche
     </div>
-  </div>
-  <div class="map-booking">
+  <div class="map-booking" data-lat="<%= @booking.trip.start_lat %>" data-long="<%= @booking.trip.start_long %>">
     <div id="trip-map"
       style="width: 100%; height: 200px; top: 0 !important; right: auto !important; left: auto !important;"
       data-waypoints="<%= @booking.trip.waypoints.to_json %>"
