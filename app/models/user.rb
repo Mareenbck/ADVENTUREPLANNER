@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :trips, through: :bookings
   has_one_attached :photo
   has_many :messages
+
+  def find_chatroom(chat)
+    bookings.find_by(chatroom_id: chat.id)
+  end
+  
 end
