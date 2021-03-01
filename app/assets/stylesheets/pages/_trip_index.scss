@@ -1,3 +1,8 @@
+.mapboxgl-popup-content {
+    padding: 0px 0px 10px !important;
+    border-radius: 10px !important;
+}
+
 .box-card {
     border: 1px thin black;
     border-radius: 10px;
@@ -10,8 +15,8 @@
     overflow: hidden;
     display: grid;
     grid-template-columns: 50% 50%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .box-info {
@@ -29,11 +34,15 @@
     display: grid;
     grid-template-columns: 100%;
     column-gap: 20px;
-    row-gap: 20px;
-    margin-bottom: 100px;
+    row-gap: 10px;
+    margin-bottom: 25px;
     padding-bottom: 100px;
     width: 100%;
 
+}
+
+.container-card a {
+    text-decoration: none;
 }
 
 .btn-index {
@@ -51,6 +60,8 @@
     margin-bottom: 10px;
     margin-left: 10px;
     border: none;
+    position: relative;
+    right: 95px;
   }
 
   .photo-index {
@@ -83,21 +94,21 @@
     padding-left: 10px;
     justify-content: center;
     width: 150px;
-    height: 100px;
+    height: 120px;
     align-items: center;
     margin: auto;
 }
 
-.mapboxgl-popup-content {
-    padding: 0px 0px 10px;
-    border-radius: 10px;
-}
+
 
 #map {
-    border-radius: 10px;
     margin: auto 0;
     z-index: 1;
-    margin-top: 80px;
+    margin-bottom: 0px;
+    background-attachment: scroll;
+    top: 0;
+    position: fixed;
+    z-index: 0;
 }
 
 
@@ -115,18 +126,19 @@
     margin: auto 0;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-left: 10px;
     margin-top: 10px;
+    border: none;
    
   }
 
   .fa-sliders-h {
       position: absolute;
-      top: 100px;
+      top: 30px;
       z-index: 10;
-      right: 40px;
+      left: 40px;
       font-size: 20px;
       background-color: white;
       border-radius: 5px;
@@ -135,9 +147,9 @@
 
   .popup-index {
     position: absolute;
-    top: 100px;
+    top: 250px;
     z-index: 10;
-    right: 100px;
+    right: 60px;
     font-size: 15px;
     border-radius: 5px;
     padding: 7px;
@@ -148,7 +160,17 @@
     background-color: $rid-grey;
 }
 
+.popup-index h4 {
+ color: #447B9D ;
+}
+
 .drop-difficulty {
+    border-radius: 10px;
+    margin: auto;
+    border: none;
+}
+
+.drop-kilometers {
     border-radius: 10px;
     margin: auto;
     border: none;
@@ -158,4 +180,18 @@
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: scroll;
+    background: white;
+    z-index: 2;
+    border-radius: 15px;
+    position: absolute;
+    top: 400px;
 }

@@ -13,12 +13,16 @@ class TripsController < ApplicationController
       @trips = @trips.where(difficulty: params[:difficulty])
     end
 
+    if params.dig(:kilometers).present?
+      @trips = @trips.where(kilometers: params[:kilometers])
+    end
+
     @markers = @trips.map do |trip|
       {
         lat: trip.start_lat,
         lng: trip.start_long,
         infoWindow: render_to_string(partial: "info_window", locals: { trip: trip }),
-        image_url: helpers.asset_url('https://www.designfreelogoonline.com/wp-content/uploads/2018/03/000946-Free-logo-maker-Mountains-Logo-Logo-01.png')
+        image_url: helpers.asset_url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/512px-Map_marker.svg.png')
         
       }
     end
