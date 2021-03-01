@@ -3,10 +3,6 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(current_user.chatrooms)
   end
 
-  def show
-  end
-
-
 end
 
 # il faudra créer une policy pour la chatroom pour afficher l'index
