@@ -29,9 +29,12 @@ import "bootstrap";
 import { initTripMapbox } from '../plugins/init_trip_mapbox';
 import { initMapbox } from '../plugins/init_trip_mapbox';
 import { initToogleForm } from '../plugins/init_toogle_form';
-import { initPopup} from '../plugins/init_popup';
-import { initPopupIndex} from '../plugins/init_popup_index';
+
+import { initPopup } from '../plugins/init_popup';
+import { initPopupIndex } from '../plugins/init_popup_index';
+import { initSwipe } from '../plugins/init_swipe';
 import { initOpenWeather } from '../plugins/init_openweather';
+
 
 
 // Internal imports, e.g:
@@ -45,6 +48,7 @@ document.addEventListener('turbolinks:load', () => {
   initToogleForm();
   initPopup();
   initPopupIndex();
+  initSwipe();
   initOpenWeather();
 });
 
