@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     if bookings != []
       @booking.chatroom = bookings.first.chatroom
     else
-      @chatroom = Chatroom.create(name: @booking.trip.name)
+      @chatroom = Chatroom.create(name: "#{@booking.trip.name} - On #{@booking.begin_date}")
       @booking.chatroom = @chatroom
     end
   # si mon trip n'a pas été réservé au meme date, je créé un nouveau chatrom et je l'associe à booking
