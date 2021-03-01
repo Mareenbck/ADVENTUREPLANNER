@@ -5,7 +5,11 @@
 </div>
 <% @chatrooms.each do |chat| %>
   <div>
-  <% booking = Booking.find_by(chatroom_id: chat.id) %>
-    <h2><%= link_to chat.name, booking_path(booking.id) %></h2>
+    <h2><%= chat.name %></h2>
+    <% if chat.messages.any? %>
+      <p><%= chat.messages.last.content.truncate(50) %></p>
+      <%= time_ago_in_words(chat.messages.last.created_at) %>
+      <p><%= cl_image_tag chat.messages.last.user.photo.key %> </p>
+    <% end %>
   </div>
 <% end %>
