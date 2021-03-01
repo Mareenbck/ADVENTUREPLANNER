@@ -1,7 +1,7 @@
 class ChatroomPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      user.chatrooms
       # scope.joins(bookings: [:user]).where(bookings: {user: user})
     end
   end
