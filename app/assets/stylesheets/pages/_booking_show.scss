@@ -169,3 +169,27 @@
   }
 }
 
+.meteo-icon {
+  & img {
+    width: 65px;
+  }
+}
+
+.degres {
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Poppins';
+  font-weight: 200;
+}
+
+.main {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 200;
+}
+
+.contain-meteo {
+  position: relative;
+  left: -15px;
+}
+
