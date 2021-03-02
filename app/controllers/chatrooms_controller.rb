@@ -1,8 +1,11 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date >= ?', Date.today )
+    if params[:chatrooms] == "upcoming_trips"
+      @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date >= ?', Date.today )
+    else
+      @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date < ?', Date.today )
+    end
   end
-
 end
 
 # il faudra créer une policy pour la chatroom pour afficher l'index
