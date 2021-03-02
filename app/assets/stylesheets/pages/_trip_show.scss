@@ -23,7 +23,7 @@
   width: 100vw;
 }
 
-.fa-bolt{
+#trips-show .fa-bolt{
   color: $rid-blue;
   font-size: 20px;
 }
@@ -99,4 +99,16 @@
 #note{
   margin-bottom: 20px;
   font-size: 20px;
+}
+
+#heart-favorite {
+  position: absolute;
+  right: 30px;
+  font-size: x-large
+}
+
+#heart-favorite-full {
+  position: absolute;
+  right: 30px;
+  font-size: x-large
 }

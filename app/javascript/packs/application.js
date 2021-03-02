@@ -37,9 +37,13 @@ import { initChat } from '../plugins/init_chat';
 import { initPopupIndex } from '../plugins/init_popup_index';
 import { initSwipe } from '../plugins/init_swipe';
 import { initOpenWeather } from '../plugins/init_openweather';
+
+import { initSwiper } from '../plugins/init_swiper';
+
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initBtnDashboard } from '../plugins/init_btn_dashboard';
 import { initBtnUpcoming } from '../plugins/init_btn_dashboard';
+
 
 
 
@@ -58,8 +62,9 @@ document.addEventListener('turbolinks:load', () => {
   $("#ex2").slider({});
   initOpenWeather();
   initChat();
+
+  initSwiper();
+
   initChatroomCable();
-  initBtnDashboard();
-  initBtnUpcoming();
 });
 
