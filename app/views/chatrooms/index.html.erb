@@ -1,12 +1,15 @@
 <%= render 'shared/avatar-black' %>
 <div id='pagetitle'>
-<h1>Chatrooms</h1>
-<p>For future trips</p>
+<h1 id='titleh1'>Chatrooms</h1>
+</div>
+<div class="choose-chat">
+    <%= link_to "Upcoming trips", chatrooms_path(chatrooms: "upcoming_trips"), class: "upcoming-trips"  %>
+    <%= link_to "Previous trips", chatrooms_path(chatrooms: "previous_trips"), class: "previous-trips"  %>
 </div>
 <% @chatrooms.each do |chat| %>
   <div>
 
-    <h2><%= link_to chat.name, booking_path(current_user.find_chatroom(chat)) %></h2>
+    <h2 class='chatname'><%= link_to chat.name, booking_path(current_user.find_chatroom(chat)) %></h2>
     <% if chat.messages.any? %>
       <p><%= chat.messages.last.content.truncate(50) %></p>
       <%= time_ago_in_words(chat.messages.last.created_at) %>

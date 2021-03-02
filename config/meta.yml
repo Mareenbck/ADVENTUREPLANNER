@@ -1,4 +1,4 @@
 meta_product_name: "Adventure Planner"
 meta_title: "Adventure Planner - Book a mountain trip"
 meta_description: "the first reference to organize your mountain hikes in complete safety. meet friends, enjoy your adventure and share your trips around you."
-meta_image: "adventure.png" # should exist in `app/assets/images/`
+meta_image: "montain-img.jpg" # should exist in `app/assets/images/`
