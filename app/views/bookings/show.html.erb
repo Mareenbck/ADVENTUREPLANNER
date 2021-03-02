@@ -33,7 +33,7 @@
         </div>
       <% end %>
     </div>
-    <div class="contain-meteo d-flex">
+    <div data-openweathertoken="<%= ENV['OPENWEATHER_API_KEY'] %>" class="contain-meteo d-flex">
       <div id="day-0" class="meteo">
         <div class="meteo-icon">
           <img class="img" src="" alt="">
@@ -123,7 +123,6 @@
     </div>
   <% end %> 
   </div>
-
 <% end %>
 </div>
 
