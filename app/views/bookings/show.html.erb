@@ -103,6 +103,7 @@
 <% if @booking.chatroom.bookings.count > 1 %>
   <div id='class'>
     <div id='btn-chat'>
+    <i class="fas fa-comment-alt"></i>
     </div>
 <div id='chat' class="d-none">
   <div id="chat-header">
@@ -124,10 +125,14 @@
   <% end %> 
   </div>
   <div id='chat-new'>
-  <%= simple_form_for [ @booking.chatroom, @message ], method: :post do |f| %>
- <%= f.input :content, label: false, placeholder: "Tape your message" %>
- <%= f.submit "SEND" %>
-<% end %>
+    <%= simple_form_for [ @booking.chatroom, @message ], method: :post, remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Type here..." %>
+      <%= button_tag type: 'submit', id: "send-btn" do %>
+          <i class="fa fa-paper-plane" aria-hidden="true"></i>
+      <% end %>
+  <%#= f.submit "test", id:'send-btn' %>
+  <%# <i class='fas fa-arrow-circle-right'</i> %>
+    <% end %>
   </div>
   <% end %>
 </div>

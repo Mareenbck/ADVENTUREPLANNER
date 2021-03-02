@@ -5,7 +5,7 @@ const initChat = () => {
   const chatbtn = document.querySelector('#btn-chat');
   chatbtn.addEventListener('click', () => {
     chat.classList.remove('d-none');
-    console.log('coucou')
+    document.querySelector("#chat .message:last-child").scrollIntoView({behavior: 'smooth'})
   })
   
   const close = document.querySelector('.fa-times');
