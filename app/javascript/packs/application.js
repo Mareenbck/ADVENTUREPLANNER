@@ -37,6 +37,7 @@ import { initChat } from '../plugins/init_chat';
 import { initPopupIndex } from '../plugins/init_popup_index';
 import { initSwipe } from '../plugins/init_swipe';
 import { initOpenWeather } from '../plugins/init_openweather';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 
 
@@ -55,5 +56,6 @@ document.addEventListener('turbolinks:load', () => {
   $("#ex2").slider({});
   initOpenWeather();
   initChat();
+  initChatroomCable();
 });
 

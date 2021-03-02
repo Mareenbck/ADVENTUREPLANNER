@@ -1,8 +1,44 @@
+#titleh1{
+  font-size:35px;
+}
+
 #pagetitle{
+  color: $dark-blue;
   margin-top: 55px;
   text-align: center;
-  color: $dark-blue;
   font-weight: bold;
+}
+
+.chatname {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.choose-chat{
+background-color: $rid-grey;
+padding-right: 20px;
+border-radius: 25px;
+display: flex;
+justify-content: space-between;
+margin-left: 10px;
+margin-right: 10px;
+align-items: center;
+text-decoration: none;
+margin-top: 20px;
+margin-bottom: 20px;
+.upcoming-trips {
+  background-color: #00D3FE;
+  padding: 10px 20px 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 0 5px lightgrey;
+  color: white;
+}
+a{
+  text-decoration: none;
+}
+&:hover{
+  text-decoration: none;
+}
 }
 // a {
 //   text-decoration: none;

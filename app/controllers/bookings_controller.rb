@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
     @booking_users = bookings.map { |booking| booking.user }
     @review = Review.new
     authorize @booking
-
+    @message = Message.new
     # @markers = @booking.trip.each do |trip|
     #   {
     #     lat: trip.start_lat,
