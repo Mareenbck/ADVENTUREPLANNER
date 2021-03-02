@@ -20,16 +20,16 @@
     <%= pie_chart current_user.trips.group(:difficulty).count, width: "180px", height: "110px", colors: ["#3b926e", "#3b4992", "#923b3b", "#191818"], legend: false, donut: true %>
   </div>
   </div>
-  <div class="btn-mytrip">
-    <%= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips", id: "lasttrips" %>
-    <%= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips", id: "upcomingtrips"  %>
+<!--   <div class="btn-mytrip">
+    <%#= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips", id: "lasttrips" %>
+    <%#= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips", id: "upcomingtrips"  %>
 
-  </div>
+  </div> -->
 
 
-  <div class="nav nav-tabs">
-    <a class="nav-item nav-link active" href="#first_tab" data-toggle="tab">last bookings</a>
-    <a class="nav-item nav-link" href="#second_tab" data-toggle="tab">upcoming bookings</a>
+  <div class="nav nav-tabs btn-mytrip">
+    <a class="nav-item nav-link active" href="#first_tab" data-toggle="tab">My last trips</a>
+    <a class="nav-item nav-link " href="#second_tab" data-toggle="tab">My upcoming trips</a>
   </div>
   <div class="tab-content">
     <div class="tab-pane active" id="first_tab">
