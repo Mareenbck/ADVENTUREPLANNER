@@ -12,6 +12,15 @@
   <div>
     <h2><%= @trip.name  %></h2>
     <p><%= @trip.subtitle %></p>
+    <% if @is_favorite %>
+      <%= link_to trip_favorite_path(@trip), method: :delete do %>
+      <i class="fas fa-heart" id="heart-favorite-full"></i>
+      <% end %>
+    <% else %>
+      <%= link_to trip_favorites_path(@trip), method: :post do %>
+      <i class="far fa-heart" id="heart-favorite"></i>
+      <% end %>
+    <% end %>
     <div id='note'>
       <% @note.times do %>
         <i class="fas fa-star good"></i>

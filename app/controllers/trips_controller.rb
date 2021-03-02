@@ -33,7 +33,7 @@ class TripsController < ApplicationController
     end
     @note = (@ratings.sum / @ratings.length).round
     @waypoints = @trip.waypoints
-
+    @is_favorite = current_user.favorites.find_by(trip: @trip).present?
   end
 
 end
