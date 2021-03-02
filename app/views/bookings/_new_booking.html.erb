@@ -10,7 +10,7 @@
   <h2 id="popup-title">✌️ Let's plan <%= @trip.name %></h2>
   <%= simple_form_for [@trip, @booking] do |f| %>
     <%= f.date_field :begin_date, value: Date.today, id: "begin-date"%>
-    <%= f.select :user_status, options_for_select(%w[Yes No]), prompt:'Need teammates?' %>
+    <%= f.select :user_status, options_for_select([["Yes", "Open to match"], ["No", "Not open to match"]]), prompt:'Need teammates?' %>
     <br>
     <%= f.submit "LET'S DO IT", class: "btn-big"%>
   <% end %>

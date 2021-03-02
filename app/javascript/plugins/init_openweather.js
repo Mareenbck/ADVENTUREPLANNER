@@ -4,12 +4,14 @@ const initOpenWeather = () => {
 
   if (document.querySelector(".map-booking")) {
 
-  
+
 
     const locationLat = document.querySelector(".map-booking").dataset.lat;
     const locationLong = document.querySelector(".map-booking").dataset.long;
+    const openWeatherAccessToken = document.querySelector(".contain-meteo").dataset.openweathertoken;
+
     console.log(location)
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${locationLat}&lon=${locationLong}&units=metric&appid=3ec494677eb396bad30e14883661e348`)
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${locationLat}&lon=${locationLong}&units=metric&appid=${openWeatherAccessToken}`)
       .then(response => response.json())
       .then((data) => {
         console.log(data);
@@ -40,7 +42,7 @@ const initOpenWeather = () => {
         } )
 
     })
-  }; 
+  };
 }
 
 export { initOpenWeather }
