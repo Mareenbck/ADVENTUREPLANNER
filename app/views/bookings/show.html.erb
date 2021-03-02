@@ -4,26 +4,35 @@
   <%= link_to ' Back', dashboard_path, class:'back' %>
 </div>
 <div class="booking-header" style="background-image: url(<%= cl_image_path @booking.trip.photo.key %>)">
-  <h1 data-location="<%= @booking.trip.location %>"><%= @booking.trip.location %></h1>
 </div>
 <div class="container">
   <h2><%= @booking.trip.name %></h2>
-  <div class="booking-date">
-    <p> <%= @booking.begin_date %></p>
-  </div>
-    <p><%= @booking.trip.location %></p>
-    <p><%= @booking.trip.subtitle %></p>
-  <% if @booking.user_status == "Open to match"%>
-    <div class="status-user">
-      <p><i class="fas fa-circle"></i> <%= @booking.user_status %> </p>
+  <div class="date-loc">
+    <div class="booking-date">
+      <i class="fas fa-clock"></i>
+      <p><%= @booking.begin_date %></p>
     </div>
-  <% end %>
-  <div class="booking-avatar">
-    <% @booking_users.each do |user| %>
-      <%= cl_image_tag user.photo.key, class: "avatar-photo"%>
-    <% end %>
-    <%#= link_to '' %>
+    <div class="booking-location">
+      <i class="fas fa-map-marker-alt"></i>
+      <p><%= @booking.trip.location %></p>
+    </div>
   </div>
+    <p><%= @booking.trip.subtitle %></p>
+    <div class="booking-social">
+      <div class="booking-avatar">
+        <% @booking_users.each do |user| %>
+          <%= cl_image_tag user.photo.key, class: "avatar-photo"%>
+        <% end %>
+      </div>
+      <% if @booking.user_status == "Open to match"%>
+        <div class="status-user">
+          <p><i class="fas fa-circle"></i> <%= @booking.user_status %> </p>
+          <% if @booking.chatroom.bookings.count == 1 %>
+            <p id="status-text"> You will be notified if someone books this trip</p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
     <div class="contain-meteo d-flex">
       <div id="day-0" class="meteo">
         <div class="meteo-icon">
@@ -79,7 +88,7 @@
     </div>
   </div>
   <div class="btn-booking">
-    <a href="https://www.airbnb.com/s/chamonix/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=april&flexible_trip_dates%5B%5D=march&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&checkin=2021-03-06&checkout=2021-03-07&adults=1&source=structured_search_input_header&search_type=filter_change">FIND A PLACE TO STAY 🏠</a>
+    <a href="https://www.airbnb.com/s/<%= @booking.trip.location %>/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=april&flexible_trip_dates%5B%5D=march&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&checkin=2021-03-06&checkout=2021-03-07&adults=1&source=structured_search_input_header&search_type=filter_change">FIND A PLACE TO STAY 🏠</a>
   </div>
   <div class="equipments">
     <p class="w-100"> <strong>Equipments :</strong></p>
@@ -91,8 +100,10 @@
     <a href="">BUY EQUIPMENT 🎿</a>
   </div>
 </div>
-<div id='btn-chat'>
-</div>
+<% if @booking.chatroom.bookings.count > 1 %>
+  <div id='class'>
+    <div id='btn-chat'>
+    </div>
 <div id='chat' class="d-none">
   <div id="chat-header">
     <p id='chat-name'><%= @booking.chatroom.name %></p>
@@ -112,4 +123,7 @@
     </div>
   <% end %> 
   </div>
+
+<% end %>
 </div>
+
