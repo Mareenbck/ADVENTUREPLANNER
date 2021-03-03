@@ -1,10 +1,17 @@
 class ChatroomsController < ApplicationController
   def index
-    if params[:chatrooms] == "upcoming_trips"
-      @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date >= ?', Date.today )
-    else
-      @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date < ?', Date.today )
-    end
+
+    @bookings = current_user.bookings
+    raise
+
+
+    # if params[:chatrooms] == "upcoming_trips"
+    #   @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date >= ?', Date.today)
+    # elsif params[:chatrooms] == "previous_trips"
+    #   @chatrooms = policy_scope(Chatroom).joins(:bookings).where('bookings.begin_date < ?', Date.today )
+    # else
+    #   @chatrooms = policy_scope(Chatroom)
+    # end
   end
 end
 

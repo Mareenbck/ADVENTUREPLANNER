@@ -1,19 +1,31 @@
 <%= render 'shared/avatar-black' %>
-<div id='pagetitle'>
-<h1 id='titleh1'>Chatrooms</h1>
-</div>
-<div class="choose-chat">
+<div class="container">
+  <div id='pagetitle'>
+    <h1 id='titleh1'>Chatrooms</h1>
+  </div>
+
+  <div class="choose-chat">
     <%= link_to "Upcoming trips", chatrooms_path(chatrooms: "upcoming_trips"), class: "upcoming-trips"  %>
     <%= link_to "Previous trips", chatrooms_path(chatrooms: "previous_trips"), class: "previous-trips"  %>
-</div>
-<% @chatrooms.each do |chat| %>
-  <div>
-
-    <h2 class='chatname'><%= link_to chat.name, booking_path(current_user.find_chatroom(chat)) %></h2>
-    <% if chat.messages.any? %>
-      <p><%= chat.messages.last.content.truncate(50) %></p>
-      <%= time_ago_in_words(chat.messages.last.created_at) %>
-      <p><%= cl_image_tag chat.messages.last.user.photo.key %> </p>
-    <% end %>
   </div>
-<% end %>
+
+  <% @chatrooms.each do |chat| %>
+
+    <%= link_to booking_path(current_user.find_chatroom(chat)) do %>
+      <div class='clickable-chat'>
+        <div class='chat-head'>
+          <%= cl_image_tag chat.messages.last.user.photo.key, class:'chat-photo' %>
+          <h2 class='chatname'><%= chat.name %></h2>
+        </div>
+        <% if chat.messages.any? %>
+          <p class ="last-content"><%= chat.messages.last.content.truncate(80) %></p>
+          <div class="ago">
+            <%= time_ago_in_words(chat.messages.last.created_at) %>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+
+  <% end %>
+
+</div>

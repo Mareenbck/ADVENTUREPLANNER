@@ -41,10 +41,7 @@ import { initOpenWeather } from '../plugins/init_openweather';
 import { initSwiper } from '../plugins/init_swiper';
 
 import { initChatroomCable } from '../channels/chatroom_channel';
-import { initBtnDashboard } from '../plugins/init_btn_dashboard';
-import { initBtnUpcoming } from '../plugins/init_btn_dashboard';
-
-
+import { scrollToLastMessage } from  '../components/scroll_to_last_message'
 
 
 // Internal imports, e.g:
@@ -66,5 +63,6 @@ document.addEventListener('turbolinks:load', () => {
   initSwiper();
 
   initChatroomCable();
+  scrollToLastMessage();
 });
 
