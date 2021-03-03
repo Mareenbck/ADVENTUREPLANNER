@@ -45,6 +45,7 @@
     font-size: 16px;
     font-weight: bold;
     color: #457B9D;
+    margin-bottom: 6px;
 
   }
 }
@@ -57,7 +58,7 @@ canvas.chartjs-render-monitor {
 
 .btn-mytrip {
   background-color: $rid-grey;
-  padding-left: 20px;
+  height: 43px;
   border-radius: 25px;
   display: flex;
   justify-content: space-between;
@@ -67,14 +68,39 @@ canvas.chartjs-render-monitor {
   text-decoration: none;
   margin-top: 20px;
   margin-bottom: 20px;
-  .upcoming-trips {
-    background-color: #00D3FE;
-    padding: 10px 20px 10px 20px;
-    border-radius: 25px;
-    box-shadow: 0 0 5px lightgrey;
-    color: white;
-  }
+
+  box-shadow: 2px 3px 8px #69696930;
+  position: relative;
+
+.upcoming-trips {
+  position: absolute;
+  right: -3px;
+  left: 190px;
+  padding-left: 10px;
+
 }
+
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    padding: 9px 26px;
+  }
+
+.nav-tabs .nav-link.active {
+  background-color: #00D3FE;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  padding: 9px 31px 9px 26px;
+  // width: 180px;
+  // position: absolute;
+  // left: 0px;
+  // padding-left: 24px;
+  }
 
 .my-booking {
   padding-bottom: 500px;
@@ -93,4 +119,12 @@ canvas.chartjs-render-monitor {
   .booking-info {
     padding-left: 20px;
   }
+}
+
+.title-graph h6 {
+  font-size: 12px;
+}
+#dashboard a:hover {
+    color: white;
+    text-decoration: none;
 }

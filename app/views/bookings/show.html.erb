@@ -122,8 +122,9 @@
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </div>
     </div>
-  <% end %> 
+  <% end %>
   </div>
+
   <div id='chat-new'>
     <%= simple_form_for [ @booking.chatroom, @message ], method: :post, remote: true do |f| %>
       <%= f.input :content, label: false, placeholder: "Type here..." %>

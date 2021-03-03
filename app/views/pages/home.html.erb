@@ -1,5 +1,5 @@
 
-<div id="home-header"> 
+<div id="home-header">
 <%= render 'shared/avatar-white' %>
   <h1 id="h1home">Your next adventure starts here</h1>
   <%= simple_form_for :search, url: trips_path, method: :get, html: {class: 'form-inline'} do |f| %>
@@ -9,18 +9,84 @@
   <i class="fas fa-chevron-down fa1"></i>
   <i class="fas fa-chevron-down fa2"></i>
   <i class="fas fa-chevron-down fa3"></i>
-</div> 
+</div>
 
 <div id=home-body>
   <h2 class="h2-home">Find the perfect trip for you</h2>
+
+
+  <div class="filtered-search-home">
+    <%= form_tag trips_path, method: :get do %>
+     <%= select_tag :difficulty,
+        options_for_select([1, 2, 3, 4, 5]),
+        prompt: 'Difficulty',
+        class: "drop-difficulty-home"
+      %> <br> <br>
+      <p>Select Kilometers :</p>
+      <%= text_field_tag :kilometers, nil, id: "ex2", :data => {'slider-id' => 'ex1Slider','slider-min' => @min_distance,'slider-max' => @max_distance,'slider-step' => '1','slider-value' => "[#{@min_distance},#{@max_distance}]"  } %>
+      <script>
+      </script>
+      <div>
+      <%= submit_tag "Show me all trips", class: "btn-window-home" %>
+      </div>
+    <% end %>
+  </div>
+
   <h2 class="h2-home">Or let us find it for you !</h2>
+
+
+
   <h2 class="h2-home">Discover trips around you</h2>
+
+
   <h2 class="h2-home">Discover best rated trips</h2>
-  <h2 class="h2-home">Join the crew</h2>
+  <!-- Slider main container -->
+  <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+        <!-- <div class="container-card"> -->
+        <% @top_trips = [] %>
+        <% @trips.each do |t| %>
+          <% if t.average_rating >= 4 %>
+            <% @top_trips << t %>
+          <% end %>
+        <% end %>
+
+        <% @top_trips.each do |trip| %>
+          <div class="swiper-slide" style="padding-left: 10px; padding-right: 10px;">
+          <%= link_to trip_path(trip) do  %>
+            <div class="box-card-home">
+              <div class="box-photo-home">
+                <%= cl_image_tag trip.photo.key, class: 'photo-home' %>
+                <p class="show-stars">
+                  <% trip.average_rating.round.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - trip.average_rating.round).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                </p>
+              </div>
+              <div class="box-info-home">
+                <h4> <strong><%= trip.name  %></strong></h4>
+                <i class="fas fa-bolt mr-2"></i>difficulty <%= trip.difficulty %>  <br>
+                <i class="fas fa-hiking mr-2"></i><%= trip.kilometers.round  %> km <br>
+                <i class="fas fa-stopwatch mr-2"></i><%= trip.duration  %>
+              </div>
+            </div>
+          <% end %>
+          </div>
+        <% end %>
+      <!-- </div> -->
+    </div>
+
+  </div>
+  <!-- <h2 class="h2-home">Join the crew</h2> -->
   <div>
-    <%= link_to 'create my account', new_user_registration_path, class:'btn-big' %>
+    <%#= link_to 'create my account', new_user_registration_path, class:'btn-big' %>
   </div>
   <div id="sign">
-    <%= link_to 'SIGN IN', new_user_session_path, id:'sign_in' %>
+    <%#= link_to 'SIGN IN', new_user_session_path, id:'sign_in' %>
   </div>
 </div>
