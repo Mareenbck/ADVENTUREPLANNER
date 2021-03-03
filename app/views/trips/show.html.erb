@@ -1,7 +1,7 @@
 <%= render 'shared/avatar-white' %>
 <div id="back">
   <i class="fas fa-long-arrow-alt-left back"></i>
-  <%= link_to ' Back', trip_path, class:'back' %>
+  <%= link_to ' Back', trips_path, class:'back' %>
 </div>
 <div class="trip-show-map" id="trip-map"
   style="width: 100%; height: 400px;"
@@ -26,16 +26,12 @@
         <i class="fas fa-star good"></i>
       <% end %>
       <% (5-@note).times do %>
-        <i class="fas fa-star bad"></i>
+        <i class="far fa-star bad"></i>
       <% end %>
     </div>
-    <p><strong>Km : </strong> <%= @trip.kilometers.round %></p>
-    <p><strong>Duration :</strong> <%= @trip.duration %></p>
-    <p><strong>Difficulty :</strong>
-      <% @trip.difficulty.times do %>
-      <i class="fas fa-bolt"></i>
-      <% end %>
-    </p>
+                <i class="fas fa-bolt mr-2"></i>difficulty <%= @trip.difficulty %>  <br>
+                <i class="fas fa-hiking mr-2"></i><%= @trip.kilometers.round  %> km <br>
+                <i class="fas fa-stopwatch mr-2"></i><%= @trip.duration  %> <br> <br>
     <p><%= @trip.description %></p>
   </div>
   <div class="trip-photos">
