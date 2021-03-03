@@ -7,6 +7,19 @@ class ChatroomsController < ApplicationController
     @chatrooms_upcomings = @bookings_upcomings.map {|b| policy_scope(Chatroom).find(b.chatroom_id)}
     @chatrooms_passed = @bookings_passed.map {|b| policy_scope(Chatroom).find(b.chatroom_id)}
 
+    # @next_chats = []
+    # @chatrooms_upcomings.map { |c| 
+    # if c.bookings.count > 1
+    # @next_chats << c 
+    # end }
+
+    # @previous_chats = []
+    # @chatrooms_passed.map { |c| 
+    # if c.bookings.count > 1
+    # @next_chats << c 
+    # end }
+
+
   end
 end
 
