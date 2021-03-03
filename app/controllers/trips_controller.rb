@@ -7,7 +7,8 @@ class TripsController < ApplicationController
     @max_distance = @trips.order('kilometers ASC').last.kilometers.ceil
     @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
     @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
-
+    
+    
     @markers = @trips.map do |trip|
       {
         lat: trip.start_lat,
@@ -29,8 +30,5 @@ class TripsController < ApplicationController
     end
     @note = (@ratings.sum / @ratings.length).round
     @waypoints = @trip.waypoints
-
-    @is_favorite = current_user.favorites.find_by(trip: @trip).present?
-
   end
 end

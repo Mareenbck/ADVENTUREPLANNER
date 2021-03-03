@@ -5,9 +5,8 @@ class FavoritesController < ApplicationController
         @favorite.trip = @trip
         @favorite.user = current_user
         @favorite.save
-        redirect_to trip_path(@trip)
+        # redirect_to trip_path(@trip)
         # else
-
         skip_authorization
         # redirect_to root_path
     end
@@ -18,7 +17,7 @@ class FavoritesController < ApplicationController
         # @favorite.user = current_user
         @favorite = current_user.favorites.find_by(trip: @trip)
         @favorite.destroy
-        redirect_to trip_path(@trip)
+        # redirect_to trip_path(@trip)
 
         skip_authorization
       end
