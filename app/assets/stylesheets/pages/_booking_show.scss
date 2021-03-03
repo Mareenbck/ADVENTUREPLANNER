@@ -107,15 +107,14 @@
 .btn-booking {
   text-decoration: none;
   background-color: white;
-  color: $rid-blue;
-  border: 2px solid $rid-blue;
+  color: #00D3FE;
+  border: 2px solid #00D3FE;
   font-weight: bold;
   border-radius: 25px;
   text-align: center;
   padding: 10px;
   margin: 2rem;
   transition: background-color 0.3s ease;
-  box-shadow: 0 0 3px #a9b9bd;
   a {
     color: $rid-blue;
     text-decoration: none;
@@ -270,7 +269,7 @@
     width: 85%;
     margin-bottom: 35px;
     padding: 15px;
-  
+
     &.current-user {
       align-self: flex-end;
       text-align: right;
@@ -288,11 +287,11 @@
       margin-top:8px;
       border-radius: 15px 15px 15px 15px;
     }
-  } 
+  }
   .author{
     font-weight: bold;
   }
-  
+
   #chat-header{
     position: fixed;
     border-radius: 25px 25px 0px 0px;
@@ -340,7 +339,7 @@
   padding: 8px;
   .form-control.string.optional{
     border: none;
-  }  
+  }
   #send-btn{
     align-items: flex-end;
     background-color: $rid-blue;
