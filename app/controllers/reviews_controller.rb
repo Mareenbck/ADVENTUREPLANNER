@@ -5,10 +5,15 @@ class ReviewsController < ApplicationController
     authorize @review
     @review.user = current_user
     @review.booking = @booking
-    if @review.save 
+    if @review.save
       redirect_to booking_path(@booking)
     else
-      render 'reviews/new_review'
+      @bookings = current_user.bookings
+
+      @last_bookings = @bookings.where('DATE(begin_date) < ?', Date.today)
+      @upcoming_bookings = @bookings.where('DATE(begin_date) >= ?', Date.today)
+
+      render 'dashboards/show'
     end
   end
 

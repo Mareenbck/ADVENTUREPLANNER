@@ -1,6 +1,8 @@
 class DashboardsController < ApplicationController
 
   def show
+
+    @review = Review.new
     @bookings = current_user.bookings
 
 

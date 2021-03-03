@@ -41,8 +41,8 @@ import { initOpenWeather } from '../plugins/init_openweather';
 import { initSwiper } from '../plugins/init_swiper';
 
 import { initChatroomCable } from '../channels/chatroom_channel';
-import { initBtnDashboard } from '../plugins/init_btn_dashboard';
-import { initBtnUpcoming } from '../plugins/init_btn_dashboard';
+
+import { initStarRating } from '../plugins/init_star_rating';
 
 
 
@@ -66,5 +66,6 @@ document.addEventListener('turbolinks:load', () => {
   initSwiper();
 
   initChatroomCable();
+  initStarRating();
 });
 
