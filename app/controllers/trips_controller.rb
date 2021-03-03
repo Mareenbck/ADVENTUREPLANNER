@@ -8,6 +8,10 @@ class TripsController < ApplicationController
     @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
     @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
 
+    if params.dig(:search, :location).present?
+      @trips = @trips.where('location ILIKE ?', params[:search][:location])
+    end
+
     @markers = @trips.map do |trip|
       {
         lat: trip.start_lat,
