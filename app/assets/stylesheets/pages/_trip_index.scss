@@ -1,6 +1,6 @@
 .mapboxgl-popup-content {
-    padding: 0px 0px 10px !important;
-    border-radius: 10px !important;
+  padding: 0px 0px 10px !important;
+  border-radius: 10px !important;
 }
 
 .box-card {
@@ -39,7 +39,7 @@
 }
 
 .container-card a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .btn-index {
@@ -105,22 +105,18 @@
 
 
 .btn-window {
-  background-color: $rid-blue;
+  background-color: #00D3FE;
   font-weight: bold;
   border-radius: 50px;
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  color:white;
-  font-size: 12px;
+  color: white;
+  font-size: 16px;
   text-transform: uppercase;
-  margin: auto 0;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 10px;
   border: none;
+  padding: 10px 30px 10px 30px;
+  margin-top: 20px;
 }
 
 .fa-sliders-h {
@@ -136,21 +132,21 @@
 
 .popup-index {
   position: absolute;
-  top: 250px;
+  bottom: 75px;
   z-index: 10;
-  right: 60px;
+  right: 0px;
   font-size: 15px;
-  border-radius: 5px;
-  padding: 7px;
+  border-radius: 15px 15px 0 0;
+  /* padding: 7px; */
   align-items: center;
   text-align: center;
   margin: auto 0;
-  padding: 20px;
-  background-color: $rid-grey;
-}
-
-.popup-index h4 {
- color: #447B9D;
+  padding: 40px;
+  background-color: #F6F6F6;
+  box-shadow: -1px -3px 8px #d6d1bf;
+  h4 {
+    color: #447B9D;
+  }
 }
 
 .drop-difficulty {
@@ -181,8 +177,7 @@
   z-index: 2;
   border-radius: 15px;
   position: absolute;
-  top: 400px;
-  padding-bottom: 75px;
+  bottom: 60px;
 }
 
 .titre-favorites {
@@ -214,3 +209,6 @@
   }
 }
 
+.active-marker {
+  background-size: 100px;
+}

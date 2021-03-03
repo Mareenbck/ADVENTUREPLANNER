@@ -5,6 +5,7 @@ const initTripMapbox = () => {
   const mapElement = document.getElementById('trip-map');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
+
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
     const waypoints = JSON.parse(mapElement.dataset.waypoints);
@@ -27,7 +28,7 @@ const initTripMapbox = () => {
         });
         // add the DEM source as a terrain layer with exaggerated height
         map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
-         
+
         // add a sky layer that will show when the map is highly pitched
         map.addLayer({
         'id': 'sky',
@@ -40,10 +41,6 @@ const initTripMapbox = () => {
         });
       addLayer(map, waypoints)
     });
-
-    
-
-    
   }
 };
 
@@ -80,10 +77,14 @@ const fitMapToWaypoints = (map, waypoints) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 16, duration: 0 });
 };
 
+
+
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
+
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
@@ -100,21 +101,47 @@ const initMapbox = () => {
       element.style.backgroundSize = 'cover';
       element.style.width = '35px';
       element.style.height = '50px';
+      element.id = `marker-${marker.id}`;
+      // ->> ELement.addEvent
+      // element.addEventListener("click", (event) => {
+      //   // console.log(mapElement.querySelectorAll(".marker"))
+      //   // // console.log(mapElement.querySelector())
+      //   // // console.log(mapElement.querySelector(``))
+      // })
+
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);
   });
+
   fitMapToMarkers(map, markers);
+
+    mapElement.addEventListener("activecard", (event) => {
+      // console.log(event.detail);
+      const card = event.detail.el;
+      const cardInfo = card.querySelector("#box-info-index");
+      const allMarkers = mapElement.querySelectorAll("[id^='marker-']");
+      allMarkers.forEach((marker) => {
+        marker.classList.remove("active-marker");
+      });
+      map.flyTo({center: [parseFloat(cardInfo.dataset.long), parseFloat(cardInfo.dataset.lat)]});
+      const marker = mapElement.querySelector(`#marker-${cardInfo.dataset.markerId}`)
+      marker.classList.add("active-marker");
+    });
   }
 };
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 11, duration: 0 });
+  map.fitBounds(bounds, { padding: 60, maxZoom: 9, duration: 0 });
 };
 
 export { initTripMapbox };
 export { initMapbox };
 
+
+// Quand on clicke sur le marker -> déclenche event -> récupérer l'id
+// chercher la carte qui a le meme id
+// Ajouter la

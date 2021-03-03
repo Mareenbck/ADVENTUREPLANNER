@@ -16,7 +16,7 @@
         prompt: 'Difficulty',
         class: "drop-difficulty"
       %> <br> <br>
-      <p>Select Kilometers:</p>
+      <p>How many km ?</p>
       <%= text_field_tag :kilometers, nil, id: "ex2", :data => {'slider-id' => 'ex1Slider','slider-min' => @min_distance,'slider-max' => @max_distance,'slider-step' => '1','slider-value' => "[#{@min_distance},#{@max_distance}]"  } %>
       <%= submit_tag "Show me all trips", class: "btn-window" %>
   <% end %>
@@ -39,9 +39,9 @@
                   <% end %>
                 </p>
               </div>
-              <div class="box-info-home" id="box-info-index">
+              <div class="box-info-home" id="box-info-index" data-lat="<%= trip.start_lat %>" data-long="<%= trip.start_long %>" data-marker-id="<%= trip.id %>">
                 <h4> <strong><%= trip.name  %></strong></h4>
-                <i class="fas fa-bolt mr-2"></i>difficulty <%= trip.difficulty %>  <br>
+                <i class="fas fa-bolt mr-2"></i>Difficulty <%= trip.difficulty %>  <br>
                 <i class="fas fa-hiking mr-2"></i><%= trip.kilometers.round  %> km <br>
                 <i class="fas fa-stopwatch mr-2"></i><%= trip.duration  %>
               </div>
