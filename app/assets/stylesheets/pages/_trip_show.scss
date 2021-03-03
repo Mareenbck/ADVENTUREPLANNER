@@ -37,6 +37,7 @@
 
 #trip-photo {
   width: 125%;
+  height: 100%;
 }
 
 .reviews {
@@ -58,7 +59,7 @@
 }
 
 .review-content {
-  background-color: $dark-blue;
+  background-color: $rid-grey;
   padding: 15px;
   color: white;
   border-radius: 15px;
@@ -89,11 +90,11 @@
 }
 
 .good{
-  color:$rid-blue;
+  color: #FFA900;
 }
 
 .bad{
-  color:$dark-grey;
+  color: #FFA900;
 }
 
 #note{
@@ -104,11 +105,13 @@
 #heart-favorite {
   position: absolute;
   right: 30px;
+  top: 25px;
   font-size: x-large
 }
 
 #heart-favorite-full {
   position: absolute;
   right: 30px;
+  top: 25px;
   font-size: x-large
 }
