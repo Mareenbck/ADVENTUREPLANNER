@@ -191,14 +191,14 @@ review_andrea_mont_blanc = Review.create!(rating: 4, landscape_rating: 4, signag
 review_julia_breche_de_puisieux = Review.create!(rating: 4, landscape_rating: 4, signage_rating: 3, difficulty_rating: 4, content: "This was my first time doing the Breche de Puisieux and I have to say that I was not disapointed. True nature and good pow!", user: julia, booking: booking_breche_de_puisieux_1)
 review_chloe_breche_de_puisieux = Review.create!(rating: 4, landscape_rating: 4, signage_rating: 3, difficulty_rating: 4, content: "I did this trip two weeks ago, the weather was nice and snow was packed. We really enjoyed our day with my friends, it was accessible even if we were not all expert.", user: chloe, booking: booking_breche_de_puisieux_2)
 
-review_couloir_du_trappier = Review.create!(rating: 4, landscape_rating: 3, signage_rating: 4, difficulty_rating: 4, content: "", user: alex, booking: booking_couloir_du_trappier)
-review_mont_lachat_north_east_face = Review.create!(rating: 3, landscape_rating: 3, signage_rating: 4, difficulty_rating: 2, content: "", user: emma, booking: booking_mont_lachat_north_east_face)
-review_la_jonction = Review.create!(rating: 4, landscape_rating: 4, signage_rating: 4, difficulty_rating: 4, content: "", user: alex, booking: booking_la_jonction)
-review_col_du_tacul = Review.create!(rating: 5, landscape_rating: 4, signage_rating: 3, difficulty_rating: 4, content: "", user: rico, booking: booking_col_du_tacul)
-review_couloir_spencer = Review.create!(rating: 3, landscape_rating: 3, signage_rating: 2, difficulty_rating: 4, content: "", user: andrea, booking: booking_couloir_spencer)
-review_col_du_passon = Review.create!(rating: 4, landscape_rating: 5, signage_rating: 4, difficulty_rating: 4, content: "", user: chloe, booking: boooking_col_du_passon)
-review_aiguille_verte = Review.create!(rating: 3, landscape_rating: 4, signage_rating: 3, difficulty_rating: 5, content: "", user: bobby, booking: booking_aiguille_verte)
-review_couloir_pissoir = Review.create!(rating: 5, landscape_rating: 5, signage_rating: 5, difficulty_rating: 5, content: "", user: julia, booking: booking_couloir_pissoir)
+review_couloir_du_trappier = Review.create!(rating: 4, landscape_rating: 3, signage_rating: 4, difficulty_rating: 4, content: "Great Trip! Really enjoyed it", user: alex, booking: booking_couloir_du_trappier)
+review_mont_lachat_north_east_face = Review.create!(rating: 3, landscape_rating: 3, signage_rating: 4, difficulty_rating: 2, content: "It was hard but I loved it, would do it again for sure.", user: emma, booking: booking_mont_lachat_north_east_face)
+review_la_jonction = Review.create!(rating: 4, landscape_rating: 4, signage_rating: 4, difficulty_rating: 4, content: "La jonction is one of the best trip around Chamonix. I highly recomend you to do it", user: alex, booking: booking_la_jonction)
+review_col_du_tacul = Review.create!(rating: 5, landscape_rating: 4, signage_rating: 3, difficulty_rating: 4, content: "The landscapes were amazing, me and my friends loved it", user: rico, booking: booking_col_du_tacul)
+review_couloir_spencer = Review.create!(rating: 3, landscape_rating: 3, signage_rating: 2, difficulty_rating: 4, content: "I do a lot of ski touring and this one was not very well indicated", user: andrea, booking: booking_couloir_spencer)
+review_col_du_passon = Review.create!(rating: 4, landscape_rating: 5, signage_rating: 4, difficulty_rating: 4, content: "You have to be prepared to do it but at this end it's awesome!!", user: chloe, booking: boooking_col_du_passon)
+review_aiguille_verte = Review.create!(rating: 3, landscape_rating: 4, signage_rating: 3, difficulty_rating: 5, content: "The Aiguille verte is for me the most difficult trip around here but if the weather is fine it can be beautiful. Very difficut though", user: bobby, booking: booking_aiguille_verte)
+review_couloir_pissoir = Review.create!(rating: 5, landscape_rating: 5, signage_rating: 5, difficulty_rating: 5, content: "Except the funny name of this tour, it's a very nice one to do with friends.", user: julia, booking: booking_couloir_pissoir)
 
 
 

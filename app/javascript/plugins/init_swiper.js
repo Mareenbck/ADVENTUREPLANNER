@@ -24,12 +24,10 @@ const initSwiper = () => {
   });
 
 
-
   swiper.on('slideChangeTransitionEnd', (event) => {
     console.log(event.el.querySelector(".swiper-slide-active"));
     const activeEvent = new CustomEvent("activecard", {detail: {el: event.el.querySelector(".swiper-slide-active")}});
     const map = document.querySelector("#map");
-
     map.dispatchEvent(activeEvent);
   })
 }
