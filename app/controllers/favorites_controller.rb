@@ -12,10 +12,11 @@ class FavoritesController < ApplicationController
     end
 
     def destroy
-        @trip = Trip.find(params[:trip_id])
+        
         # @favorite.trip = @trip
         # @favorite.user = current_user
-        @favorite = current_user.favorites.find_by(trip: @trip)
+        @favorite = Favorite.find(params[:id])
+        @trip = @favorite.trip
         @favorite.destroy
         # redirect_to trip_path(@trip)
 
