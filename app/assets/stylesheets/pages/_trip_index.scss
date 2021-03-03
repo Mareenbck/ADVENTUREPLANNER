@@ -4,41 +4,38 @@
 }
 
 .box-card {
-    border: 1px thin black;
-    border-radius: 10px;
-    text-align: left;
-    color: black;
-    background-color: white;
-    box-shadow: 0 0 5px lightgray;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  border: 1px thin black;
+  border-radius: 10px;
+  text-align: left;
+  color: black;
+  background-color: white;
+  box-shadow: 0 0 5px lightgray;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .box-info {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .box-info h3, a {
-    color: black
+  color: black
 }
 
 
 .container-card {
-
-
-    display: grid;
-    grid-template-columns: 100%;
-    column-gap: 20px;
-    row-gap: 10px;
-    margin-bottom: 25px;
-    padding-bottom: 100px;
-    width: 100%;
-
+  display: grid;
+  grid-template-columns: 100%;
+  column-gap: 20px;
+  row-gap: 10px;
+  margin-bottom: 25px;
+  padding-bottom: 100px;
+  width: 100%;
 }
 
 .container-card a {
@@ -46,158 +43,174 @@
 }
 
 .btn-index {
-    background-color: $rid-blue;
-    font-weight: bold;
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    color:white;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    border: none;
-    position: relative;
-    right: 95px;
-  }
-
-  .photo-index {
-      border-radius: 10px 10px 0 0;
-      width: 100%;
-      margin-bottom: 5px;
-  }
-
-  .box-review {
-      align-items: center;
-      justify-content: center;
-      margin: auto;
-  }
-  .box-review p {
-    margin-left: 22px;
+  background-color: $rid-blue;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 50px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color:white;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border: none;
+  position: relative;
+  right: 95px;
 }
 
+.photo-index {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  margin-bottom: 5px;
+}
 
+.box-review {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  p {
+    margin-left: 22px;
+  }
+}
 
 .info-window-img {
-
-    object-fit: fill;
-    border-style: none;
-    border-radius: 10px 10px 0 0;
-    width: 150px;
-    height: 100px;
+  object-fit: fill;
+  border-style: none;
+  border-radius: 10px 10px 0 0;
+  width: 150px;
+  height: 100px;
 }
 
 .marker-info {
-    padding-left: 10px;
-    justify-content: center;
-    width: 150px;
-    height: 120px;
-    align-items: center;
-    margin: auto;
+  padding-left: 10px;
+  justify-content: center;
+  width: 150px;
+  height: 120px;
+  align-items: center;
+  margin: auto;
 }
 
-
-
 #map {
-    margin: auto 0;
-    z-index: 1;
-    margin-bottom: 0px;
-    background-attachment: scroll;
-    top: 0;
-    position: fixed;
-    z-index: 0;
+  margin: auto 0;
+  z-index: 1;
+  margin-bottom: 0px;
+  background-attachment: scroll;
+  top: 0;
+  position: fixed;
+  z-index: 0;
 }
 
 
 .btn-window {
-    background-color: $rid-blue;
-    font-weight: bold;
+  background-color: $rid-blue;
+  font-weight: bold;
+  border-radius: 50px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color:white;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: auto 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  border: none;
+}
 
-    border-radius: 50px;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    color:white;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin: auto 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: 10px;
-    border: none;
+.fa-sliders-h {
+  position: fixed;
+  top: 30px;
+  z-index: 1;
+  left: 40px;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 7px;
+}
 
-  }
-
-  .fa-sliders-h {
-      position: fixed;
-      top: 30px;
-      z-index: 1;
-      left: 40px;
-      font-size: 20px;
-      background-color: white;
-      border-radius: 5px;
-      padding: 7px;
-  }
-
-  .popup-index {
-    position: absolute;
-    top: 250px;
-    z-index: 10;
-    right: 60px;
-    font-size: 15px;
-    border-radius: 5px;
-    padding: 7px;
-    align-items: center;
-    text-align: center;
-    margin: auto 0;
-    padding: 20px;
-    background-color: $rid-grey;
+.popup-index {
+  position: absolute;
+  top: 250px;
+  z-index: 10;
+  right: 60px;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 7px;
+  align-items: center;
+  text-align: center;
+  margin: auto 0;
+  padding: 20px;
+  background-color: $rid-grey;
 }
 
 .popup-index h4 {
- color: #447B9D ;
+ color: #447B9D;
 }
 
 .drop-difficulty {
-    border-radius: 10px;
-    margin: auto;
-    border: none;
+  border-radius: 10px;
+  margin: auto;
+  border: none;
 }
 
 .drop-kilometers {
-    border-radius: 10px;
-    margin: auto;
-    border: none;
+  border-radius: 10px;
+  margin: auto;
+  border: none;
 }
 
 #trips-index .fa-times {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 #trips-index .container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    overflow: scroll;
-    background: white;
-    z-index: 2;
-    border-radius: 15px;
-    position: absolute;
-    top: 400px;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: scroll;
+  z-index: 2;
+  border-radius: 15px;
+  position: absolute;
+  top: 400px;
+  padding-bottom: 75px;
 }
 
 .titre-favorites {
-    margin-top: 50px;
-    color:  #447B9D;
-    text-align: center;
-
+  margin-top: 50px;
+  color:  #447B9D;
+  text-align: center;
 }
+
+#box-photo-index {
+  height: 75px;
+  img {
+  border-radius: 10px 10px 0 0;
+  }
+}
+
+#swipeindex {
+  width: 100%;
+}
+
+#box-card-index {
+  border-radius: 10px;
+}
+
+#box-info-index {
+  line-height: 20px;
+  padding: 15px;
+  h4 {
+    font-size: 23px;
+  }
+}
+
