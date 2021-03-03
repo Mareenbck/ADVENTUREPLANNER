@@ -2,8 +2,9 @@
 <div class="container">
 <br>
 <h3 class="titre-favorites"> <strong>My favorites trips</strong></h3> <br>
+<% if @trips %>
+
 <% @trips.each do |trip| %>
-      
         <div class="box-card">
             <div class="box-info">
                 <h4> <strong><%= trip.name  %></strong></h4>
@@ -28,6 +29,11 @@
             </div>
          </div> <br>
     <% end %>
+<% else %>
+
+    no favorites yet
+<% end %>
+
     </div>
 </div>
 </div>
