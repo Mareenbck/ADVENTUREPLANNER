@@ -9,39 +9,80 @@
     <%= current_user.level %>
   </div>
   <div class="my-stats">
-    <p>My stats - this year</p>
-    <div class="graph">
-    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "200px", height: "150px", stacked: true, dataset: {borderWidth: 2}%>
+    <p>My stats</p>
+    <div class="title-graph d-flex justify-content-around">
+      <h6>Km /month</h6>
+      <br>
+      <h6>% difficulty</h6>
+      </div>
+    <div class="graph d-flex mx-1">
+    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "180px", height: "130px", stacked: true, dataset: {borderWidth: 2}, colors: ["#3b4992"]%>
+    <%= pie_chart current_user.trips.group(:difficulty).count, width: "180px", height: "110px", colors: ["#3b926e", "#3b4992", "#923b3b", "#191818"], legend: false, donut: true %>
   </div>
   </div>
-  <div class="btn-mytrip">
-    <%= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips"  %>
-    <%= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips"  %>
+<!--   <div class="btn-mytrip">
+    <%#= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips", id: "lasttrips" %>
+    <%#= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips", id: "upcomingtrips"  %>
+
+  </div> -->
+
+
+  <div class="nav nav-tabs btn-mytrip">
+    <a class="nav-item nav-link active" href="#first_tab" data-toggle="tab">My last trips</a>
+    <a class="nav-item nav-link " href="#second_tab" data-toggle="tab">My upcoming trips</a>
   </div>
-  <div class="my-booking">
-      <% @bookings.each do |booking| %>
-        <%= link_to booking_path(booking), class: "booking-card" do  %>
+  <div class="tab-content">
+    <div class="tab-pane active" id="first_tab">
+      <div class="my-booking">
+      <% @last_bookings.each do |booking| %>
+        <div class="booking-card">
+        <%= link_to booking_path(booking) do  %>
           <%= cl_image_tag booking.trip.photo.key, class: "booking-trip-photo"%>
           <div class="booking-info">
-            <%= booking.trip.name %>
-            <br>
-            <%= booking.begin_date %>
-            <br>
+            <p><strong>Adventure of <%= booking.begin_date.strftime('%d/%m') %></strong></p>
+            <p><%= booking.trip.name %></p>
+            <% end %>
             <% if booking.review %>
               <% booking.review.rating.times do %>
-                <i class="fas fa-star" style= 'color : rgb(69, 114, 135)'></i>
-                <% end %>
+                <i class="fas fa-star"></i>
+              <% end %>
               <% (5 - booking.review.rating).times do %>
                 <i class="fas fa-star" style= 'color : darkgrey'></i>
               <% end %>
             <% else %>
-              <a class="btn btn-primary" id="btn-review">
-                Add a review
-              </a>
-                  <%= render "reviews/new_review", booking: booking %>
+              <a class="btn btn-primary" id="btn-review">Add a review</a>
+              <%= render "reviews/new_review", booking: booking %>
             <% end %>
           </div>
-        <% end %>
+       </div>
       <% end %>
+      </div>
+    </div>
+    <div class="tab-pane" id="second_tab">
+      <div class="my-booking">
+      <% @upcoming_bookings.each do |booking| %>
+      <div class="booking-card">
+        <%= link_to booking_path(booking) do%>
+        <%= cl_image_tag booking.trip.photo.key, class: "booking-trip-photo"%>
+          <div class="booking-info">
+            <p><strong>Adventure of <%= booking.begin_date.strftime('%d/%m') %></strong></p>
+            <p><%= booking.trip.name %></p>
+            <% end %>
+            <% if booking.review %>
+              <% booking.review.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - booking.review.rating).times do %>
+                <i class="fas fa-star" style= 'color : darkgrey'></i>
+              <% end %>
+            <% else %>
+              <a class="btn" id="btn-review">Add a review</a>
+              <%= render "reviews/new_review", booking: booking %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

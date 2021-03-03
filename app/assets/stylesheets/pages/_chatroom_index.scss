@@ -9,11 +9,6 @@
   font-weight: bold;
 }
 
-.chatname {
-  font-size: 20px;
-  font-weight: bold;
-}
-
 .choose-chat{
 background-color: $rid-grey;
 padding-right: 20px;
@@ -40,9 +35,47 @@ a{
   text-decoration: none;
 }
 }
-// a {
-//   text-decoration: none;
-//   :hover {
-//     text-decoration: none;
-//   }
-// }
+
+
+.chat-head{
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  .chatname {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .chat-photo{
+    width:40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-right: 15px;
+  }
+}
+
+.ago{
+  text-align: right;
+  color:rgba(0, 0, 0, 0.342);
+  width: revert;
+}
+
+.last-content{
+  margin-bottom: 0px;
+}
+
+.clickable-chat{
+  a{
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.chat-body{
+  display: flex;
+    justify-content: space-between;
+    padding: 0px 15px 0px 50px;
+    margin-top: -10px;
+}

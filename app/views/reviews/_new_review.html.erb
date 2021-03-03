@@ -1,11 +1,11 @@
 <div class="d-none" id="form-review">
-  <%= simple_form_for [booking, Review.new], method: :post do |f| %>
-    <%= f.input :landscape_rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
-    <%= f.input :signage_rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
-    <%= f.input :difficulty_rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
-    <%= f.input :rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
+  <%= simple_form_for [booking, @review], method: :post do |f| %>
+    <%= f.input :landscape_rating,  as: :select, label: "Landscape", collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating' } %>
+    <%= f.input :signage_rating, as: :select, label: "Signage",collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating_2' } %>
+    <%= f.input :difficulty_rating, as: :select, label: "Difficulty", collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating_3' } %>
+    <%= f.input :rating, as: :select, collection: [1, 2, 3, 4, 5], input_html: { id: 'review_rating_4' } %>
     <%= f.input :content %>
-    <%= f.submit class: "btn btn-blue", value: "Add a review" %>
+    <%= f.submit id: "btn-review", value: "Add a review" %>
   <% end %>
 </div>
 

@@ -43,6 +43,12 @@ import { initSwiper } from '../plugins/init_swiper';
 import { initChatroomCable } from '../channels/chatroom_channel';
 
 
+import { initStarRating } from '../plugins/init_star_rating';
+
+
+
+import { scrollToLastMessage } from  '../components/scroll_to_last_message'
+
 
 
 // Internal imports, e.g:
@@ -64,6 +70,10 @@ document.addEventListener('turbolinks:load', () => {
   initSwiper();
 
   initChatroomCable();
+
+  initStarRating();
+
+  scrollToLastMessage();
 
 });
 

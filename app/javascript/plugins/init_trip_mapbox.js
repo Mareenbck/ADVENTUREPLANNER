@@ -64,7 +64,7 @@ const addLayer = function (map, waypoints) {
           "line-cap": "round"
       },
       "paint": {
-          "line-color": "#b61fe2",
+          "line-color": "#ff1d15",
           "line-width": 6,
         "line-opacity": 0.5
       }

@@ -106,8 +106,9 @@
 
 .btn-booking {
   text-decoration: none;
-  background-color: #00D3FE;
-  color: white;
+  background-color: white;
+  color: $rid-blue;
+  border: 2px solid $rid-blue;
   font-weight: bold;
   border-radius: 25px;
   text-align: center;
@@ -116,13 +117,13 @@
   transition: background-color 0.3s ease;
   box-shadow: 0 0 3px #a9b9bd;
   a {
-    color: white;
+    color: $rid-blue;
     text-decoration: none;
   }
 }
 
 .btn-booking:hover {
-  background-color: #01c0e6;
+  background-color: $rid-blue;
 }
 
 
@@ -208,13 +209,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: #fff;
-  color: #457B9D;
+  background-color: $rid-blue;
+  color: white;
   z-index: 5;
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  background: #00D3FE;
+  .fa-comment-alt{
+    font-size:30px;
+    color: white;
+  }
 }
 
 .meteo-icon {
@@ -250,20 +254,21 @@
 }
 
 #chat {
-  z-index: 10;
+  z-index: 5;
   position:fixed;
-  top:0;
+  top:100px;
   right:0;
   left:0;
   bottom: 75px;
   padding-bottom: 75px;
   background-color: white;
-  overflow-y: scroll;
+  border-radius: 25px;
+  overflow: auto;
+
 
   .message {
     width: 85%;
     margin-bottom: 35px;
-    border-radius: 0px 15px 15px 15px;
     padding: 15px;
   
     &.current-user {
@@ -273,7 +278,6 @@
         background-color: $dark-blue;
         color:white;
         padding: 10px;
-        border-radius: 15px;
         margin-top:8px;
       }
     }
@@ -282,6 +286,7 @@
       padding: 10px;
       border-radius: 15px;
       margin-top:8px;
+      border-radius: 15px 15px 15px 15px;
     }
   } 
   .author{
@@ -290,17 +295,22 @@
   
   #chat-header{
     position: fixed;
+    border-radius: 25px 25px 0px 0px;
+    top:100px;
     background-color: white;
     display: inline-flex;
     padding: 15px 15px 0px 15px;
     box-shadow: 0 0 5px lightgrey;
+    width: 100vw;
     #chat-name{
-      color:$dark-blue;
-      font-weight: bold;
-      font-size: 20px;
+      color:$darker-grey;
+      font-size: 18px;
     }
     .fa-times{
-      font-size: 25px;
+      font-size: 20px;
+      position: fixed;
+      top: 120px;
+      right: 15px;
     }
   }
   #chat-content{
@@ -310,3 +320,45 @@
   }
 }
 
+#chat-new {
+  background-color: white;
+  padding: 0px 5px 5px 5px;
+  position: fixed;
+  bottom: 75px;
+  width: 100%;
+  height: 80px;
+}
+
+#new_message{
+  display: inline-flex;
+  background-color: white;
+  width: 90vw;
+  border-radius: 50px;
+  border: 2px solid $rid-blue;
+  margin: 1vh 5vw 1vh 5vw;
+  justify-content: space-around;
+  padding: 8px;
+  .form-control.string.optional{
+    border: none;
+  }  
+  #send-btn{
+    align-items: flex-end;
+    background-color: $rid-blue;
+    border-radius: 50px;
+    border:none;
+    color: white;
+    height: 40px;
+    width: 40px;
+  }
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+
+input:-internal-autofill-selected {
+  background:none;
+}
+
+.form-control.string.optional:hover{
+  border:none;
+}
