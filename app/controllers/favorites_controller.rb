@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+
     def create
         @trip = Trip.find(params[:trip_id])
         @favorite = Favorite.new
@@ -30,6 +31,5 @@ class FavoritesController < ApplicationController
         @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
         @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
       end 
-
 end
 
