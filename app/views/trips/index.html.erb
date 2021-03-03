@@ -1,6 +1,6 @@
 <%= render 'shared/avatar-black'  %>
  <div id="map"
-        style="width: 100%; height: 410px; top: 0 !important; right: auto !important; left: auto !important;"
+        style="width: 100%; height: 100vh; top: 0 !important; right: auto !important; left: auto !important;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
@@ -8,60 +8,47 @@
   <i class="fas fa-sliders-h"></i>
 
   <div class="popup-index d-none">
-<h4><strong>Filtered Search</strong> </h4> 
-<i class="fas fa-times"></i>
-<%= form_tag trips_path, method: :get do %>
-    <%= select_tag :difficulty,
+    <h4><strong>Filtered Search</strong> </h4>
+    <i class="fas fa-times"></i>
+    <%= form_tag trips_path, method: :get do %>
+      <%= select_tag :difficulty,
         options_for_select([1, 2, 3, 4, 5]),
         prompt: 'Difficulty',
         class: "drop-difficulty"
-    %> <br> <br>
-        <p>Select Kilometers:</p>
-        <%= text_field_tag :kilometers, nil, id: "ex2", :data => {'slider-id' => 'ex1Slider','slider-min' => @min_distance,'slider-max' => @max_distance,'slider-step' => '1','slider-value' => "[#{@min_distance},#{@max_distance}]"  } %>
-        <script>
-        
-        </script>
-    <div>
-    
-     <%= submit_tag "Show me all trips", class: "btn-window" %>
-    </div>
-<% end %>
+      %> <br> <br>
+      <p>How many km ?</p>
+      <%= text_field_tag :kilometers, nil, id: "ex2", :data => {'slider-id' => 'ex1Slider','slider-min' => @min_distance,'slider-max' => @max_distance,'slider-step' => '1','slider-value' => "[#{@min_distance},#{@max_distance}]"  } %>
+      <%= submit_tag "Show me all trips", class: "btn-window" %>
+  <% end %>
 </div>
-
 <div class="container">
-<br>
-    <div class="container-card">
-    <% @trips.each do |trip| %>
-      <%= link_to trip_path(trip) do  %>
-        <div class="box-card">
-        <div class="box-info">
-        
-        <h4> <strong><%= trip.name  %></strong></h4>
-         <p><strong>Difficulty: </strong>
-      <% trip.difficulty.times do %>
-      <i class="fas fa-bolt"></i>
-      <% end %></p>
-        <%= "#{trip.kilometers.round} km"  %> <br>
-        <%= "#{trip.duration}"  %> <br>
-        </div>
-        <div class="box-review">
-        <%= cl_image_tag trip.photo.key, width: 150, height: 100, crop: :fill, class: 'photo-index' %>
-        <p class="show-stars">
-          <% trip.average_rating.round.times do %>
-            <i class="fas fa-star" style= 'color : #00D3FE'></i>
+  <div class="swiper-container" id="swipeindex">
+    <div class="swiper-wrapper">
+        <% @trips.each do |trip| %>
+          <div class="swiper-slide" style="padding-left: 10px; padding-right: 10px;">
+          <%= link_to trip_path(trip) do  %>
+            <div class="box-card-home" id="box-card-index">
+              <div class="box-photo-home" id="box-photo-index">
+                <%= cl_image_tag trip.photo.key, class: 'photo-home' %>
+                <p class="show-stars">
+                  <% trip.average_rating.round.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - trip.average_rating.round).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                </p>
+              </div>
+              <div class="box-info-home" id="box-info-index" data-lat="<%= trip.start_lat %>" data-long="<%= trip.start_long %>" data-marker-id="<%= trip.id %>">
+                <h4> <strong><%= trip.name  %></strong></h4>
+                <i class="fas fa-bolt mr-2"></i>Difficulty <%= trip.difficulty %>  <br>
+                <i class="fas fa-hiking mr-2"></i><%= trip.kilometers.round  %> km <br>
+                <i class="fas fa-stopwatch mr-2"></i><%= trip.duration  %>
+              </div>
+            </div>
           <% end %>
-          <% (5 - trip.average_rating.round).times do %>
-            <i class="fas fa-star" style= 'color : #00D3FE'></i>
-          <% end %>
-        </p>
-          <%= link_to 'View this trip', trip_path(trip), class:'btn-index' %>
-        </div>
-         
-        </div>
-       
+          </div>
         <% end %>
-       
-    <% end %>
-    
     </div>
+  </div>
 </div>

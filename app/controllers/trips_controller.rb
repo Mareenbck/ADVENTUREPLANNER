@@ -7,11 +7,19 @@ class TripsController < ApplicationController
     @max_distance = @trips.order('kilometers ASC').last.kilometers.ceil
     @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
     @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
+    
+ 
+
+    if params.dig(:search, :location).present?
+      @trips = @trips.where('location ILIKE ?', params[:search][:location])
+    end
+
 
     @markers = @trips.map do |trip|
       {
         lat: trip.start_lat,
         lng: trip.start_long,
+        id: trip.id,
         infoWindow: render_to_string(partial: "info_window", locals: { trip: trip }),
         image_url: helpers.asset_url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/512px-Map_marker.svg.png')
       }
@@ -29,8 +37,5 @@ class TripsController < ApplicationController
     end
     @note = (@ratings.sum / @ratings.length).round
     @waypoints = @trip.waypoints
-
-    @is_favorite = current_user.favorites.find_by(trip: @trip).present?
-
   end
 end

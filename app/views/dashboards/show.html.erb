@@ -9,14 +9,14 @@
     <%= current_user.level %>
   </div>
   <div class="my-stats">
-    <p>My stats - this year</p>
-    <div class="title-graph d-flex justify-content-around px-4">
+    <p>My stats</p>
+    <div class="title-graph d-flex justify-content-around">
       <h6>Km /month</h6>
       <br>
       <h6>% difficulty</h6>
       </div>
     <div class="graph d-flex mx-1">
-    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "200px", height: "130px", stacked: true, dataset: {borderWidth: 2}, colors: ["#3b4992"]%>
+    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "180px", height: "130px", stacked: true, dataset: {borderWidth: 2}, colors: ["#3b4992"]%>
     <%= pie_chart current_user.trips.group(:difficulty).count, width: "180px", height: "110px", colors: ["#3b926e", "#3b4992", "#923b3b", "#191818"], legend: false, donut: true %>
   </div>
   </div>

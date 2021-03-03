@@ -1,24 +1,25 @@
 class FavoritesController < ApplicationController
+
     def create
         @trip = Trip.find(params[:trip_id])
         @favorite = Favorite.new
         @favorite.trip = @trip
         @favorite.user = current_user
         @favorite.save
-        redirect_to trip_path(@trip)
+        # redirect_to trip_path(@trip)
         # else
-
         skip_authorization
         # redirect_to root_path
     end
 
     def destroy
-        @trip = Trip.find(params[:trip_id])
+        
         # @favorite.trip = @trip
         # @favorite.user = current_user
-        @favorite = current_user.favorites.find_by(trip: @trip)
+        @favorite = Favorite.find(params[:id])
+        @trip = @favorite.trip
         @favorite.destroy
-        redirect_to trip_path(@trip)
+        # redirect_to trip_path(@trip)
 
         skip_authorization
       end
@@ -30,6 +31,5 @@ class FavoritesController < ApplicationController
         @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
         @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
       end 
-
 end
 
