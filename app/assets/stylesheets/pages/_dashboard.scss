@@ -29,6 +29,11 @@
   }
 }
 
+.title-graph {
+    padding-left: 48px;
+    padding-right: 16px;
+}
+
 
 .my-info {
   text-align: center;
@@ -87,7 +92,7 @@ canvas.chartjs-render-monitor {
     border: 1px solid transparent;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-    padding: 9px 26px;
+    padding: 9px 17px;
   }
 
 .nav-tabs .nav-link.active {
@@ -95,7 +100,7 @@ canvas.chartjs-render-monitor {
   border-radius: 25px;
   text-decoration: none;
   color: white;
-  padding: 9px 31px 9px 26px;
+  padding: 9px 21px 9px 21px;
   // width: 180px;
   // position: absolute;
   // left: 0px;
@@ -126,6 +131,7 @@ canvas.chartjs-render-monitor {
       font-family: 'Poppins', sans-serif;
       font-size: 14px;
       font-weight: 200;
+      text-decoration: none;
     }
     & i {
       font-size: 13px;
@@ -157,7 +163,7 @@ label {
     /* margin-bottom: 0.5rem; */
     font-size: 13px;
     font-weight: 600;
-    margin-right: 30px;
+    margin-right: 25px;
     margin-bottom: 0px;
 }
 textarea {
@@ -169,8 +175,9 @@ textarea {
     align-content: center;
     padding: 4px;
     align-items: flex-end;
-    margin-bottom: -3px;
+    margin-bottom: 0px;
     justify-content: space-between;
+    padding: 4px 4px 2px 0px;
   }
 
 .br-theme-css-stars .br-widget a:after {
