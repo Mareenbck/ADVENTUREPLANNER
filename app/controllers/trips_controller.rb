@@ -12,6 +12,7 @@ class TripsController < ApplicationController
       {
         lat: trip.start_lat,
         lng: trip.start_long,
+        id: trip.id,
         infoWindow: render_to_string(partial: "info_window", locals: { trip: trip }),
         image_url: helpers.asset_url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/512px-Map_marker.svg.png')
       }
