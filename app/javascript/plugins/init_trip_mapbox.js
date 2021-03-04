@@ -78,8 +78,6 @@ const fitMapToWaypoints = (map, waypoints) => {
 };
 
 
-
-
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
@@ -92,28 +90,27 @@ const initMapbox = () => {
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);
-  markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    markers.forEach((marker, index) => {
+
+    // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
       const element = document.createElement('div');
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'cover';
-      element.style.width = '35px';
-      element.style.height = '50px';
+      element.style.width = '40px';
+      element.style.height = '65px';
       element.id = `marker-${marker.id}`;
+      element.dataset.orderId = index
 
-      // console.log(mapElement.querySelectorAll(".mapboxgl-canvas-container"));
-
-      // markerr.addEventListener("click", (event) => {
-
-      //   // console.log(mapElement.querySelector())
-      //   // console.log(mapElement.querySelector(``))
-      // })
+      element.addEventListener('click', () => {
+        const event = new CustomEvent("activeindex", {detail: {index: index}});
+        element.dispatchEvent(event);
+      })
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
+      // .setPopup(popup)
       .addTo(map);
   });
 
@@ -125,10 +122,18 @@ const initMapbox = () => {
       const allMarkers = mapElement.querySelectorAll("[id^='marker-']");
       allMarkers.forEach((marker) => {
         marker.classList.remove("active-marker");
+        marker.style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/512px-Map_marker.svg.png)'
       });
-      map.flyTo({center: [parseFloat(cardInfo.dataset.long), parseFloat(cardInfo.dataset.lat)]});
+
+      map.flyTo({
+        center: [parseFloat(cardInfo.dataset.long), parseFloat(cardInfo.dataset.lat - 0.05)],
+        zoom: 10
+      });
+
       const marker = mapElement.querySelector(`#marker-${cardInfo.dataset.markerId}`)
       marker.classList.add("active-marker");
+      marker.style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2014/04/03/10/03/google-309740_960_720.png)'
+      console.log(marker)
     });
   }
 };
