@@ -5,7 +5,7 @@
 .popupbtn {
   background-color: $rid-blue;
   color: white;
-  padding: 10px 15px 10px 15px;
+  padding: 10px 15px 10px 15px !important;
   font-weight: bold;
   border-radius: 50px 0px 0px 50px;
   font-size: 20px;
@@ -22,19 +22,27 @@
 /* The actual popup */
 .popupframe {
   position: fixed;
-  opacity: 0.97;
-  bottom: 85px;
-  left: 20px;
-  right: 20px;
-  z-index: 100;
-  border-radius: 20px;
-  background-color: #F6F6F6;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 2px 1px 25px lightgrey;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+  top: 0;
+  z-index: 10;
+  padding: 20px !important;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   input.btn-big {
     width: 250px;
     margin: 10px 0px;
+  }
+
+  .popupframe-content {
+    background-color: #F6F6F6;
+    text-align: center;
+    border-radius: 20px;
+    padding: 20px;
+    position:relative;
   }
 }
 
@@ -46,9 +54,9 @@
 }
 
 .popupclose{
-   position: fixed;
-   top: 300px;
-   right: 40px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
 
 #begin-date{
