@@ -68,20 +68,17 @@
 }
 
 .booking-social {
-  display: flex;
   margin-top: 1rem;
   margin-bottom: 1rem;
   align-items: center;
-  .status-user {
-    margin-left: 20px;
-    p {
-      margin-bottom: 0;
-    }
+
    #status-text {
       color: black;
       font-size: x-small;
     }
-  }
+    #team{
+      font-weight: bold;
+    }
 }
 
 .booking-avatar {
@@ -98,6 +95,7 @@
   font-weight: bold;
   color: #1EDD88;
   font-size: 16px;
+  margin: 10px 0px;
 }
 
 .trip-booking-map {
@@ -201,22 +199,22 @@
 }
 
 #btn-chat {
-   position: fixed;
-  bottom: 90px;
-  right: 15px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  align-content: center;
   background-color: $rid-blue;
   color: white;
   z-index: 5;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  text-align: center;
   .fa-comment-alt{
-    font-size:30px;
+    font-size: 15px;
     color: white;
+  }
+  p{
+    margin-bottom: 0;
   }
 }
 
