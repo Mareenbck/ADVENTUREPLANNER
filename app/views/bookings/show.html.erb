@@ -106,13 +106,13 @@
     <i class="fas fa-comment-alt"></i>
     </div>
 
-<div id='chat' class="d-none" data-controller="chat" data-chat-chatroom-id-value="<%= @booking.chatroom.id %>">
+<div id='chat' class="d-none" data-controller="chat" data-chat-chatroom-id-value="<%= @booking.chatroom.id %>" data-chat-user-id-value="<%= current_user.id %>">
   <div id="chat-header">
     <p id='chat-name'><%= @booking.chatroom.name %></p>
     <i class="fas fa-times"></i>
   </div>
 
-  <div id='chat-content' data-chatroom-id="<%= @booking.chatroom.id %>">
+  <div id='chat-content' data-chatroom-id="<%= @booking.chatroom.id %>" data-action="message-received->chat#received">
     <% @booking.chatroom.messages.each do |message| %>
       <% if message.user == current_user %>
         <div class="message current-user" id="<message-<%= message.id %>">
