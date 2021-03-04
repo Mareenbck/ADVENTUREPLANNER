@@ -106,7 +106,7 @@
     <i class="fas fa-comment-alt"></i>
     </div>
 
-<div id='chat' class="d-none">
+<div id='chat' class="d-none" data-controller="chat" data-chat-chatroom-id-value="<%= @booking.chatroom.id %>">
   <div id="chat-header">
     <p id='chat-name'><%= @booking.chatroom.name %></p>
     <i class="fas fa-times"></i>
@@ -141,7 +141,7 @@
   </div>
 
   <div id='chat-new'>
-    <%= simple_form_for([ @booking.chatroom, @message ], remote: true, method: :post) do |f| %>
+    <%= simple_form_for([ @booking.chatroom, @message ], method: :post, html: { "data-action": "submit->chat#send"}) do |f| %>
       <%= f.input :content, label: false, placeholder: "Type here..." %>
       <%= button_tag type: 'submit', id: "send-btn" do %>
           <i class="fa fa-paper-plane" aria-hidden="true"></i>
