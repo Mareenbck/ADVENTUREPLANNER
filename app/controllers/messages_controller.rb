@@ -9,23 +9,35 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save
-      respond_to do |format|
-        format.html do
-          ChatroomChannel.broadcast_to(
-            @chatroom,
-            render_to_string(partial: 'message', locals: { message: @message })
-          )
-        end
-        format.json do
-          render json: {
-            success: true,
-            message: @message.content,
-            author: @message.user.first_name,
-            message_id: @message.id,
-            user_photo: @message.user.photo.key
-          }
-        end
-      end
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        {
+          success: true,
+          message: @message.content,
+          author: @message.user.first_name,
+          message_id: @message.id,
+          user_photo: @message.user.photo.key,
+          user_id: current_user.id
+        }
+      )
+
+      # respond_to do |format|
+      #   format.html do
+      #     # ChatroomChannel.broadcast_to(
+      #     #   @chatroom,
+      #     #   render_to_string(partial: 'message', locals: { message: @message })
+      #     # )
+      #   end
+      #   format.json do
+      #     render json: {
+      #       success: true,
+      #       message: @message.content,
+      #       author: @message.user.first_name,
+      #       message_id: @message.id,
+      #       user_photo: @message.user.photo.key
+      #     }
+      #   end
+      # end
       # redirect_to booking_path(@booking, anchor:"message-#{@message.id}")
     else
       respond_to do |format|

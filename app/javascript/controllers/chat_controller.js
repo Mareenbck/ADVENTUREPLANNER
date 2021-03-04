@@ -17,8 +17,7 @@ import { Controller } from "stimulus"
 import { fetchWithToken } from "../utils/fetch_with_token"
 
 export default class extends Controller {
-  static values = { chatroomId: String };
-
+  static values = { chatroomId: String, userId: Number };
 
   send(event) {
     event.preventDefault();
@@ -31,31 +30,31 @@ export default class extends Controller {
         method: "POST",
         body: formData
       })
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data.user_photo)
-        const date = {weekday: 'short', month: 'short', day: 'numeric' };
-        const time = { hour: 'numeric', minute: 'numeric' };
+  }
 
-        const message = ` <div class="message current-user" id="<message-${data.message_id}">
-            <div class="author">
-              <span>${data.author}</span>
-              <img class="chat-user-photo" src="http://res.cloudinary.com/ddw7wju1q/image/upload/${data.user_photo}">
-            </div>
-            <div class="message-content">
-              <p>${data.message}</p>
-              <small>${new Date().toLocaleString('en', date)} at ${new Date().toLocaleString('en', time)}</small>
-            </div>
-          </div>`
-        const chat = document.getElementById("chat-content");
-        chat.insertAdjacentHTML('beforeend', message);
-        document.querySelector("#chat .message:last-child").scrollIntoView({behavior: 'smooth'})
-      });
+  received(event) {
+    const data = event.detail
+    const date = {weekday: 'short', month: 'short', day: 'numeric' };
+    const time = { hour: 'numeric', minute: 'numeric' };
+
+    const is_current_user = this.userIdValue == data.user_id ? "current-user" : ""
+    const message = ` <div class="message ${is_current_user}" id="<message-${data.message_id}">
+        <div class="author">
+          <span>${data.author}</span>
+          <img class="chat-user-photo" src="http://res.cloudinary.com/ddw7wju1q/image/upload/${data.user_photo}">
+        </div>
+        <div class="message-content">
+          <p>${data.message}</p>
+          <small>${new Date().toLocaleString('en', date)} at ${new Date().toLocaleString('en', time)}</small>
+        </div>
+      </div>`
+    const chat = document.getElementById("chat-content");
+    chat.insertAdjacentHTML('beforeend', message);
+    document.querySelector("#chat .message:last-child").scrollIntoView({behavior: 'smooth'})
+
 
     const input = document.getElementById("message_content");
     input.value = "";
-
-
   }
 }
 
