@@ -12,8 +12,7 @@
 }
 
 #trips-show .container {
-  padding-bottom: 150px;
-  padding: 20px 30px 150px 30px;
+  padding: 20px 0 150px 0;
   overflow: scroll;
   z-index: 5;
   position: absolute;
@@ -21,10 +20,18 @@
   background: white;
   border-radius: 15px;
   width: 100vw;
+
+  h2 {
+    width: 90%;
+  }
 }
 
-#trips-show .fa-bolt{
-  color: black;
+#trips-show .container > *:not(.trip-photos) {
+  padding: 0 20px;
+}
+
+.fa-bolt, .fa-stopwatch, .fa-hiking {
+  color: #60666a;
   font-size: 20px;
 }
 
@@ -61,7 +68,7 @@
 .review-content {
   background-color: $rid-grey;
   padding: 15px;
-  color: $dark-blue;
+  color: #404243;
   border-radius: 15px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -102,16 +109,11 @@
   font-size: 20px;
 }
 
-#heart-favorite {
-  position: absolute;
-  right: 30px;
-  top: 155px;
-  font-size: x-large
-}
-
+#heart-favorite,
 #heart-favorite-full {
   position: absolute;
-  right: 30px;
-  top: 155px;
-  font-size: x-large
+  right: 20px;
+  top: 26px;
+  font-size: x-large;
+  color: #d72453;
 }
