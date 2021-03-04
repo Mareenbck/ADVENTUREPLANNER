@@ -150,9 +150,11 @@
 }
 
 .drop-difficulty {
-  border-radius: 10px;
+  border-radius: 25px;
   margin: auto;
   border: none;
+  padding: 10px 30px 10px 30px;
+  box-shadow: 0 5px 15px lightgrey;
 }
 
 .drop-kilometers {
@@ -210,12 +212,13 @@
 }
 
 .active-marker {
-  background-size: 100px;
 }
-
-
 
 .box-card a {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
+
+.marker {
+  background-position: center;
+}

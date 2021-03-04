@@ -29,6 +29,13 @@ const initSwiper = () => {
     const map = document.querySelector("#map");
     map.dispatchEvent(activeEvent);
   })
+
+  document.querySelectorAll('.marker').forEach((marker) => {
+    marker.addEventListener('activeindex', (e) => {
+      swiper.slideTo(e.detail.index + 2, 500)
+    })
+  })
+
 }
 
 export { initSwiper };
