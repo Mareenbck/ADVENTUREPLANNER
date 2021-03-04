@@ -203,3 +203,17 @@ select:focus {
 .form-control {
   width: 150px;
 }
+
+input#search_location {
+  width: 150px;
+}
+
+#home-header #search_location {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+input#search_location:focus {
+  box-shadow: none;
+  font-size: 16px;
+}
+

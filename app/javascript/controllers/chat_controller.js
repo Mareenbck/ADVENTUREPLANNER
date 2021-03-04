@@ -1,6 +1,11 @@
+
 // Visit The Stimulus Handbook for more details
 // https://stimulusjs.org/handbook/introduction
 //
+
+// Visit The Stimulus Handbook for more details 
+// https://stimulusjs.org/handbook/introduction
+// 
 // This example controller works with specially annotated HTML like:
 //
 // <div data-controller="hello">
@@ -8,6 +13,7 @@
 // </div>
 
 import { Controller } from "stimulus"
+
 import { fetchWithToken } from "../utils/fetch_with_token"
 
 export default class extends Controller {
@@ -52,4 +58,5 @@ export default class extends Controller {
 
   }
 
-}
+
+

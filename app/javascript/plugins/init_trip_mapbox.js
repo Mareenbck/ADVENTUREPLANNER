@@ -102,11 +102,13 @@ const initMapbox = () => {
       element.style.width = '35px';
       element.style.height = '50px';
       element.id = `marker-${marker.id}`;
-      // ->> ELement.addEvent
-      // element.addEventListener("click", (event) => {
-      //   // console.log(mapElement.querySelectorAll(".marker"))
-      //   // // console.log(mapElement.querySelector())
-      //   // // console.log(mapElement.querySelector(``))
+
+      // console.log(mapElement.querySelectorAll(".mapboxgl-canvas-container"));
+
+      // markerr.addEventListener("click", (event) => {
+
+      //   // console.log(mapElement.querySelector())
+      //   // console.log(mapElement.querySelector(``))
       // })
 
     new mapboxgl.Marker(element)
@@ -118,7 +120,6 @@ const initMapbox = () => {
   fitMapToMarkers(map, markers);
 
     mapElement.addEventListener("activecard", (event) => {
-      // console.log(event.detail);
       const card = event.detail.el;
       const cardInfo = card.querySelector("#box-info-index");
       const allMarkers = mapElement.querySelectorAll("[id^='marker-']");
@@ -134,7 +135,7 @@ const initMapbox = () => {
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  markers.forEach(marker => bounds.extend([ marker.lng, (marker.lat - 0.1) ]));
   map.fitBounds(bounds, { padding: 60, maxZoom: 9, duration: 0 });
 };
 

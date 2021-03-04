@@ -1,0 +1,9 @@
+<% if current_user.favorites.find_by(trip: trip).present? %>
+    <%= link_to favorite_path(current_user.favorites.find_by(trip: trip)), method: :delete, remote: true do %>
+        <i class="fas fa-heart" id="heart-favorite-full"></i>
+    <% end %>
+<% else %>
+    <%= link_to trip_favorites_path(trip), method: :post, remote: true do %>
+        <i class="far fa-heart" id="heart-favorite"></i>
+    <% end %>
+<% end %>

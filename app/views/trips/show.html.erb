@@ -12,15 +12,9 @@
   <div>
     <h2><%= @trip.name  %></h2>
     <p><%= @trip.subtitle %></p>
-    <% if @is_favorite %>
-      <%= link_to trip_favorite_path(@trip), method: :delete do %>
-      <i class="fas fa-heart" id="heart-favorite-full"></i>
-      <% end %>
-    <% else %>
-      <%= link_to trip_favorites_path(@trip), method: :post do %>
-      <i class="far fa-heart" id="heart-favorite"></i>
-      <% end %>
-    <% end %>
+    <div id="favorite">
+      <%= render 'favorite', trip: @trip %>
+    </div>
     <div id='note'>
       <% @note.times do %>
         <i class="fas fa-star good"></i>
@@ -29,9 +23,9 @@
         <i class="far fa-star bad"></i>
       <% end %>
     </div>
-                <i class="fas fa-bolt mr-2"></i>difficulty <%= @trip.difficulty %>  <br>
-                <i class="fas fa-hiking mr-2"></i><%= @trip.kilometers.round  %> km <br>
-                <i class="fas fa-stopwatch mr-2"></i><%= @trip.duration  %> <br> <br>
+      <i class="fas fa-bolt mr-2"></i>Difficulty <%= @trip.difficulty %>  <br>
+      <i class="fas fa-hiking mr-2"></i><%= @trip.kilometers.round  %> km <br>
+      <i class="fas fa-stopwatch mr-2"></i><%= @trip.duration  %> <br> <br>
     <p><%= @trip.description %></p>
   </div>
   <div class="trip-photos">
