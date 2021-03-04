@@ -75,9 +75,6 @@
               <% (5 - booking.review.rating).times do %>
                 <i class="fas fa-star" style= 'color : darkgrey'></i>
               <% end %>
-            <% else %>
-              <a class="btn" id="btn-review">Add a review</a>
-              <%= render "reviews/new_review", booking: booking %>
             <% end %>
           </div>
         </div>
