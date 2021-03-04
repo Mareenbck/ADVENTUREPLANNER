@@ -120,6 +120,11 @@ canvas.chartjs-render-monitor {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #dadadc91;
+    a:hover{
+      text-decoration: none;
+      color:black;
+      cursor: grab;
+    }
   }
   .booking-trip-photo {
     border-radius: 15px;
@@ -158,6 +163,7 @@ canvas.chartjs-render-monitor {
   background-color: #242729;
   font-weight: 300;
   color: white;
+  border: none;
 }
 
 label {
