@@ -122,7 +122,7 @@ const initMapbox = () => {
       const allMarkers = mapElement.querySelectorAll("[id^='marker-']");
       allMarkers.forEach((marker) => {
         marker.classList.remove("active-marker");
-        marker.style.backgroundImage = 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/512px-Map_marker.svg.png)'
+        marker.style.backgroundImage = 'url(https://res.cloudinary.com/ddw7wju1q/image/upload/v1614940257/marker_s7rf5k.png)'
       });
 
       map.flyTo({
@@ -132,7 +132,7 @@ const initMapbox = () => {
 
       const marker = mapElement.querySelector(`#marker-${cardInfo.dataset.markerId}`)
       marker.classList.add("active-marker");
-      marker.style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2014/04/03/10/03/google-309740_960_720.png)'
+      marker.style.backgroundImage = 'url(https://res.cloudinary.com/ddw7wju1q/image/upload/v1614940255/marker-active_xeao39.png)'
       console.log(marker)
     });
   }

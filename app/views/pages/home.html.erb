@@ -17,11 +17,14 @@
 
   <div class="filtered-search-home">
     <%= form_tag trips_path, method: :get do %>
+    <div class="select-wrapper">
+
      <%= select_tag :difficulty,
         options_for_select([1, 2, 3, 4, 5]),
         prompt: 'Difficulty',
         class: "drop-difficulty-home"
       %> <br> <br>
+    </div>
       <p>Select Kilometers :</p>
       <%= text_field_tag :kilometers, nil, id: "ex2", :data => {'slider-id' => 'ex1Slider','slider-min' => @min_distance,'slider-max' => @max_distance,'slider-step' => '1','slider-value' => "[#{@min_distance},#{@max_distance}]"  } %>
       <script>
