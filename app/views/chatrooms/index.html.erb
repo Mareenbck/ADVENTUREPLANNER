@@ -13,7 +13,7 @@
       <% if @chatrooms_upcomings != [] %>
         <% @chatrooms_upcomings.each do |chat| %>
           <% if chat.bookings.count > 1 %>
-            <%= link_to booking_path(current_user.find_chatroom(chat)) do %>
+            <%= link_to booking_path(current_user.find_chatroom(chat), from_index: 'true') do %>
               <div class='clickable-chat'>
                 <div class='chat-head'>
                   <% if chat.messages.last %>
@@ -45,7 +45,7 @@
       <% if @chatrooms_passed != [] %>
         <% @chatrooms_passed.each do |chat| %>
           <% if chat.bookings.count > 1 %>
-            <%= link_to booking_path(current_user.find_chatroom(chat)) do %>
+            <%= link_to booking_path(current_user.find_chatroom(chat), from_index: 'true') do %>
               <div class='clickable-chat'>
                 <div class='chat-head'>
                   <% if chat.messages.last %>

@@ -39,6 +39,7 @@ import { initSwipe } from '../plugins/init_swipe';
 import { initOpenWeather } from '../plugins/init_openweather';
 
 import { initSwiper } from '../plugins/init_swiper';
+import { bookingFromIndex} from '../components/booking_from_index'
 
 import { initChatroomCable } from '../channels/chatroom_channel';
 
@@ -66,6 +67,7 @@ document.addEventListener('turbolinks:load', () => {
   $("#ex2").slider({});
   initOpenWeather();
   initChat();
+  bookingFromIndex();
 
   initSwiper();
 
