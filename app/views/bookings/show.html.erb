@@ -5,7 +5,7 @@
 </div>
 <div class="booking-header" style="background-image: url(<%= cl_image_path @booking.trip.photo.key %>)">
 </div>
-<div class="container">
+<div class="container" id="index-container" data-from-index="<%= params[:from_index] %>">
   <h2><%= @booking.trip.name %></h2>
   <div class="date-loc">
     <div class="booking-date">

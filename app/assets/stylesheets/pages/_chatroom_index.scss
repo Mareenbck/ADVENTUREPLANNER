@@ -70,9 +70,18 @@ a{
 .clickable-chat{
   a{
     text-decoration: none;
-  }
-  &:hover{
-    text-decoration: none;
+    &:hover{
+      text-decoration: none;
+    }
+    &:visited{
+      text-decoration: none;
+    }
+    &:focus{
+      text-decoration: none;
+    }
+    &:active{
+      text-decoration: none;
+    }
   }
 }
 
