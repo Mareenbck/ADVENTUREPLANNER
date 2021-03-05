@@ -50,8 +50,9 @@
 }
 
 .my-stats {
-  
+
   margin-top: 35px;
+  padding: 15px;
   & p {
     font-size: 16px;
     font-weight: bold;
@@ -73,8 +74,8 @@ canvas.chartjs-render-monitor {
   border-radius: 25px;
   display: flex;
   justify-content: space-between;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
   align-items: center;
   text-decoration: none;
   margin-top: 20px;
@@ -111,7 +112,7 @@ canvas.chartjs-render-monitor {
 
 .my-booking {
   padding-bottom: 500px;
-  margin: 20px 10px 20px 10px;
+  margin: 40px 10px 20px 10px;
   .booking-card {
     display: flex;
     align-items: center;

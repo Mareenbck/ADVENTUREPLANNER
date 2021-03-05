@@ -222,3 +222,28 @@
 .marker {
   background-position: center;
 }
+
+.mapboxgl-marker {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+}
+
+
+.select-wrapper {
+  width: fit-content;
+  margin: auto;
+  position: relative;
+
+  &:after {
+    content: "\f0d7";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    top: 12px;
+    right: 12px;
+    pointer-events: none;
+    color: grey;
+  }
+}

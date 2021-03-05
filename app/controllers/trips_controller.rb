@@ -7,8 +7,8 @@ class TripsController < ApplicationController
     @max_distance = @trips.order('kilometers ASC').last.kilometers.ceil
     @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
     @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
-    
- 
+
+
 
     if params.dig(:search, :location).present?
       @trips = @trips.where('location ILIKE ?', params[:search][:location])
@@ -21,7 +21,7 @@ class TripsController < ApplicationController
         lng: trip.start_long,
         id: trip.id,
         infoWindow: render_to_string(partial: "info_window", locals: { trip: trip }),
-        image_url: helpers.asset_url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/512px-Map_marker.svg.png')
+        image_url: helpers.asset_url('https://res.cloudinary.com/ddw7wju1q/image/upload/v1614940257/marker_s7rf5k.png')
       }
     end
   end

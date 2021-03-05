@@ -1,81 +1,78 @@
 <%= render 'shared/avatar-black' %>
-  <div id='pagetitle'>
-    <h1 id='titleh1'>Chatrooms</h1>
-  </div>
+<div id='pagetitle'>
+  <h1 id='titleh1'>Chatrooms</h1>
+</div>
 
-  <div class="nav nav-tabs btn-mytrip">
-    <a class="nav-item nav-link active" href="#first_tab" data-toggle="tab">Future trips</a>
-    <a class="nav-item nav-link " href="#second_tab" data-toggle="tab">Previous trips</a>
-  </div>
-  <div class="tab-content">
-    <div class="tab-pane active" id="first_tab">
-      <div class="my-chats">
-        <% if @chatrooms_upcomings != [] %>
-          <% @chatrooms_upcomings.each do |chat| %>
-            <% if chat.bookings.count > 1 %>
-              <%= link_to booking_path(current_user.find_chatroom(chat)) do %>
-                <div class='clickable-chat'>
-                  <div class='chat-head'>
-                    <% if chat.messages.last %>
-                      <%= cl_image_tag chat.messages.last.user.photo.key, class:'chat-photo' %>
-                    <% else %>
-                      <%= cl_image_tag chat.bookings.first.trip.photo.key, class:'chat-photo' %>
-                    <% end %>
-                    <h2 class='chatname'><%= chat.name %></h2>
-                  </div>
-
+<div class="nav nav-tabs btn-mytrip">
+  <a class="nav-item nav-link " href="#second_tab" data-toggle="tab">My last trips</a>
+  <a class="nav-item nav-link active" href="#first_tab" data-toggle="tab">My upcoming trips</a>
+</div>
+<div class="tab-content">
+  <div class="tab-pane active" id="first_tab">
+    <div class="my-chats">
+      <% if @chatrooms_upcomings != [] %>
+        <% @chatrooms_upcomings.each do |chat| %>
+          <% if chat.bookings.count > 1 %>
+            <%= link_to booking_path(current_user.find_chatroom(chat)) do %>
+              <div class='clickable-chat'>
+                <div class='chat-head'>
+                  <% if chat.messages.last %>
+                    <%= cl_image_tag chat.messages.last.user.photo.key, class:'chat-photo' %>
+                  <% else %>
+                    <%= cl_image_tag chat.bookings.first.trip.photo.key, class:'chat-photo' %>
+                  <% end %>
+                  <h2 class='chatname'><%= chat.name %></h2>
+                </div>
+                <div class='chat-body'>
                   <% if chat.messages.any? %>
                     <p class ="last-content"><%= chat.messages.last.content.truncate(15) %></p>
                     <div class="ago">
                       <%= time_ago_in_words(chat.messages.last.created_at) %>
                     </div>
                   <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p style='text-align:center'>No upcoming trips planned!</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="tab-pane" id="second_tab">
+    <div class="my-chats">
+      <% if @chatrooms_passed != [] %>
+        <% @chatrooms_passed.each do |chat| %>
+          <% if chat.bookings.count > 1 %>
+            <%= link_to booking_path(current_user.find_chatroom(chat)) do %>
+              <div class='clickable-chat'>
+                <div class='chat-head'>
+                  <% if chat.messages.last %>
+                    <%= cl_image_tag chat.messages.last.user.photo.key, class:'chat-photo' %>
+                  <% else %>
+                   <%= cl_image_tag chat.bookings.first.trip.photo.key, class:'chat-photo' %>
+                  <% end %>
+                  <h2 class='chatname'><%= chat.name %></h2>
+                </div>
+                <div class='chat-body'>
+              <% if chat.messages.any? %>
+                <p class ="last-content"><%= chat.messages.last.content.truncate(15) %></p>
+                <div class="ago">
+                  <%= time_ago_in_words(chat.messages.last.created_at) %>
                 </div>
               <% end %>
-            <% end %>
+            </div>
           <% end %>
-        <% else %>
-          <p style='text-align:center'>No upcoming trips planned!</p>
+        <% end %>
         <% end %>
       </div>
-    </div>
-    <div class="tab-pane" id="second_tab">
-      <div class="my-chats">
-        <% if @chatrooms_passed != [] %>
-          <% @chatrooms_passed.each do |chat| %>
-            <% if chat.bookings.count > 1 %>
-              <%= link_to booking_path(current_user.find_chatroom(chat)) do %>
-                <div class='clickable-chat'>
-
-                  <div class='chat-head'>
-                    <% if chat.messages.last %>
-                    <%= cl_image_tag chat.messages.last.user.photo.key, class:'chat-photo' %>
-                    <% else %>
-                    <%= cl_image_tag chat.bookings.first.trip.photo.key, class:'chat-photo' %>
-                    <% end %>
-                    <h2 class='chatname'><%= chat.name %></h2>
-                  </div>
-                  
-                  <div class='chat-body'>
-                  <% if chat.messages.any? %>
-                    <p class ="last-content"><%= chat.messages.last.content.truncate(15) %></p>
-                    <div class="ago">
-                      <%= time_ago_in_words(chat.messages.last.created_at) %>
-                    </div>
-                  <% end %>
-                </div>
-                <% end %>
-            <% end %>
-          <% end %>
-        
-        
-        </div>
-        <% else %>
-          <p style='text-align:center'>You have not plan any trip yet!</p>
-        <% end %>
-      </div>
+      <% else %>
+      <p style='text-align:center'>You have not plan any trip yet!</p>
+      <% end %>
     </div>
   </div>
+</div>
 
 
 
