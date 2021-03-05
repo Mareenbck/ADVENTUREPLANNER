@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
     end
 
     def destroy
-        
+
         # @favorite.trip = @trip
         # @favorite.user = current_user
         @favorite = Favorite.find(params[:id])
@@ -26,10 +26,10 @@ class FavoritesController < ApplicationController
 
       def index
         @trips = policy_scope(current_user.favorite_trips).select("trips.*, avg(reviews.rating) as average_rating").left_joins(bookings: :review).group("trips.id")
-        @min_distance = @trips.order('kilometers ASC').first.kilometers.floor
-        @max_distance = @trips.order('kilometers ASC').last.kilometers.ceil
+        # @min_distance = @trips.order('kilometers ASC').first.kilometers.floor
+        # @max_distance = @trips.order('kilometers ASC').last.kilometers.ceil
         @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
         @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
-      end 
+      end
 end
 
