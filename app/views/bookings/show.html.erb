@@ -20,7 +20,7 @@
     <p><%= @booking.trip.subtitle %></p>
     <div class="booking-social">
     <% if @booking.chatroom.bookings.count > 1 %>
-    <p id='team'>Teammates:</p>
+    <p id='team'>People who booked the same trip :</p>
     <% end %>
       <% if @booking.user_status == "Open to match"%>
         <div class="booking-avatar">
@@ -37,12 +37,12 @@
       <% end %>
       <% if @booking.chatroom.bookings.count > 1 %>
       <div id='btn-chat'>
-        <p><i class="fas fa-comment-alt mr-2"></i> Chat with my teammates</p>
+        <p><i class="fas fa-comment-alt mr-2"></i> <strong>Chat with my teammates</strong></p>
       </div>
       <% end %>
-      
+
     </div>
-    <p style="font-weight: bold; margin-bottom: 0; margin-top: 25px;">Weather:</p>
+    <p style="font-weight: bold; margin-bottom: 0; margin-top: 25px;">Weather :</p>
 
     <div data-openweathertoken="<%= ENV['OPENWEATHER_API_KEY'] %>" class="contain-meteo d-flex">
       <div id="day-0" class="meteo">
