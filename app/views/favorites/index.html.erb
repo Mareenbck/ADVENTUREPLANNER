@@ -1,46 +1,38 @@
 <%= render 'shared/avatar-black'  %>
 <div class="container">
-<br>
-<h3 class="titre-favorites"> <strong>My favorites trips</strong></h3> <br>
-<% if @trips %>
-
-<% @trips.each do |trip| %>
-        <div class="box-card">
-            <div class="box-info">
-                <h4> <strong><%= trip.name  %></strong></h4>
-                <p><strong>Difficulty: </strong>
-                <% trip.difficulty.times do %>
-                <i class="fas fa-bolt"></i>
-                <% end %></p>
-                <%= "#{trip.kilometers.round} km"  %> <br>
-                <%= "#{trip.duration}"  %> <br>
-            </div>
-            <div class="box-review">
-                <%= cl_image_tag trip.photo.key, width: 150, height: 100, crop: :fill, class: 'photo-index' %>
-                <p class="show-stars">
-                <% trip.average_rating.round.times do %>
-                <i class="fas fa-star" style= 'color : #00D3FE'></i>
-                <% end %>
-                <% (5 - trip.average_rating.round).times do %>
-                <i class="fas fa-star" style= 'color : #00D3FE'></i>
-                <% end %>
-                </p>
-                <%= link_to 'View this trip', trip_path(trip), class:'btn-index' %>
-            </div>
-         </div> <br>
+  <br>
+  <h3 class="titre-favorites"> <strong>My favorites trips</strong></h3>
+   <br>
+  <% if @trips %>
+    <% @trips.each do |trip| %>
+      <div class="box-card">
+        <div class="box-info">
+          <h4> <strong><%= trip.name  %></strong></h4>
+          <p><strong>Difficulty: </strong>
+            <% trip.difficulty.times do %>
+              <i class="fas fa-bolt"></i>
+            <% end %></p>
+          <%= "#{trip.kilometers.round} km"  %> <br>
+          <%= "#{trip.duration}"  %> <br>
+        </div>
+        <div class="box-review">
+          <%= cl_image_tag trip.photo.key, width: 150, height: 100, crop: :fill, class: 'photo-index' %>
+          <p class="show-stars">
+            <% trip.average_rating.round.times do %>
+              <i class="fas fa-star" style= 'color : #00D3FE'></i>
+            <% end %>
+            <% (5 - trip.average_rating.round).times do %>
+              <i class="fas fa-star" style= 'color : #00D3FE'></i>
+            <% end %>
+          </p>
+          <%= link_to 'View this trip', trip_path(trip), class:'btn-index' %>
+        </div>
+      </div>
+       <br>
     <% end %>
-<% else %>
-
+  <% else %>
     no favorites yet
-<% end %>
-
-    </div>
+  <% end %>
 </div>
 </div>
-
-
-
-
-
-
-
+</div>
