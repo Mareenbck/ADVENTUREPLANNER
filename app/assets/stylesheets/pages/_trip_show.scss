@@ -1,5 +1,9 @@
 @media (min-width: 900px) {
 
+  .swiper-slide{
+    width:auto !important;
+  }
+
   .dropdown{
     display: none;
   }
@@ -211,6 +215,10 @@
       text-decoration: none;
       font-size: 22px;
     }
+
+    .swiper-slide{
+      width:auto !important;
+    }
   }
 
   .fa-bolt, .fa-stopwatch, .fa-hiking {
@@ -236,9 +244,10 @@
   border-radius: 50px 0px 0px 50px;
   font-size: 20px;
   position: fixed;
-  bottom: 15px;
+  bottom: 90px;
   right: 0px;
   display: inline-block;
+  z-index:5;
   cursor: pointer;
   :hover {
   background-color: #01c0e6;
