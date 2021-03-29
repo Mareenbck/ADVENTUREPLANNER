@@ -2,23 +2,7 @@
   padding-bottom: 100px;
 }
 
-.popupbtn {
-  background-color: $rid-blue;
-  color: white;
-  padding: 10px 15px 10px 15px !important;
-  font-weight: bold;
-  border-radius: 50px 0px 0px 50px;
-  font-size: 20px;
-  position: fixed;
-  bottom: 90px;
-  right: 0px;
-  display: inline-block;
-  cursor: pointer;
-}
 
-.popupbtn:hover {
-  background-color: #01c0e6;
-}
 /* The actual popup */
 .popupframe {
   position: fixed;

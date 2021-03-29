@@ -3,56 +3,98 @@
   <i class="fas fa-long-arrow-alt-left back"></i>
   <%= link_to ' Back', trips_path, class:'back' %>
 </div>
-<div class="trip-show-map" id="trip-map"
-  style="width: 100%; height: 400px;"
-  data-waypoints="<%= @waypoints.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-<div class="container" id="swipe">
-  <div>
-    <h2><%= @trip.name  %></h2>
-    <p><%= @trip.subtitle %></p>
-    <div id="favorite">
-      <%= render 'favorite', trip: @trip %>
-    </div>
-    <div id='note'>
-      <% @note.times do %>
-        <i class="fas fa-star good"></i>
-      <% end %>
-      <% (5-@note).times do %>
-        <i class="far fa-star bad"></i>
-      <% end %>
-    </div>
-      <i class="fas fa-bolt mr-2"></i>Difficulty <%= @trip.difficulty %>  <br>
-      <i class="fas fa-hiking mr-2"></i><%= @trip.kilometers.round  %> km <br>
-      <i class="fas fa-stopwatch mr-2"></i><%= @trip.duration  %> <br> <br>
-    <p><%= @trip.description %></p>
+<div class="head">
+  <div class="trip-show-map" id="trip-map"
+    data-waypoints="<%= @waypoints.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div class="trip-photos">
-    <%= cl_image_tag @trip.photo.key, id:"trip-photo" %>
-  </div>
-  <p><strong>Equipments required :</strong></p>
-  <div class="equipments">
-    <% @trip.equipments.each do |equipment| %>
-      <p class="equipment <%= equipment %>"> <%= equipment %></p>
-    <% end %>
-  </div>
-  <div class="reviews">
-    <% @trip.reviews.each do |review| %>
-      <%= cl_image_tag review.user.photo.key, class: "show-avatar"%>
-      <%= review.user.first_name %>
-      <% review.rating.times do %>
-        <i class="fas fa-star"></i>
-      <% end %>
-      <% (5 - review.rating).times do %>
-        <i class="far fa-star"></i>
-      <% end %>
-      <div class="review-content">
-        <%= review.content %>
+  <div class="container-show" id="swipe">
+    <div class='info-first'>
+      <h2><%= @trip.name  %></h2>
+      <p><%= @trip.subtitle %></p>
+      <div id="favorite">
+        <%= render 'favorite', trip: @trip %>
       </div>
-    <% end %>
+      <div id='note'>
+        <% @note.times do %>
+          <i class="fas fa-star good"></i>
+        <% end %>
+        <% (5-@note).times do %>
+          <i class="far fa-star bad"></i>
+        <% end %>
+      </div>
+        <p class="with-i"><i class="fas fa-bolt mr-2"></i>Difficulty <%= @trip.difficulty %></p>
+        <p class="with-i"><i class="fas fa-hiking mr-2"></i><%= @trip.kilometers.round  %> km</p>
+        <p class="with-i"><i class="fas fa-stopwatch mr-2"></i><%= @trip.duration  %> <br> <br></p>
+      <p><%= @trip.description %></p>
+    </div>
+    <div class="trip-photos">
+      <%= cl_image_tag @trip.photo.key, id:"trip-photo" %>
+    </div>
+      <p class='equipments-title'><strong>Equipments required :</strong></p>
+    <div class="equipments">
+
+      <% @trip.equipments.each do |equipment| %>
+        <p class="equipment <%= equipment %>"> <%= equipment %></p>
+      <% end %>
+    </div>
+    <div class="reviews">
+      <% @trip.reviews.each do |review| %>
+        <%= cl_image_tag review.user.photo.key, class: "show-avatar"%>
+        <%= review.user.first_name %>
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+          <% if review.content != "" %>
+            <div class="review-content">
+              <%= review.content %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+    <%= render 'bookings/new_booking' %>
   </div>
-  <%= render 'bookings/new_booking' %>
 </div>
 
+<div class="desktop-details">
+  <div class="container-show" id="swipe">
 
+    <div style='width: 50%; padding: 50px'>
+      <h2 class='equipments-title'>Equipments required :</h2>
+      <div class="equipments">
+        <% @trip.equipments.each do |equipment| %>
+          <p class="equipment <%= equipment %>"> <%= equipment %></p>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="trip-photos" style='width: 50%'>
+      <%= cl_image_tag @trip.photo.key, id:"trip-photo" %>
+    </div>
+
+</div>
+</div>
+
+      <div class="reviews-desktop">
+        <% @trip.reviews.each do |review| %>
+          <%= cl_image_tag review.user.photo.key, class: "show-avatar"%>
+          <%= review.user.first_name %>
+          <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <% if review.content != "" %>
+            <div class="review-content">
+              <%= review.content %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+<%= render 'bookings/new_booking' %>
