@@ -101,10 +101,10 @@
   <div class="btn-booking">
     <a href="https://www.airbnb.com/s/<%= @booking.trip.location %>/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_dates%5B%5D=april&flexible_trip_dates%5B%5D=march&flexible_trip_lengths%5B%5D=weekend_trip&date_picker_type=calendar&checkin=2021-03-06&checkout=2021-03-07&adults=1&source=structured_search_input_header&search_type=filter_change">FIND A PLACE TO STAY 🏠</a>
   </div>
-  <div class="equipments">
+  <div class="equipments-booking">
     <p class="w-100"> <strong>Equipments :</strong></p>
     <% @booking.trip.equipments.each do |equipment| %>
-      <p class="equipment <%= equipment %>"> <%= equipment %></p>
+      <p class="equipment-booking <%= equipment %>"> <%= equipment %></p>
     <% end %>
   </div>
   <div class="btn-booking">

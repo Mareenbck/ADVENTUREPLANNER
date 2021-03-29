@@ -1,50 +1,248 @@
-.trip-show-map {
+@media (min-width: 900px) {
+
+  .dropdown{
+    display: none;
+  }
+  .head{
+    display: flex;
+  }
+
+
+  p, i{
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+  #back {
+    display: none;
+  }
+
+  .reviews-desktop{
+    display: block;
+    padding: 50px 100px;
+    background-color: #f0f0f0;
+    .review-content{
+      font-size: 15px;
+
+    }
+  }
+
+  #total-mob{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .trip-show-map {
+  width: 50%;
+  height: 100vh;
+  background-attachment: scroll;
+  z-index: 0;
+    &#trip-map {
+      position: relative;
+      top: 0;
+    }
+  }
+
+
+  .info-first{
+    padding: 0;
+  }
+
+  .container-show {
+
+    overflow: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    width: 50%;
+    height: 100vh;
+    padding: 50px;
+    z-index: 5;
+    background: white;
+    border-radius: 0;
+  
+    h2 {
+      width: 90%;
+    }
+
+    .trip-photos, .equipments-title, .equipments, .reviews {
+      display: none;
+    }
+  }
+
+  .desktop-details{
+    .trip-photos, .equipments-title, .reviews {
+      display: block;
+    }
+    .equipments-title{
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .equipments{
+      display: flex;
+    }
+
+    .container-show {
+      width: 100%;
+      height: 500px;
+      padding: 0;
+      overflow: hidden;
+      z-index: 5;
+      background: white;
+      border-radius: 0;
+      text-align: center;
+      display: flex;
+    
+      h2 {
+        width: 90%;
+      }
+      #trip-photo{
+        object-fit: cover bottom;
+        width: 100%;
+        object-position: bottom;
+      }
+    }
+  }
+
+  .fa-bolt, .fa-stopwatch, .fa-hiking {
+    color: #60666a;
+    font-size: 16px;
+  }
+  
+}
+
+/// SMARTPHONE AND TABLET !!!!
+
+@media (max-width: 900px) {
+
+  .dropdown{
+    display: flex;
+  }
+
+
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .desktop-details, .reviews-desktop{
+    display: none;
+  }
+
+  .head{
+    display: block;
+  }
+
+  #total-mob{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .trip-show-map {
   width: 100%;
   height: 400px;
   background-attachment: scroll;
   position: fixed;
   top: 0;
   z-index: 0;
-  &#trip-map {
+    &#trip-map {
+      position: fixed;
+      top: 0;
+    }
+  }
+  .container-show {
+    padding: 20px 0 150px 0;
+    overflow: scroll;
+    z-index: 5;
+    position: absolute;
+    top: 400px;
+    background: white;
+    border-radius: 15px;
+    width: 100vw;
+  
+    h2 {
+      width: 90%;
+    }
+  }
+
+  .equipments-title{
+    display: block;
+  }
+
+  .equipments {
+    display: flex;
+  }
+
+  .trip-photos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  
+  #trip-photo {
+    display:block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .reviews {
+    display: block;
+    margin-top: 30px;
+  }
+
+  
+  #back{
+    display: block;
     position: fixed;
-    top: 0;
+    left: 20px;
+    top: 28px;
+    z-index: 4;
+    text-decoration: none;
   }
+  .back{
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 7px 20px #6961617d;
+    font-size: 20px;
+    :hover {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+    }
+  }
+
+  .fa-bolt, .fa-stopwatch, .fa-hiking {
+    color: #60666a;
+    font-size: 20px;
+  }
+  
 }
 
-#trips-show .container {
-  padding: 20px 0 150px 0;
-  overflow: scroll;
-  z-index: 5;
-  position: absolute;
-  top: 400px;
-  background: white;
-  border-radius: 15px;
-  width: 100vw;
-
-  h2 {
-    width: 90%;
-  }
-}
-
-#trips-show .container > *:not(.trip-photos) {
+#trips-show .container-show > *:not(.trip-photos) {
   padding: 0 20px;
 }
 
-.fa-bolt, .fa-stopwatch, .fa-hiking {
-  color: #60666a;
+
+
+// ALLLLLL
+
+.popupbtn {
+  background-color: $rid-blue;
+  color: white;
+  padding: 10px 15px 10px 15px !important;
+  font-weight: bold;
+  border-radius: 50px 0px 0px 50px;
   font-size: 20px;
-}
-
-.trip-photos {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-#trip-photo {
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  bottom: 15px;
+  right: 0px;
+  display: inline-block;
+  cursor: pointer;
+  :hover {
+  background-color: #01c0e6;
+  }
 }
 
 .reviews {
@@ -75,26 +273,6 @@
   box-shadow: 5px 10px 20px lightgrey;
 }
 
-#back {
-  position: fixed;
-  left: 20px;
-  top: 28px;
-  z-index: 4;
-  text-decoration: none;
-}
-
-.back{
-  color: white;
-  font-weight: bold;
-  text-shadow: 0px 7px 20px #6961617d;
-  font-size: 20px;
-}
-
-.back:hover {
-  color: white;
-  text-decoration: none;
-  font-size: 22px;
-}
 
 .good{
   color: #FFA900;
@@ -121,4 +299,77 @@
 .box-card {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+
+
+.equipments {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+  h2 {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 30px;
+  color: $dark-blue;
+  }
+  .equipment {
+    position: relative;
+    width: 30%;
+    margin-top: 50px;
+    text-align: center;
+    &:before {
+      content: "";
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-size: cover;
+    }
+    
+
+    &.Skis {
+      &:before {
+      background-image: image-url("skis.png");
+      }
+    }
+    &.Ropes {
+      &:before {
+      background-image: image-url("ropes.png");
+      }
+    }
+    &.Arva {
+      &:before {
+      background-image: image-url("arva.png");
+      }
+    }
+    &.Clothes {
+      &:before {
+      background-image: image-url("clothes.png");
+      }
+    }
+    &.Crampons {
+      &:before {
+      background-image: image-url("crampons.png");
+      }
+    }
+    &.Ice.Axe {
+      &:before {
+      background-image: image-url("ice_axe.png");
+      }
+    }
+    &.Skins {
+      &:before {
+      background-image: image-url("skins.png");
+      }
+    }
+  }
+}
+
+p.with-i{
+  i{
+  font-size: 18px;
+  }
 }
