@@ -1,12 +1,18 @@
 @media (min-width: 900px) {
 
+
+  .dropdown {
+    z-index: 6;
+    margin-top:-10px;
+  }
+  #heart-favorite{
+    margin-top: 30px;
+  }
+
   .swiper-slide{
     width:auto !important;
   }
 
-  .dropdown{
-    display: none;
-  }
   .head{
     display: flex;
   }
@@ -270,6 +276,7 @@
   margin-right: 10px;
   border: solid 1px $rid-blue;
   box-shadow: 5px 10px 20px lightgrey;
+  z-index: 6;
 }
 
 .review-content {
@@ -382,3 +389,4 @@ p.with-i{
   font-size: 18px;
   }
 }
+
