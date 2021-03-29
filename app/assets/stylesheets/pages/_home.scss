@@ -76,10 +76,23 @@
       right: 30px;
     }
   }
+
+  #pages-home{
+    .box-card-home{
+      width: 350px
+    }
+  }
 }
 
 
 @media (max-width: 600px) {
+
+  #pages-home{
+    .box-card-home{
+      width: auto
+    }
+  }
+
   #home-header {
     position: relative;
     height: 90vh;

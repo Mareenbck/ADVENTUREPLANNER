@@ -64,13 +64,7 @@
     margin-right: 20%;
   }
 
-  .avatar-photo {
-    width: 200px;
-    height: 200px;
-    border: solid 2px #ffffff;
-    box-shadow: 0 0 15px lightgrey;
-    border-radius: 50%;
-  }
+ 
 
 }
 
@@ -330,4 +324,20 @@ textarea {
 
 .container-dash {
   padding: 0;
+}
+
+
+#dashboards-show{
+  .avatar-photo {
+    width: 200px;
+    height: 200px;
+    border: solid 2px #ffffff;
+    box-shadow: 0 0 15px lightgrey;
+    border-radius: 50%;
+  }
+}
+
+.avatar-small{
+  width: 30px;
+  height: 30px;
 }
