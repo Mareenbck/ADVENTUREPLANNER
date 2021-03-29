@@ -1,33 +1,30 @@
-<div class="container">
-  <div class="avatar-position">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-photo"%>
-    <% end %>
-  </div>
-  <div class="my-info">
-    <h2> <%= current_user.first_name %> <%= current_user.last_name %></h2>
-    <%= current_user.level %>
-  </div>
-  <div class="my-stats">
-    <p>My stats</p>
-    <div class="title-graph d-flex justify-content-around">
-      <h6>Km /month</h6>
-      <br>
-      <h6>% difficulty</h6>
+<div class="container-dash">
+  <div id="head-dashboard">
+    <div class='left-dash'>
+    </div>
+    <div class='right-dash'>
+      <div class="avatar-position">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-photo"%>
+      <% end %>
+    </div>
+      <div class="my-info">
+        <h2> <%= current_user.first_name %> <%= current_user.last_name %></h2>
+        <p><%= current_user.level %></p>
       </div>
-    <div class="graph d-flex mx-1">
-    <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "180px", height: "130px", stacked: true, dataset: {borderWidth: 2}, colors: ["#3b4992"]%>
-    <%= pie_chart current_user.trips.group(:difficulty).count, width: "180px", height: "110px", colors: ["#3b926e", "#3b4992", "#923b3b", "#191818"], legend: false, donut: true %>
-  </div>
-  </div>
-<!--   <div class="btn-mytrip">
-    <%#= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips", id: "lasttrips" %>
-    <%#= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips", id: "upcomingtrips"  %>
-
-  </div> -->
-
-
-  <div class="nav nav-tabs btn-mytrip">
+      <div class="my-stats">
+        <p>My stats</p>
+        <div class="title-graph d-flex justify-content-around">
+          <h6>Km /month</h6>
+          <br>
+          <h6>% difficulty</h6>
+        </div>
+        <div class="graph d-flex mx-1">
+          <%= area_chart current_user.trips.group_by_month(:begin_date).sum(:kilometers), width: "180px", height: "130px", stacked: true, dataset: {borderWidth: 2}, colors: ["#3b4992"]%>
+         <%= pie_chart current_user.trips.group(:difficulty).count, width: "180px", height: "110px", colors: ["#3b926e", "#3b4992", "#923b3b", "#191818"], legend: false, donut: true %>
+        </div>
+      </div>
+        <div class="nav nav-tabs btn-mytrip">
     <a class="nav-item nav-link active" href="#first_tab" data-toggle="tab">My last trips</a>
     <a class="nav-item nav-link " href="#second_tab" data-toggle="tab">My upcoming trips</a>
   </div>
@@ -82,4 +79,12 @@
       </div>
     </div>
   </div>
+    </div>
+  </div>
+<!--   <div class="btn-mytrip">
+    <%#= link_to "My last trips", dashboard_path(bookings: "last_bookings"), class: "last-trips", id: "lasttrips" %>
+    <%#= link_to "My upcoming trips", dashboard_path(bookings: "upcoming_bookings"), class: "upcoming-trips", id: "upcomingtrips"  %>
+
+  </div> -->
+
 </div>
