@@ -6,9 +6,7 @@ const initPopup = () => {
 
   const planTrip = document.querySelector('.popupbtn');
   planTrip.addEventListener('click', () => {
-    console.log('plus la classe d none');
     popupFrame.classList.remove('d-none');
-    console.log('plus la classe d none')
     footer.style.zIndex = "4";
   })
 
