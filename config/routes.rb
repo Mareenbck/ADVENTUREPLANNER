@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: [:show]
   resources :favorites, only: [:index, :destroy]
+
+  get  'pages/no_chat'
 end
