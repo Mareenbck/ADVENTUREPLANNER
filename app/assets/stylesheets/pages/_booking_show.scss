@@ -1,18 +1,69 @@
+@media (min-width: 900px) {
+  #bookings-show {
+    .dropdown{
+      z-index: 6;
+    }
+  }
+  #index-container {
+    padding: 20px 30px 75px 30px;
+    overflow: scroll;
+    z-index: 5;
+    position: relative;
+    top: auto;
+    background: white;
+    border-radius: 0;
+    box-shadow: 0px 0px 0px;
+    width: 50%;
+    margin-right: 0;
+  }
+  .booking-contain{
+    display: flex;
+    height: 100vh;
+    .booking-header{
+      width: 50%;
+      background-size: cover;
+      position: relative;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  #bookings-show #index-container {
+    padding: 20px 30px 75px 30px;
+    overflow: scroll;
+    z-index: 5;
+    position: absolute;
+    top: 300px;
+    left:0;
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 12px #c6cdd4;
+    width: 100vw;
+    margin: 0;
+  }
+
+  .booking-contain{
+    display: block;
+    height: auto;
+    .booking-header{
+      width: 100vw;
+      background-size:cover;
+      height: 300px ;
+      position: fixed;
+      top: 0;
+      z-index: 0;
+    }
+  }
+}
+
+
+
 #bookings-show .wrapper {
   padding-bottom: 75px;
 }
 
-#bookings-show .container {
-  padding: 20px 30px 75px 30px;
-  overflow: scroll;
-  z-index: 5;
-  position: absolute;
-  top: 300px;
-  background: white;
-  border-radius: 15px;
-  width: 100vw;
-  box-shadow: 0px -1px 12px #c6cdd4;
-}
+
 
 .booking-photo {
   width: 100%;
@@ -20,26 +71,26 @@
   height: 300px;
 }
 
-.booking-header {
-  display: flex;
-  justify-content: center;
-  font-size: 50px;
-  font-weight: bold;
-  color: white;
-  height: 330px;
-  background-size: cover;
-  align-items: center;
-  background-attachment: scroll;
-  position: fixed;
-  top: 0;
-  z-index: 0;
-  width: 100%;
-    h1 {
-    text-shadow: 0 0 10px black;
-    padding: 20px;
-    text-align: center;
-  }
-}
+// .booking-header {
+//   display: flex;
+//   justify-content: center;
+//   font-size: 50px;
+//   font-weight: bold;
+//   color: white;
+//   height: 330px;
+//   background-size: cover;
+//   align-items: center;
+//   background-attachment: scroll;
+//   position: fixed;
+//   top: 0;
+//   z-index: 0;
+//   width: 100%;
+//     h1 {
+//     text-shadow: 0 0 10px black;
+//     padding: 20px;
+//     text-align: center;
+//   }
+// }
 
 .date-loc {
   margin-bottom: 0.5rem;
