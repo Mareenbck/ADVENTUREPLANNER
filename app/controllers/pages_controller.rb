@@ -8,4 +8,7 @@ class PagesController < ApplicationController
     @trips = @trips.where(difficulty: params[:difficulty]) if params.dig(:difficulty).present?
     @trips = @trips.where(["kilometers >= ? and kilometers <= ?", params[:kilometers].split(',')[0], params[:kilometers].split(',')[1]]) if params.dig(:kilometers).present?
   end
+
+  def no_chat
+  end
 end

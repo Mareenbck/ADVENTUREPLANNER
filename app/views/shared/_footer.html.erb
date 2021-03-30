@@ -22,7 +22,11 @@
   <div class="footer-links">
     <a href="/"  class="<%= 'on-page' if request.fullpath == '/' %>"><i class="fas fa-home"></i><p>home</p></a>
     <a href="/trips"  class="<%= 'on-page' if request.fullpath == '/trips' %>"><i class="fas fa-search"></i><p>search</p></a>
+    <% if current_user.bookings == [] %>
+    <a href="/pages/no_chat" class="<%= 'on-page' if request.fullpath == '/chatrooms' %>"><i class="far fa-comment-dots"></i><p>chat</p></a>
+    <% else %>
     <a href="/chatrooms" class="<%= 'on-page' if request.fullpath == '/chatrooms' %>"><i class="far fa-comment-dots"></i><p>chat</p></a>
+    <% end %> 
     <a href="/dashboard" class="<%= 'on-page' if request.fullpath == '/dashboard' %>"><i class="fas fa-tachometer-alt"></i><p>dashboard</p></a>
     <a href="/favorites" class="<%= 'on-page' if request.fullpath == '/favorites' %>"><i class="fas fa-heart"></i><p>saved</p></a>
   </div>
