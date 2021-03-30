@@ -2,7 +2,7 @@
 
 
   .dropdown {
-    z-index: 6;
+    z-index: 2;
     margin-top:-10px;
   }
   #heart-favorite{
@@ -68,7 +68,7 @@
     width: 50%;
     height: 100vh;
     padding: 50px;
-    z-index: 5;
+    z-index: 1;
     background: white;
     border-radius: 0;
   
@@ -98,7 +98,7 @@
       height: 500px;
       padding: 0;
       overflow: hidden;
-      z-index: 5;
+      z-index: 1;
       background: white;
       border-radius: 0;
       text-align: center;
@@ -128,6 +128,8 @@
 
   .dropdown{
     display: flex;
+    z-index: 2;
+    margin-top:-10px;
   }
 
 
@@ -164,7 +166,7 @@
   .container-show {
     padding: 20px 0 150px 0;
     overflow: scroll;
-    z-index: 5;
+    z-index: 1;
     position: absolute;
     top: 400px;
     background: white;
@@ -208,7 +210,7 @@
     position: fixed;
     left: 20px;
     top: 28px;
-    z-index: 4;
+    z-index: 1;
     text-decoration: none;
   }
   .back{
@@ -242,23 +244,7 @@
 
 // ALLLLLL
 
-.popupbtn {
-  background-color: $rid-blue;
-  color: white;
-  padding: 10px 15px 10px 15px !important;
-  font-weight: bold;
-  border-radius: 50px 0px 0px 50px;
-  font-size: 20px;
-  position: fixed;
-  bottom: 90px;
-  right: 0px;
-  display: inline-block;
-  z-index:5;
-  cursor: pointer;
-  :hover {
-  background-color: #01c0e6;
-  }
-}
+
 
 .reviews {
   margin-top: 30px;
@@ -276,7 +262,7 @@
   margin-right: 10px;
   border: solid 1px $rid-blue;
   box-shadow: 5px 10px 20px lightgrey;
-  z-index: 6;
+  z-index: 2;
 }
 
 .review-content {

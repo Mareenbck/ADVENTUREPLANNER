@@ -6,7 +6,7 @@
 /* The actual popup */
 .popupframe {
   position: fixed;
-  bottom: 0;
+  bottom: 60px;
   left: 0px;
   right: 0px;
   top: 0;
@@ -27,6 +27,24 @@
     border-radius: 20px;
     padding: 20px;
     position:relative;
+  }
+}
+
+.popupbtn {
+  background-color: $rid-blue;
+  color: white;
+  padding: 10px 15px 10px 15px !important;
+  font-weight: bold;
+  border-radius: 50px 0px 0px 50px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 90px;
+  right: 0px;
+  display: inline-block;
+  z-index:6;
+  cursor: pointer;
+  :hover {
+  background-color: #01c0e6;
   }
 }
 
