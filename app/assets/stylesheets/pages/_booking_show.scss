@@ -1,13 +1,54 @@
 @media (min-width: 900px) {
-  #bookings-show {
-    .dropdown{
-      z-index: 6;
+#bookings-show{
+
+  #chat {
+    z-index: 5;
+    position:fixed;
+    top: 100px;
+    bottom: 0px;
+    right:10px;
+    left:60vw;
+    padding-bottom: 75px;
+    box-shadow: 0 0 5px lightgrey;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    #chat-header{
+      position: fixed;
+      top:100px;
+      right: 10px;
+      left: 60vw;
+    }
+    #chat-new {
+      background-color: white;
+      padding: 0px 5px 5px 15px;
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+      height: 80px;
+      #new_message{
+        width: 38%;
+      }
+    }
+    #chat-content{
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0px;
     }
   }
+
   #index-container {
     padding: 20px 30px 75px 30px;
-    overflow: scroll;
-    z-index: 5;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    z-index: 2;
     position: relative;
     top: auto;
     background: white;
@@ -16,6 +57,7 @@
     width: 50%;
     margin-right: 0;
   }
+}
   .booking-contain{
     display: flex;
     height: 100vh;
@@ -26,8 +68,90 @@
     }
   }
 }
+@media (max-width: 900px) {
+
+  #chat {
+    z-index: 5;
+    position:fixed;
+    top: 200px;
+    bottom: 75px;
+    right:0px;
+    left:0px;
+    box-shadow: 0 0 5px lightgrey;
+  }
+  #chat-header{
+    position: fixed;
+    top: 200px;
+    bottom: 75px;
+    right:0px;
+    left:0px;
+    background-color: white;
+    height: fit-content;
+    z-index: 1;
+  }
+  #chat-new {
+    background-color: white;
+    padding: 0px 5px 5px 15px;
+    position: fixed;
+    bottom: 75px;
+    width: 100%;
+    height: 80px;
+    #new_message{
+      width: 90%;
+    }
+  }
+  #chat-content{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 75px;
+    position: relative;
+    overflow-y: scroll;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  #chat {
+    z-index: 8;
+    position:fixed;
+    top: 55px;
+    bottom: 0px;
+    right:0px;
+    left:0px;
+    padding-bottom: 75px;
+    box-shadow: 0 0 5px lightgrey;
+  }
+    #chat-header{
+    position: fixed;
+    top:55px;
+    right: 0px;
+    left: 0px;
+  }
+  #chat-new {
+    background-color: white;
+    padding: 0px 5px 5px 15px;
+    position: fixed;
+    bottom: 75px;
+    width: 100%;
+    height: 80px;
+    #new_message{
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+  #chat-content{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 75px;
+  }
+}
 
 @media (max-width: 900px) {
+
+
   #bookings-show #index-container {
     padding: 20px 30px 75px 30px;
     overflow: scroll;
@@ -260,6 +384,7 @@
   margin-bottom: 15px;
   padding: 10px 20px;
   text-align: center;
+  
   .fa-comment-alt{
     font-size: 15px;
     color: white;
@@ -303,12 +428,6 @@
 
 #chat {
   z-index: 5;
-  position:fixed;
-  top:100px;
-  right:0;
-  left:0;
-  bottom: 75px;
-  padding-bottom: 75px;
   background-color: white;
   border-radius: 25px;
   overflow: auto;
@@ -322,6 +441,7 @@
     &.current-user {
       align-self: flex-end;
       text-align: right;
+      margin-left: 15%;
       .message-content {
         background-color: $dark-blue;
         color:white;
@@ -342,50 +462,42 @@
   }
 
   #chat-header{
-    position: fixed;
+
+    // width: 100%;
     border-radius: 15px 15px 0px 0px;
-    top:100px;
+  
     background-color: white;
     display: inline-flex;
-    padding: 15px 15px 0px 15px;
+    padding: 5px 10px;
     box-shadow: 0 0 5px lightgrey;
-    width: 100vw;
     #chat-name{
       color:$darker-grey;
       font-size: 18px;
     }
-    .fa-times{
-      font-size: 20px;
-      position: fixed;
-      top: 120px;
-      right: 15px;
-    }
-  }
-  #chat-content{
-    padding-top: 92px;
-    display: flex;
-    flex-direction: column;
-  }
 }
 
-#chat-new {
-  background-color: white;
-  padding: 0px 5px 5px 5px;
-  position: fixed;
-  bottom: 75px;
-  width: 100%;
-  height: 80px;
+#chat-content{
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.fa-times{
+  font-size: 20px;
+  position: absolute;
+  top: 7px;
+  right: 10px;
 }
 
 #new_message{
   display: inline-flex;
   background-color: white;
-  width: 90vw;
   border-radius: 50px;
   border: 2px solid #00D3FE;
-  margin: 1vh 5vw 1vh 5vw;
   justify-content: space-between;
   padding: 7px 10px;
+
   .form-control.string.optional{
     border: none;
   }
@@ -418,4 +530,4 @@ input:-internal-autofill-selected {
   background-color: white;
   font-size: 16px;
 }
-
+}

@@ -1,9 +1,10 @@
-<%= render 'shared/avatar-white' %>
+
 <div id="back">
   <i class="fas fa-long-arrow-alt-left back"></i>
   <%= link_to ' Back', dashboard_path, class:'back' %>
 </div>
 <div class = "booking-contain">
+<%= render 'shared/avatar-black' %>
   <div class="booking-header" style="background-image: url(<%= cl_image_path @booking.trip.photo.key %>)">
   </div>
 

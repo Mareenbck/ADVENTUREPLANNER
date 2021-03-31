@@ -1,12 +1,12 @@
 @media (min-width: 900px) {
 
-
-  .dropdown {
-    z-index: 2;
-    margin-top:-10px;
-  }
-  #heart-favorite{
-    margin-top: 30px;
+  #heart-favorite,
+  #heart-favorite-full {
+    position: absolute;
+    right: 50px;
+    top: 110px;
+    font-size: x-large;
+    color: #d72453;
   }
 
   .swiper-slide{
@@ -15,6 +15,7 @@
 
   .head{
     display: flex;
+    overflow: hidden;
   }
 
 
@@ -60,9 +61,11 @@
 
   .container-show {
 
-    overflow: scroll;
-    ::-webkit-scrollbar {
-      display: none;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
     }
 
     width: 50%;
@@ -131,7 +134,14 @@
     z-index: 2;
     margin-top:-10px;
   }
-
+  #heart-favorite,
+  #heart-favorite-full {
+    position: absolute;
+    right: 20px;
+    top: 26px;
+    font-size: x-large;
+    color: #d72453;
+  }
 
   overflow: scroll;
   ::-webkit-scrollbar {
@@ -289,14 +299,7 @@
   font-size: 20px;
 }
 
-#heart-favorite,
-#heart-favorite-full {
-  position: absolute;
-  right: 20px;
-  top: 26px;
-  font-size: x-large;
-  color: #d72453;
-}
+
 
 .box-card {
   margin-left: 10px;

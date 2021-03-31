@@ -1,5 +1,5 @@
 
-@media(min-width: 601px) {
+@media(min-width: 950px) {
   #favorites-index{
     
     .box-info{
@@ -38,25 +38,88 @@
     }
     .right-fav{
       width: 50%;
-      overflow: scroll;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+      }
       padding: 50px;
+      
+      a:hover{
+        color:white;
+      }
     }
   }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 950px) {
+  #favorites-index{
+    
+    .box-info{
+      padding:20px;
+    }
+    .box-card{
+      padding: 0px;
+      margin-left: 10px;
+      margin-right: 10px;
+      height: auto;
+      .box-review{
+        object-fit: cover;
+        text-align: center;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+          p.show-stars{
+            text-align: center;
+          width: 100%;
+          height: 100%;
+          margin:0;
+          padding-top: 170px;
+          }
+      }
+    }
+  }
+    .container-fav {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    .left-fav{
+      width: 30%;
+      background-position: bottom;
+      background-size: cover;
+      background-image: url('https://images.unsplash.com/photo-1592226663038-7b1b90ac87bb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80');
+    }
+    .right-fav{
+      width: 70%;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+      }
+      padding: 20px;
+      
+      a:hover{
+        color:white;
+      }
+    }
+  }
+}
+
+@media(max-width: 500px) {
   #favorites-index{
 
     .box-info{
-      padding:10px;
+      padding:5px;
     }
     .box-card{
       .fa-bolt{
         font-size: 12px;
       }
       padding: 0;
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
       .box-review{
         object-fit: cover;
         text-align: center;
@@ -87,7 +150,7 @@
   .right-fav{
     width: 100%;
     overflow: scroll;
-    padding: auto;
+    padding: 5px;
   }
 }
 }// h1 {

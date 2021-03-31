@@ -30,8 +30,13 @@
     }
     .right-dash{
       width: 50%;
-      overflow: scroll;
       padding: 30px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+      }
     }
     .my-info {
       text-align: center;
@@ -57,12 +62,15 @@
     margin-left: 10%;
     margin-right: 10%;
     text-align: center;
+    .title-graph{
+      justify-content: space-evenly;
+    }
+    .graph.d-flex.mx-1{
+      justify-content: space-around;
+    }
   }
 
-  .nav.nav-tabs.btn-mytrip{
-    margin-left: 20%;
-    margin-right: 20%;
-  }
+
 
  
 
@@ -82,6 +90,7 @@
       border: solid 2px #ffffff;
       box-shadow: 0 0 15px lightgrey;
       border-radius: 50%;
+      object-fit: cover;
     }
     .my-info {
       text-align: center;
@@ -103,13 +112,16 @@
     padding: 5px;
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    text-align: center;
+    .title-graph{
+      justify-content: space-evenly;
+    }
+    .graph.d-flex.mx-1{
+      justify-content: space-around;
+    }
   }
 
-  .nav.nav-tabs.btn-mytrip{
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+
   
   }
 
@@ -142,6 +154,21 @@
 //     font-weight: bold;
 //   }
 // }
+
+@media(max-width: 1200px) {
+.nav.nav-tabs.btn-mytrip{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .nav.nav-tabs.btn-mytrip{
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+  }
+
 
 .my-stats {
 
@@ -334,10 +361,13 @@ textarea {
     border: solid 2px #ffffff;
     box-shadow: 0 0 15px lightgrey;
     border-radius: 50%;
+    object-fit: cover;
   }
 }
 
+.black-avatar{
 .avatar-small{
   width: 30px;
   height: 30px;
+}
 }

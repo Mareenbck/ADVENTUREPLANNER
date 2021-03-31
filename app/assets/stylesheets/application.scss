@@ -20,15 +20,21 @@
 // h1, h2, h3, h4, h5, h6, p, a {
 //   font-family: 'Poppins', sans-serif;
 // }
-
-body {
-  background: white;
-  position: relative;
-  padding-bottom: 75px;
+@media (min-width: 900px) {
+  body {
+    background: white;
+    padding-top: 60px;
+    width: 100%;
+  }
 }
- .wrapper {
-  position: relative;
- }
+
+@media (max-width: 900px) {
+  body {
+    background: white;
+    padding-bottom: 75px;
+    width: 100%;
+  }
+}
 
  select {
   appearance: none;

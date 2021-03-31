@@ -1,5 +1,8 @@
-<h2>Sign up</h2>
-
+<div class="log-pages">
+<div class="log-left">
+</div>
+<div class="log-right">
+<h1>Sign up</h1>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -14,18 +17,21 @@
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
+                <p> <%= @minimum_password_length %> characters minimum</p>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.select :level, options_for_select(%w[Beginner Intermediate Expert]) %>
+    <%= f.input :level, collection: (%w[Beginner Intermediate Expert]), label: 'Select your level', required: true, selected:'Beginner' %>
     <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class:'btn-small' %>
+    <div class='else-url-log'>
+      <%= render "devise/shared/links", class:'else-url-log'%>
+    </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>

@@ -49,6 +49,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 
 import { scrollToLastMessage } from  '../components/scroll_to_last_message'
+import { initAvatarMenu } from '../plugins/init_avatar_menu'
 
 
 
@@ -76,6 +77,7 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
 
   scrollToLastMessage();
+  initAvatarMenu();
 
 });
 

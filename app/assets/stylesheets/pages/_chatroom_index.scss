@@ -13,6 +13,16 @@
   .right-chat{
     display: block;
     width: 50%; 
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    a:hover{
+      color: black;
+      text-decoration: none;
+    }
   }
 }
 
