@@ -1,6 +1,7 @@
 
+<%= render 'shared/avatar-black' %>
 <div id="home-header">
-<%= render 'shared/avatar-white' %>
+
 <%= image_tag "ap-logo.svg", class: "logo-ap", alt: "logo" %>
   <h1 id="h1home">Start your next adventure</h1>
   <%= simple_form_for :search, url: trips_path, method: :get, html: {class: 'form-inline'} do |f| %>

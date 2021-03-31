@@ -1,9 +1,11 @@
 
 <div class="container-dash">
   <div id="head-dashboard">
+  <%= render 'shared/avatar-black' %>
     <div class='left-dash'>
     </div>
     <div class='right-dash'>
+    
       <div class="avatar-position">
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "avatar-photo"%>
@@ -15,7 +17,7 @@
       </div>
       <div class="my-stats">
         <p>My stats</p>
-        <div class="title-graph d-flex justify-content-around">
+        <div class="title-graph d-flex">
           <h6>Km /month</h6>
           <br>
           <h6>% difficulty</h6>

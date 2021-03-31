@@ -1,4 +1,4 @@
-<%= render 'shared/avatar-white' %>
+<%= render 'shared/avatar-black' %>
 <div id="back">
   <i class="fas fa-long-arrow-alt-left back"></i>
   <%= link_to ' Back', trips_path, class:'back' %>
@@ -82,19 +82,21 @@
 
 <div class="reviews-desktop">
   <% @trip.reviews.each do |review| %>
-    <%= cl_image_tag review.user.photo.key, class: "show-avatar"%>
-    <%= review.user.first_name %>
-    <% review.rating.times do %>
-      <i class="fas fa-star"></i>
-    <% end %>
-    <% (5 - review.rating).times do %>
-      <i class="far fa-star"></i>
-    <% end %>
-    <% if review.content != "" %>
-      <div class="review-content">
-        <%= review.content %>
-      </div>
-    <% end %>
+    <div style='margin-bottom: 30px'>
+      <%= cl_image_tag review.user.photo.key, class: "show-avatar"%>
+      <%= review.user.first_name %>
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+      <% if review.content != "" %>
+        <div class="review-content">
+          <%= review.content %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
 

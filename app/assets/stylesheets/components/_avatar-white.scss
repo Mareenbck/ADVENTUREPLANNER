@@ -1,20 +1,42 @@
-.dropdown-toggle.white::after{
-  color:white;
-}
-  .dropdown {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+.white-avatar{
+  position: absolute;
+  top: 10px;
+  right: 10px;
   z-index: 4;
-}
+  justify-content: flex-end;
+  width: 80px;
+  text-align: end;
 
-.dropdown-menu.show {
-  text-align: right;
-}
+  .fa-skiing-nordic {
+    font-size: 30px;
+    color:white;
+  }
 
-.fa-skiing-nordic {
-  font-size: 30px;
-  color:white;
+  .avatar-btn img{
+    width:40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid white;
+    border-radius: 50px;
+  }
+
+  .fa-caret-down{
+    color: white;
+    margin-left: 5px;
+  }
+
+  .menu-log{
+    a {
+      text-decoration: none;
+      background-color: transparent;
+      color: white;
+      :hover{
+        text-decoration: none;
+        background-color: transparent;
+        color: white;
+      }
+    }
+  }
 }
 
 .avatar-photo{
@@ -23,28 +45,4 @@
   object-fit: cover;
   border: 2px solid white;
   border-radius: 50px;
-}
-
-.dropdown-toggle {
-  background-color: rgba(0, 0, 0, 0);
-  border:none;
-}
-.dropdown-item {
-  color:black;
-  text-decoration: none;
-  display: block;
-}
-
-.dropbow-home{
-  margin-right: 20px;
-  a {
-    text-decoration: none;
-    background-color: transparent;
-    color: white;
-  }
-}
-
-.dropdown-menu.show{
-  background-color: rgba(255, 255, 255, 0);
-  border:none;
 }
