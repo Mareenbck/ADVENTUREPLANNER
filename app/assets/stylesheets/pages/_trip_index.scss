@@ -202,8 +202,14 @@
   }
 }
 
+@media (min-width: 500px){
 
+  .slider-horizontal{
+    margin-right: 15px;
+  }
+}
 @media (max-width: 900px){
+
 
   .fa-sliders-h {
     position: fixed;
@@ -276,7 +282,7 @@
       background-color: #F6F6F6;
       text-align: center;
       border-radius: 20px;
-      padding: 20px;
+      padding: 25px;
       position:relative;
     }
   }
