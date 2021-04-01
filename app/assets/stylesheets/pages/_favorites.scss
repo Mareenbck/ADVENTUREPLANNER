@@ -4,6 +4,8 @@
     
     .box-info{
       padding:20px;
+      position: relative;
+      padding-bottom: 60px;
     }
     .box-card{
       padding: 0px;
@@ -11,18 +13,12 @@
       margin-right: 10px;
       height: auto;
       .box-review{
+        position: relative;
         object-fit: cover;
         text-align: center;
         background-size: cover;
         height: 100%;
         width: 100%;
-          p.show-stars{
-            text-align: center;
-          width: 100%;
-          height: 100%;
-          margin:0;
-          padding-top: 170px;
-          }
       }
     }
   }
@@ -58,6 +54,8 @@
     
     .box-info{
       padding:20px;
+      position: relative;
+      padding-bottom: 60px;
     }
     .box-card{
       padding: 0px;
@@ -65,18 +63,12 @@
       margin-right: 10px;
       height: auto;
       .box-review{
+        position: relative;
         object-fit: cover;
         text-align: center;
         background-size: cover;
         height: 100%;
         width: 100%;
-          p.show-stars{
-            text-align: center;
-          width: 100%;
-          height: 100%;
-          margin:0;
-          padding-top: 170px;
-          }
       }
     }
   }
@@ -112,6 +104,8 @@
 
     .box-info{
       padding:5px;
+      position: relative;
+      padding-bottom: 60px;
     }
     .box-card{
       .fa-bolt{
@@ -121,18 +115,12 @@
       margin-left: 5px;
       margin-right: 5px;
       .box-review{
+        position: relative;
         object-fit: cover;
         text-align: center;
         background-size: cover;
         height: 100%;
         width: 100%;
-          p.show-stars{
-            text-align: center;
-          width: 100%;
-          height: 100%;
-          margin:0;
-          padding-top: 190px;
-          }
       }
     }
   }
@@ -181,7 +169,29 @@
   font-size: 12px;
   text-transform: uppercase;
   border: none;
-  position: relative;
-  margin-top: 20px;
+  position: absolute;
+  bottom: 10px;
 }
 
+.show-stars{
+  position: absolute;
+  bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.308);
+  border-radius: 50px;
+  width: 60%;
+  padding: 8px;
+}
+
+@media(min-width: 950px) {
+  .show-stars{
+  margin-left: 20% !important;
+  width: 60%;
+  }
+}
+
+@media(max-width: 950px) {
+  .show-stars{
+  margin-left: 10% !important;
+  width: 80%;
+  }
+}
